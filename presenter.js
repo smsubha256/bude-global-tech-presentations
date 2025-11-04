@@ -191,6 +191,10 @@
                 }
             }
 
+            if (boxData.code) {
+                html += `<pre><code class="language-python">${escapeHtml(boxData.code)}</code></pre>`;
+            }
+
             html += '</div>';
             return html;
         }
@@ -200,12 +204,21 @@
 
             listData.forEach(item => {
                 if (typeof item === 'object' && item.emoji) {
-                    html += `<li><span class="emoji">${item.emoji}</span> ${item.text}</li>`;
-                } else {
-                    html += `<li>${item}</li>`;
-                }
-            });
+                            html += `<li><span class="emoji">${item.emoji}</span> ${item.text}</li>`;
+                        } else {
+                            html += `<li>${item}</li>`;
+                        }
+                    });
 
             html += '</ul>';
             return html;
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/\'/g, "&#039;");
         }
