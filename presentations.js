@@ -64,5 +64,16 @@ const PRESENTATIONS_CONFIG = [
       "Learn the fundamentals of open source software, from licensing to contributing",
     keywords: ["oss", "open source", "git", "github", "contribution"],
   },
+  {
+        file: 'presentations/frappe-presentation.json',
+        title: 'Mastering Frappe Framework',
+        description: 'Full-stack web framework for rapid application development',
+        keywords: ['frappe', 'framework', 'python', 'erpnext', 'web', 'fullstack', 'metadata']
+    },{
+        file: 'presentations/erpnext-presentation.json',
+        title: 'Mastering ERPNext',
+        description: 'World\'s best open source ERP - complete business management solution',
+        keywords: ['erpnext', 'erp', 'business', 'management', 'accounting', 'inventory', 'manufacturing', 'open source']
+    }
   // Add more presentations here as you create them
 ];
