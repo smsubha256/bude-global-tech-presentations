@@ -1,6 +1,10 @@
 // Configuration for available presentations
-        const PRESENTATIONS_CONFIG = [
-            {
+        const PRESENTATIONS_CONFIG = [{
+            file: 'templates/sample-presentation.json',
+        title: 'Mastering Web Development',
+        description: 'Complete guide to modern web technologies from basics to advanced concepts',
+        keywords: ['web', 'html', 'css', 'javascript', 'frontend', 'backend', 'fullstack']
+    },{
                 file: 'presentations/intro-python.json',
                 title: 'Introduction to Python',
                 description: 'Complete Python guide from basics to advanced topics, OOP, and libraries',
