@@ -66,7 +66,7 @@ const PRESENTATIONS_CONFIG = [
   },
   {
         file: 'presentations/frappe-presentation.json',
-        title: 'Introduction to Frappe Framework',
+        title: 'Introduction to Frappe',
         description: 'Full-stack web framework for rapid application development',
         keywords: ['frappe', 'framework', 'python', 'erpnext', 'web', 'fullstack', 'metadata']
     },{
