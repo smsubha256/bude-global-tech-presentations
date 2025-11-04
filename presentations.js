@@ -1,7 +1,7 @@
 const PRESENTATIONS_CONFIG = [
   {
     file: "templates/sample-presentation.json",
-    title: "Mastering Web Development",
+    title: "Introduction to Web Development",
     description:
       "Complete guide to modern web technologies from basics to advanced concepts",
     keywords: [
@@ -66,24 +66,24 @@ const PRESENTATIONS_CONFIG = [
   },
   {
         file: 'presentations/frappe-presentation.json',
-        title: 'Mastering Frappe Framework',
+        title: 'Introduction to Frappe Framework',
         description: 'Full-stack web framework for rapid application development',
         keywords: ['frappe', 'framework', 'python', 'erpnext', 'web', 'fullstack', 'metadata']
     },{
         file: 'presentations/erpnext-presentation.json',
-        title: 'Mastering ERPNext',
+        title: 'Introduction to ERPNext',
         description: 'World\'s best open source ERP - complete business management solution',
         keywords: ['erpnext', 'erp', 'business', 'management', 'accounting', 'inventory', 'manufacturing', 'open source']
     },
     {
         file: 'presentations/into-csharp.json',
-        title: 'Mastering C# Programming',
+        title: 'Introduction to C# Programming',
         description: 'Modern, powerful, versatile language from basics to advanced concepts',
         keywords: ['csharp', 'c#', 'dotnet', 'programming', 'oop', 'microsoft', 'web', 'desktop', 'mobile']
     },
     {
         file: 'presentations/intro-maui.json',
-        title: 'Mastering .NET MAUI',
+        title: 'Introduction to .NET MAUI',
         description: 'Multi-platform App UI - one codebase for Android, iOS, Windows, and macOS',
         keywords: ['maui', 'dotnet', 'xamarin', 'cross-platform', 'mobile', 'android', 'ios', 'windows', 'macos']
     }

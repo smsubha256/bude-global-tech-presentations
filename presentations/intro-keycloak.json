@@ -7,7 +7,7 @@
         "slides": [
           {
             "type": "title",
-            "title": "Mastering Keycloak",
+            "title": "Introduction to Keycloak",
             "subtitle": "Complete Identity & Access Management Guide<br>From Zero to Production Ready"
           }
         ]
