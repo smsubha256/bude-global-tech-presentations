@@ -74,6 +74,18 @@ const PRESENTATIONS_CONFIG = [
         title: 'Mastering ERPNext',
         description: 'World\'s best open source ERP - complete business management solution',
         keywords: ['erpnext', 'erp', 'business', 'management', 'accounting', 'inventory', 'manufacturing', 'open source']
+    },
+    {
+        file: 'presentations/into-csharp.json',
+        title: 'Mastering C# Programming',
+        description: 'Modern, powerful, versatile language from basics to advanced concepts',
+        keywords: ['csharp', 'c#', 'dotnet', 'programming', 'oop', 'microsoft', 'web', 'desktop', 'mobile']
+    },
+    {
+        file: 'presentations/intro-maui.json',
+        title: 'Mastering .NET MAUI',
+        description: 'Multi-platform App UI - one codebase for Android, iOS, Windows, and macOS',
+        keywords: ['maui', 'dotnet', 'xamarin', 'cross-platform', 'mobile', 'android', 'ios', 'windows', 'macos']
     }
   // Add more presentations here as you create them
 ];

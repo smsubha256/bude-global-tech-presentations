@@ -1,0 +1,739 @@
+{
+  "presentation": {
+    "topics": [
+      {
+        "id": "title",
+        "title": "Title Slide",
+        "slides": [
+          {
+            "type": "title",
+            "title": "Mastering C# Programming",
+            "subtitle": "Modern, Powerful, Versatile Language<br>From Basics to Advanced Concepts"
+          }
+        ]
+      },
+      {
+        "id": "presenter",
+        "title": "Presenter Slide",
+        "slides": [
+          {
+            "type": "presenter",
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Backend Development & Automation Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
+          }
+        ]
+      },
+      {
+        "id": "agenda",
+        "title": "Agenda",
+        "slides": [
+          {
+            "type": "content",
+            "title": "What We'll Cover",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>What is C#?</strong> - History & Evolution"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>.NET Ecosystem</strong> - Platform Overview"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Development Setup</strong> - Tools & Environment"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>Basic Syntax</strong> - Variables, Operators, Control Flow"
+                },
+                {
+                  "emoji": "🏗️",
+                  "text": "<strong>OOP Concepts</strong> - Classes, Objects, Inheritance"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Advanced Features</strong> - LINQ, Async, Generics"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Error Handling</strong> - Exceptions & Debugging"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Memory Management</strong> - GC & Performance"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Application Types</strong> - Web, Desktop, Mobile, Cloud"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Modern Features</strong> - C# 9/10/11 New Capabilities"
+                },
+                {
+                  "emoji": "🧪",
+                  "text": "<strong>Testing & Best Practices</strong> - Quality Code"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>Learning Path</strong> - Resources & Next Steps"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "what-is-csharp",
+        "title": "What is C#?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Understanding C#"
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "What is C#?",
+            "box": {
+              "content": "Modern, <span class=\"highlight\">strongly typed, object-oriented</span> programming language",
+              "list": [
+                {
+                  "emoji": "💻",
+                  "text": "<strong>Developed by</strong> - Microsoft (Anders Hejlsberg)"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Designed for</strong> - Simplicity and productivity"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Part of</strong> - .NET ecosystem"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>Cross-platform</strong> - Windows, Linux, macOS, Mobile"
+                },
+                {
+                  "emoji": "🎮",
+                  "text": "<strong>Versatile</strong> - Web, desktop, mobile, gaming, cloud"
+                }
+              ]
+            },
+            "note": {
+              "text": "<strong>First released:</strong> 2002<br><strong>Latest version:</strong> C# 12.0<br><strong>Paradigm:</strong> Multi-paradigm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "net-ecosystem",
+        "title": ".NET Ecosystem",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "The .NET Platform"
+          },
+          {
+            "type": "content",
+            "emoji": "🌐",
+            "title": ".NET Ecosystem",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>.NET Framework</strong> - Windows-only legacy"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>.NET Core</strong> - Cross-platform modern runtime"
+                },
+                {
+                  "emoji": "🌈",
+                  "text": "<strong>.NET 5+</strong> - Unified platform (current)"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>CLR</strong> - Common Language Runtime"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>BCL</strong> - Base Class Library"
+                },
+                {
+                  "emoji": "🛠️",
+                  "text": "<strong>FCL</strong> - Framework Class Library"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hello-world",
+        "title": "First Program",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Your First C# Program"
+          },
+          {
+            "type": "content",
+            "emoji": "👋",
+            "title": "Hello World",
+            "box": {
+              "content": "<strong>Traditional approach</strong>",
+              "code": "using System;\n\nnamespace HelloWorld\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(\"Hello, World!\");\n        }\n    }\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Modern C# (Top-Level Statements)",
+            "box": {
+              "content": "<strong>C# 9+ simplified approach</strong>",
+              "code": "// C# 9.0 and above\nConsole.WriteLine(\"Hello, World!\");"
+            },
+            "note": {
+              "text": "<span class=\"emoji\">💡</span> Top-level statements eliminate boilerplate code"
+            }
+          }
+        ]
+      },
+      {
+        "id": "data-types",
+        "title": "Data Types",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Variables & Data Types"
+          },
+          {
+            "type": "content",
+            "emoji": "📊",
+            "title": "Basic Data Types",
+            "box": {
+              "content": "<strong>Built-in value types</strong>",
+              "list": [
+                {
+                  "emoji": "🔢",
+                  "text": "<strong>Integers</strong> - int, long, short, byte"
+                },
+                {
+                  "emoji": "📐",
+                  "text": "<strong>Floating-point</strong> - float, double, decimal"
+                },
+                {
+                  "emoji": "✅",
+                  "text": "<strong>Boolean</strong> - bool (true/false)"
+                },
+                {
+                  "emoji": "🔤",
+                  "text": "<strong>Character</strong> - char (single character)"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>String</strong> - string (text)"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "Variable Declaration",
+            "box": {
+              "content": "<strong>Different ways to declare variables</strong>",
+              "code": "// Explicit typing\nint age = 25;\nstring name = \"John\";\nbool isActive = true;\n\n// Implicit typing (compiler infers)\nvar count = 10;\nvar message = \"Hello\";\nvar price = 19.99m;\n\n// Constants\nconst double PI = 3.14159;\nconst string APP_NAME = \"MyApp\";"
+            }
+          }
+        ]
+      },
+      {
+        "id": "control-flow",
+        "title": "Control Flow",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Decision Making & Loops"
+          },
+          {
+            "type": "content",
+            "emoji": "🔀",
+            "title": "Conditional Statements",
+            "box": {
+              "content": "<strong>Making decisions in code</strong>",
+              "code": "// if-else statement\nif (age >= 18)\n{\n    Console.WriteLine(\"Adult\");\n}\nelse if (age >= 13)\n{\n    Console.WriteLine(\"Teenager\");\n}\nelse\n{\n    Console.WriteLine(\"Child\");\n}\n\n// switch statement\nswitch (day)\n{\n    case \"Monday\":\n        Console.WriteLine(\"Start of week\");\n        break;\n    case \"Friday\":\n        Console.WriteLine(\"Weekend!\");\n        break;\n    default:\n        Console.WriteLine(\"Regular day\");\n        break;\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔄",
+            "title": "Looping Constructs",
+            "box": {
+              "content": "<strong>Repeating code execution</strong>",
+              "code": "// for loop\nfor (int i = 0; i < 10; i++)\n{\n    Console.WriteLine(i);\n}\n\n// foreach loop\nforeach (var item in collection)\n{\n    Console.WriteLine(item);\n}\n\n// while loop\nwhile (condition)\n{\n    // code to execute\n}\n\n// do-while loop\ndo\n{\n    // code executes at least once\n} while (condition);"
+            }
+          }
+        ]
+      },
+      {
+        "id": "oop",
+        "title": "Object-Oriented Programming",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "OOP Principles"
+          },
+          {
+            "type": "content",
+            "emoji": "🏗️",
+            "title": "Four Pillars of OOP",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Encapsulation</strong> - Bundling data and methods"
+                },
+                {
+                  "emoji": "👑",
+                  "text": "<strong>Inheritance</strong> - Creating hierarchical relationships"
+                },
+                {
+                  "emoji": "🎭",
+                  "text": "<strong>Polymorphism</strong> - Same interface, different implementations"
+                },
+                {
+                  "emoji": "🔍",
+                  "text": "<strong>Abstraction</strong> - Hiding complex implementation details"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🏛️",
+            "title": "Class Example",
+            "box": {
+              "content": "<strong>Defining classes and objects</strong>",
+              "code": "public class Person\n{\n    // Fields (private by convention)\n    private string _name;\n    private int _age;\n\n    // Properties (public interface)\n    public string Name \n    { \n        get => _name; \n        set => _name = value; \n    }\n    \n    public int Age\n    {\n        get => _age;\n        set \n        {\n            if (value >= 0)\n                _age = value;\n        }\n    }\n\n    // Auto-implemented property\n    public string Email { get; set; }\n\n    // Constructor\n    public Person(string name, int age)\n    {\n        Name = name;\n        Age = age;\n    }\n\n    // Method\n    public void Introduce()\n    {\n        Console.WriteLine($\"Hi, I'm {Name} and I'm {Age} years old.\");\n    }\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "inheritance",
+        "title": "Inheritance & Polymorphism",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Advanced OOP"
+          },
+          {
+            "type": "content",
+            "emoji": "👑",
+            "title": "Inheritance Example",
+            "box": {
+              "content": "<strong>Creating class hierarchies</strong>",
+              "code": "// Base class\npublic class Animal\n{\n    public string Name { get; set; }\n    \n    public virtual void MakeSound()\n    {\n        Console.WriteLine(\"Some generic animal sound\");\n    }\n}\n\n// Derived class\npublic class Dog : Animal\n{\n    public string Breed { get; set; }\n\n    // Method overriding\n    public override void MakeSound()\n    {\n        Console.WriteLine(\"Woof! Woof!\");\n    }\n\n    // New method specific to Dog\n    public void Fetch()\n    {\n        Console.WriteLine(\"Fetching the ball...\");\n    }\n}\n\n// Usage\nDog myDog = new Dog { Name = \"Buddy\", Breed = \"Golden Retriever\" };\nmyDog.MakeSound(); // Output: Woof! Woof!\nmyDog.Fetch();     // Output: Fetching the ball..."
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔌",
+            "title": "Interfaces",
+            "box": {
+              "content": "<strong>Defining contracts</strong>",
+              "code": "// Interface definition\npublic interface IRepository<T>\n{\n    void Add(T item);\n    void Remove(T item);\n    T GetById(int id);\n    IEnumerable<T> GetAll();\n}\n\n// Interface implementation\npublic class UserRepository : IRepository<User>\n{\n    private List<User> _users = new List<User>();\n\n    public void Add(User user)\n    {\n        _users.Add(user);\n    }\n\n    public void Remove(User user)\n    {\n        _users.Remove(user);\n    }\n\n    public User GetById(int id)\n    {\n        return _users.FirstOrDefault(u => u.Id == id);\n    }\n\n    public IEnumerable<User> GetAll()\n    {\n        return _users;\n    }\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "collections",
+        "title": "Collections & LINQ",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Data Manipulation"
+          },
+          {
+            "type": "content",
+            "emoji": "📚",
+            "title": "Collections",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📋",
+                  "text": "<strong>List<T></strong> - Dynamic arrays"
+                },
+                {
+                  "emoji": "🔍",
+                  "text": "<strong>Dictionary<TKey, TValue></strong> - Key-value pairs"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>HashSet<T></strong> - Unique elements"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Queue<T></strong> - FIFO collection"
+                },
+                {
+                  "emoji": "📈",
+                  "text": "<strong>Stack<T></strong> - LIFO collection"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔍",
+            "title": "LINQ (Language Integrated Query)",
+            "box": {
+              "content": "<strong>Querying collections with LINQ</strong>",
+              "code": "var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };\n\n// Query syntax\nvar evenNumbers = from num in numbers\n                  where num % 2 == 0\n                  select num;\n\n// Method syntax\nvar squares = numbers.Select(n => n * n);\n\n// Filtering\nvar largeNumbers = numbers.Where(n => n > 5);\n\n// Aggregation\nvar sum = numbers.Sum();\nvar max = numbers.Max();\nvar average = numbers.Average();\n\n// Sorting\nvar sorted = numbers.OrderBy(n => n);\nvar descending = numbers.OrderByDescending(n => n);\n\n// Grouping\nvar grouped = numbers.GroupBy(n => n % 2 == 0 ? \"Even\" : \"Odd\");"
+            }
+          }
+        ]
+      },
+      {
+        "id": "async",
+        "title": "Async Programming",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Asynchronous Operations"
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Async/Await Pattern",
+            "box": {
+              "content": "<strong>Modern asynchronous programming</strong>",
+              "code": "// Synchronous method\npublic string DownloadData(string url)\n{\n    using var client = new HttpClient();\n    return client.GetStringAsync(url).Result; // Blocks thread!\n}\n\n// Asynchronous method\npublic async Task<string> DownloadDataAsync(string url)\n{\n    using var client = new HttpClient();\n    return await client.GetStringAsync(url); // Doesn't block!\n}\n\n// Usage\npublic async Task ProcessDataAsync()\n{\n    try\n    {\n        string data = await DownloadDataAsync(\"https://api.example.com/data\");\n        Console.WriteLine(data);\n    }\n    catch (Exception ex)\n    {\n        Console.WriteLine($\"Error: {ex.Message}\");\n    }\n}\n\n// Parallel execution\npublic async Task ProcessMultipleAsync()\n{\n    var task1 = DownloadDataAsync(\"url1\");\n    var task2 = DownloadDataAsync(\"url2\");\n    \n    await Task.WhenAll(task1, task2);\n    \n    Console.WriteLine($\"Data 1: {task1.Result}\");\n    Console.WriteLine($\"Data 2: {task2.Result}\");\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "exception-handling",
+        "title": "Error Handling",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Exception Handling"
+          },
+          {
+            "type": "content",
+            "emoji": "🚨",
+            "title": "Try-Catch-Finally",
+            "box": {
+              "content": "<strong>Graceful error handling</strong>",
+              "code": "try\n{\n    // Code that might throw an exception\n    int result = Divide(10, 0);\n    Console.WriteLine($\"Result: {result}\");\n}\ncatch (DivideByZeroException ex)\n{\n    // Handle specific exception\n    Console.WriteLine($\"Cannot divide by zero: {ex.Message}\");\n}\ncatch (ArgumentException ex)\n{\n    // Handle another specific exception\n    Console.WriteLine($\"Invalid argument: {ex.Message}\");\n}\ncatch (Exception ex)\n{\n    // Handle any other exception\n    Console.WriteLine($\"An error occurred: {ex.Message}\");\n    // Log the exception\n    Logger.LogError(ex);\n}\nfinally\n{\n    // Always executed (cleanup code)\n    Console.WriteLine(\"Cleanup completed\");\n}\n\nint Divide(int a, int b)\n{\n    if (b == 0)\n        throw new DivideByZeroException(\"Division by zero is not allowed\");\n    \n    return a / b;\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "modern-features",
+        "title": "Modern C# Features",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "C# 9/10/11 New Features"
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "Record Types",
+            "box": {
+              "content": "<strong>Immutable data types</strong>",
+              "code": "// C# 9.0 Records\npublic record Person(string FirstName, string LastName, int Age);\n\n// Usage\nvar person1 = new Person(\"John\", \"Doe\", 30);\nvar person2 = person1 with { Age = 31 }; // Non-destructive mutation\n\n// Value-based equality\nConsole.WriteLine(person1 == person2); // False (different Age)\n\n// Traditional class equivalent would require much more code"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔍",
+            "title": "Pattern Matching",
+            "box": {
+              "content": "<strong>Enhanced switch expressions</strong>",
+              "code": "// Traditional switch\nswitch (obj)\n{\n    case string s:\n        Console.WriteLine($\"String: {s}\");\n        break;\n    case int i when i > 0:\n        Console.WriteLine($\"Positive integer: {i}\");\n        break;\n    case null:\n        Console.WriteLine(\"Null value\");\n        break;\n    default:\n        Console.WriteLine(\"Unknown type\");\n        break;\n}\n\n// C# 8.0+ switch expression\nvar message = obj switch\n{\n    string s => $\"String: {s}\",\n    int i when i > 0 => $\"Positive integer: {i}\",\n    null => \"Null value\",\n    _ => \"Unknown type\"\n};"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔄",
+            "title": "Nullable Reference Types",
+            "box": {
+              "content": "<strong>Compiler-enforced null safety</strong>",
+              "code": "#nullable enable\n\n// Compiler warns about potential null\nstring name = null; // Warning!\n\n// Proper nullable annotation\nstring? nullableName = null; // OK\nstring nonNullableName = \"John\"; // OK\n\n// Usage with null checks\nif (nullableName != null)\n{\n    Console.WriteLine(nullableName.Length); // No warning\n}\n\n// Null-forgiving operator (use carefully)\nConsole.WriteLine(nullableName!.Length); // I know it's not null"
+            }
+          }
+        ]
+      },
+      {
+        "id": "application-types",
+        "title": "C# Application Types",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Where C# Shines"
+          },
+          {
+            "type": "content",
+            "emoji": "🌐",
+            "title": "Web Applications",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>ASP.NET Core</strong> - High-performance web apps"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Blazor</strong> - C# in the browser (WebAssembly)"
+                },
+                {
+                  "emoji": "🔗",
+                  "text": "<strong>Web API</strong> - RESTful services"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>SignalR</strong> - Real-time web functionality"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "💻",
+            "title": "Desktop & Mobile",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🪟",
+                  "text": "<strong>WinForms</strong> - Traditional Windows desktop"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>WPF</strong> - Modern Windows desktop (XAML)"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>MAUI</strong> - Cross-platform mobile & desktop"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Avalonia</strong> - Cross-platform XAML framework"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🎮",
+            "title": "Gaming & Cloud",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎮",
+                  "text": "<strong>Unity</strong> - Game development engine"
+                },
+                {
+                  "emoji": "☁️",
+                  "text": "<strong>Azure Functions</strong> - Serverless computing"
+                },
+                {
+                  "emoji": "🌩️",
+                  "text": "<strong>AWS Lambda</strong> - Cloud functions"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Microservices</strong> - Distributed systems"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "title": "Testing & Quality",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Testing Frameworks"
+          },
+          {
+            "type": "content",
+            "emoji": "🧪",
+            "title": "Unit Testing",
+            "box": {
+              "content": "<strong>Testing C# code</strong>",
+              "code": "// xUnit test example\npublic class CalculatorTests\n{\n    [Fact]\n    public void Add_TwoNumbers_ReturnsSum()\n    {\n        // Arrange\n        var calculator = new Calculator();\n        \n        // Act\n        var result = calculator.Add(3, 5);\n        \n        // Assert\n        Assert.Equal(8, result);\n    }\n\n    [Theory]\n    [InlineData(1, 1, 2)]\n    [InlineData(2, 3, 5)]\n    [InlineData(-1, 1, 0)]\n    public void Add_VariousNumbers_ReturnsCorrectSum(int a, int b, int expected)\n    {\n        // Arrange\n        var calculator = new Calculator();\n        \n        // Act\n        var result = calculator.Add(a, b);\n        \n        // Assert\n        Assert.Equal(expected, result);\n    }\n}\n\npublic class Calculator\n{\n    public int Add(int a, int b) => a + b;\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "best-practices",
+        "title": "Best Practices",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "C# Coding Standards"
+          },
+          {
+            "type": "content",
+            "emoji": "✅",
+            "title": "Essential Guidelines",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Use async all the way</strong> - Avoid blocking calls"
+                },
+                {
+                  "emoji": "💉",
+                  "text": "<strong>Dependency Injection</strong> - Loose coupling"
+                },
+                {
+                  "emoji": "🚫",
+                  "text": "<strong>Avoid static shared state</strong> - Thread safety"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Proper exception hierarchy</strong> - Meaningful errors"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>Prefer records for immutability</strong> - Thread-safe data"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>Use nullable reference types</strong> - Null safety"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>LINQ over loops</strong> - Declarative code"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Small, focused methods</strong> - Single responsibility"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "resources",
+        "title": "Learning Resources",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📚",
+            "title": "Continue Learning",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Microsoft Learn</strong> - Official tutorials and docs"
+                },
+                {
+                  "emoji": "🎥",
+                  "text": "<strong>DotNet YouTube Channel</strong> - Video content"
+                },
+                {
+                  "emoji": "📖",
+                  "text": "<strong>C# in Depth by Jon Skeet</strong> - Deep dive book"
+                },
+                {
+                  "emoji": "🎓",
+                  "text": "<strong>Pluralsight C# Path</strong> - Comprehensive courses"
+                },
+                {
+                  "emoji": "📋",
+                  "text": "<strong>Official .NET Docs</strong> - API reference"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>Stack Overflow</strong> - Community Q&A"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "recap",
+        "title": "Quick Recap",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📝",
+            "title": "Key Takeaways",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "C# = Modern, versatile, enterprise-ready language"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": ".NET ecosystem = Cross-platform, high-performance"
+                },
+                {
+                  "emoji": "🏗️",
+                  "text": "Strong OOP support with modern features"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "Excellent for web, desktop, mobile, cloud, gaming"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "Continuous innovation with yearly releases"
+                },
+                {
+                  "emoji": "💼",
+                  "text": "High demand in enterprise and startups"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "qa-and-thank-you",
+        "title": "Q&A and Thank You",
+        "slides": [
+          {
+            "type": "qa",
+            "title": "Questions? 💬",
+            "content": "Let's discuss C# concepts, .NET ecosystem, or specific programming challenges!<br><span class=\"gradient-accent\">All coding questions welcome!</span>"
+          },
+          {
+            "type": "thank-you",
+            "title": "Thank You! 🎉",
+            "box": {
+              "content": "<span class=\"emoji\">💻</span> Ready to code in C#?<br><span class=\"gradient-accent\">Start building amazing applications today!</span>",
+              "note": "Modern • Powerful • Versatile"
+            },
+            "footer": {
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
