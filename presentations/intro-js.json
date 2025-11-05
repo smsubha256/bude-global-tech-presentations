@@ -198,6 +198,53 @@
                 }
               ]
             }
+          },
+          {
+            "type": "content",
+            "emoji": "📦",
+            "title": "var, let, const: Key Differences",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔑",
+                  "text": "<strong><code>var</code></strong>: Function-scoped, can be re-declared and re-assigned. Hoisted with a default value of <code>undefined</code>."
+                },
+                {
+                  "emoji": "🔑",
+                  "text": "<strong><code>let</code></strong>: Block-scoped, can be re-assigned but not re-declared. Hoisted but not initialized (Temporal Dead Zone)."
+                },
+                {
+                  "emoji": "🔑",
+                  "text": "<strong><code>const</code></strong>: Block-scoped, cannot be re-assigned or re-declared. Must be initialized at declaration. For objects/arrays, the reference is constant, but contents can be modified."
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🧩",
+            "title": "Primitive vs. Non-Primitive Data Types",
+            "box": {
+              "list": [
+                {
+                  "emoji": "💡",
+                  "text": "<strong>Primitives</strong>: Stored directly in the location that the variable accesses. (String, Number, Boolean, Null, Undefined, Symbol, BigInt). Passed by value."
+                },
+                {
+                  "emoji": "💡",
+                  "text": "<strong>Non-Primitives (Objects)</strong>: Stored as a reference to a memory location. (Objects, Arrays, Functions). Passed by reference."
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🧮",
+            "title": "Type Coercion",
+            "box": {
+              "content": "JavaScript often automatically converts values from one type to another (type coercion).",
+              "code": "// Implicit Coercion\nconsole.log('5' + 5); // '55' (Number to String)\nconsole.log('5' - 5); // 0 (String to Number)\nconsole.log(true + 1); // 2 (Boolean to Number)\n\n// Explicit Coercion\nconsole.log(Number('10')); // 10\nconsole.log(String(100)); // '100'\nconsole.log(Boolean(0)); // false"
+            }
           }
         ]
       },
@@ -223,6 +270,31 @@
             "title": "Comparison & Logical Operators",
             "box": {
               "code": "// Comparison\nconsole.log(10 == \"10\"); // true (loose equality)\nconsole.log(10 === \"10\"); // false (strict equality)\nconsole.log(10 != \"10\"); // false\nconsole.log(10 !== \"10\"); // true\nconsole.log(10 > 5); // true\n\n// Logical\nconsole.log(true && false); // false\nconsole.log(true || false); // true\nconsole.log(!true); // false"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🧮",
+            "title": "Assignment Operators",
+            "box": {
+              "code": "let x = 10;\nx += 5; // x is now 15 (x = x + 5)\nx -= 3; // x is now 12 (x = x - 3)\nx *= 2; // x is now 24 (x = x * 2)\nx /= 4; // x is now 6 (x = x / 4)\nx %= 5; // x is now 1 (x = x % 5)"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🧮",
+            "title": "Ternary Operator",
+            "box": {
+              "code": "let age = 20;\nlet status = (age >= 18) ? \"adult\" : \"minor\";\nconsole.log(status); // adult"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🧮",
+            "title": "Operator Precedence",
+            "box": {
+              "content": "Determines the order in which operators are evaluated.",
+              "code": "let result = 5 + 3 * 2; // result is 11 (multiplication before addition)\nlet result2 = (5 + 3) * 2; // result2 is 16 (parentheses change precedence)"
             }
           }
         ]
@@ -250,6 +322,30 @@
             "box": {
               "code": "// for loop\nfor (let i = 0; i < 5; i++) {\n  console.log(i);\n}\n\n// while loop\nlet i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\n\n// do...while loop\nlet j = 0;\ndo {\n  console.log(j);\n  j++;\n} while (j < 5);"
             }
+          },
+          {
+            "type": "content",
+            "emoji": "🔀",
+            "title": "Switch Statement",
+            "box": {
+              "code": "let day = \"Monday\";\n\nswitch (day) {\n  case \"Monday\":\n    console.log(\"It's the start of the week.\");\n    break;\n  case \"Friday\":\n    console.log(\"It's almost the weekend!\");\n    break;\n  default:\n    console.log(\"It's a regular day.\");\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔀",
+            "title": "Break and Continue",
+            "box": {
+              "code": "// break\nfor (let i = 0; i < 10; i++) {\n  if (i === 5) {\n    break; // Exits the loop\n  }\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// continue\nfor (let i = 0; i < 10; i++) {\n  if (i % 2 === 0) {\n    continue; // Skips even numbers\n  }\n  console.log(i); // 1, 3, 5, 7, 9\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔀",
+            "title": "for...in and for...of Loops",
+            "box": {
+              "code": "const person = { name: \"John\", age: 30 };\nfor (let key in person) {\n  console.log(`${key}: ${person[key]}`);\n}\n// Output:\n// name: John\n// age: 30\n\nconst colors = [\"red\", \"green\", \"blue\"];\nfor (let color of colors) {\n  console.log(color);\n}\n// Output:\n// red\n// green\n// blue"
+            }
           }
         ]
       },
@@ -266,11 +362,7 @@
             "emoji": "🔧",
             "title": "Defining and Calling Functions",
             "box": {
-              "code": "// Function declaration\nfunction greet(name) {\n  return \"Hello, \" + name + \"!\";\n}\n\n// Function expression\nconst greet2 = function(name) {\n  return \"Hello, \" + name + \"!\";\n};
-
-// Arrow function\nconst greet3 = (name) => {\n  return \"Hello, \" + name + \"!\";\n};
-
-console.log(greet(\"John\")); // Hello, John!"
+              "code": "// Function declaration\nfunction greet(name) {\n  return \"Hello, \" + name + \"!\";\n}\n\n// Function expression\nconst greet2 = function(name) {\n  return \"Hello, \" + name + \"!\";\n};\n\n// Arrow function\nconst greet3 = (name) => {\n  return \"Hello, \" + name + \"!\";\n};\n\nconsole.log(greet(\"John\")); // Hello, John!"
             }
           },
           {
@@ -278,10 +370,7 @@ console.log(greet(\"John\")); // Hello, John!"
             "emoji": "🔧",
             "title": "Function Parameters & Arguments",
             "box": {
-              "code": "// Default parameters\nfunction greet(name = \"Guest\") {\n  return \"Hello, \" + name + \"!\";\n}\n
-console.log(greet()); // Hello, Guest!\nconsole.log(greet(\"John\")); // Hello, John!\n
-// Rest parameters\nfunction sum(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0);\n}\n
-console.log(sum(1, 2, 3)); // 6"
+              "code": "// Default parameters\nfunction greet(name = \"Guest\") {\n  return \"Hello, \" + name + \"!\";\n}\n\nconsole.log(greet()); // Hello, Guest!\nconsole.log(greet(\"John\")); // Hello, John!\n\n// Rest parameters\nfunction sum(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0);\n}\n\nconsole.log(sum(1, 2, 3)); // 6"
             }
           }
         ]
@@ -299,9 +388,7 @@ console.log(sum(1, 2, 3)); // 6"
             "emoji": "🧩",
             "title": "Objects",
             "box": {
-              "code": "const person = {\n  name: \"John\",\n  age: 30,\n  greet: function() {\n    return \"Hello, my name is \" + this.name;\n  }\n};
-
-console.log(person.name); // John\nconsole.log(person.greet()); // Hello, my name is John"
+              "code": "const person = {\n  name: \"John\",\n  age: 30,\n  greet: function() {\n    return \"Hello, my name is \" + this.name;\n  }\n};\n\nconsole.log(person.name); // John\nconsole.log(person.greet()); // Hello, my name is John"
             }
           },
           {
@@ -309,10 +396,7 @@ console.log(person.name); // John\nconsole.log(person.greet()); // Hello, my nam
             "emoji": "🧩",
             "title": "Arrays and Array Methods",
             "box": {
-              "code": "const colors = [\"red\", \"green\", \"blue\"];\n
-// map\nconst upperColors = colors.map(color => color.toUpperCase());\n// [\"RED\", \"GREEN\", \"BLUE\"]\n
-// filter\nconst longColors = colors.filter(color => color.length > 3);\n// [\"green\", \"blue\"]\n
-// reduce\nconst numbers = [1, 2, 3, 4, 5];\nconst sum = numbers.reduce((total, num) => total + num, 0); // 15"
+              "code": "const colors = [\"red\", \"green\", \"blue\"];\n\n// map\nconst upperColors = colors.map(color => color.toUpperCase());\n// [\"RED\", \"GREEN\", \"BLUE\"]\n\n// filter\nconst longColors = colors.filter(color => color.length > 3);\n// [\"green\", \"blue\"]\n\n// reduce\nconst numbers = [1, 2, 3, 4, 5];\nconst sum = numbers.reduce((total, num) => total + num, 0); // 15"
             }
           }
         ]
@@ -330,14 +414,7 @@ console.log(person.name); // John\nconsole.log(person.greet()); // Hello, my nam
             "emoji": "🌐",
             "title": "Selecting Elements",
             "box": {
-              "code": "// by ID\nconst heading = document.getElementById(\"my-heading\");\n
-// by class name\nconst items = document.getElementsByClassName(\"my-item\");
-
-// by tag name\nconst paragraphs = document.getElementsByTagName(\"p\");
-
-// using querySelector\nconst firstItem = document.querySelector(\".my-item\");
-
-// using querySelectorAll\nconst allItems = document.querySelectorAll(\".my-item\");"
+              "code": "// by ID\nconst heading = document.getElementById(\"my-heading\");\n\n// by class name\nconst items = document.getElementsByClassName(\"my-item\");\n\n// by tag name\nconst paragraphs = document.getElementsByTagName(\"p\");\n\n// using querySelector\nconst firstItem = document.querySelector(\".my-item\");\n\n// using querySelectorAll\nconst allItems = document.querySelectorAll(\".my-item\");"
             }
           },
           {
@@ -345,12 +422,7 @@ console.log(person.name); // John\nconsole.log(person.greet()); // Hello, my nam
             "emoji": "🌐",
             "title": "Modifying Elements",
             "box": {
-              "code": "const heading = document.getElementById(\"my-heading\");\n
-// Changing content\nheading.textContent = \"New Heading\";\nheading.innerHTML = \"<em>New Heading</em>\";
-
-// Changing styles\nheading.style.color = \"red\";\nheading.style.fontSize = \"2rem\";
-
-// Adding and removing classes\nheading.classList.add(\"highlight\");\nheading.classList.remove(\"main\");"
+              "code": "const heading = document.getElementById(\"my-heading\");\n\n// Changing content\nheading.textContent = \"New Heading\";\nheading.innerHTML = \"<em>New Heading</em>\";\n\n// Changing styles\nheading.style.color = \"red\";\nheading.style.fontSize = \"2rem\";\n\n// Adding and removing classes\nheading.classList.add(\"highlight\");\nheading.classList.remove(\"main\");"
             }
           }
         ]
@@ -368,12 +440,7 @@ console.log(person.name); // John\nconsole.log(person.greet()); // Hello, my nam
             "emoji": "🖱️",
             "title": "Event Handling",
             "box": {
-              "code": "const myButton = document.getElementById(\"my-button\");\n
-myButton.addEventListener(\"click\", () => {\n  alert(\"Button clicked!\");\n});
-
-myButton.addEventListener(\"mouseover\", () => {\n  myButton.style.backgroundColor = \"red\";\n});
-
-myButton.addEventListener(\"mouseout\", () => {\n  myButton.style.backgroundColor = \"\";\n});"
+              "code": "const myButton = document.getElementById(\"my-button\");\n\nmyButton.addEventListener(\"click\", () => {\n  alert(\"Button clicked!\");\n});\n\nmyButton.addEventListener(\"mouseover\", () => {\n  myButton.style.backgroundColor = \"red\";\n});\n\nmyButton.addEventListener(\"mouseout\", () => {\n  myButton.style.backgroundColor = \"\";\n});"
             }
           }
         ]
@@ -391,9 +458,7 @@ myButton.addEventListener(\"mouseout\", () => {\n  myButton.style.backgroundColo
             "emoji": "✨",
             "title": "Arrow Functions & Classes",
             "box": {
-              "code": "// Arrow Functions\nconst add = (a, b) => a + b;\n
-// Classes\nclass Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n
-  greet() {\n    return `Hello, my name is ${this.name}`\n  }\n}"
+              "code": "// Arrow Functions\nconst add = (a, b) => a + b;\n\n// Classes\nclass Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  greet() {\n    return `Hello, my name is ${this.name}`;\n  }\n}"
             }
           },
           {
@@ -401,12 +466,7 @@ myButton.addEventListener(\"mouseout\", () => {\n  myButton.style.backgroundColo
             "emoji": "✨",
             "title": "Promises & Async/Await",
             "box": {
-              "code": "// Promises\nconst myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    resolve(\"Success!\");\n  }, 1000);\n});
-
-myPromise.then(result => console.log(result)); // Success!\n
-// Async/Await\nasync function myAsyncFunction() {\n  const result = await myPromise;\n  console.log(result);\n}
-
-myAsyncFunction(); // Success!"
+              "code": "// Promises\nconst myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    resolve(\"Success!\");\n  }, 1000);\n});\n\nmyPromise.then(result => console.log(result)); // Success!\n\n// Async/Await\nasync function myAsyncFunction() {\n  const result = await myPromise;\n  console.log(result);\n}\n\nmyAsyncFunction(); // Success!"
             }
           }
         ]
@@ -442,8 +502,7 @@ myAsyncFunction(); // Success!"
             "emoji": "📄",
             "title": "JSON.parse() & JSON.stringify()",
             "box": {
-              "code": "const jsonString = '{\"name\":\"John\",\"age\":30}';\nconst person = JSON.parse(jsonString);\nconsole.log(person.name); // John\n
-const personObject = { name: \"John\", age: 30 };\nconst json = JSON.stringify(personObject);\nconsole.log(json); // {\"name\":\"John\",\"age\":30}"
+              "code": "const jsonString = '{\"name\":\"John\",\"age\":30}';\nconst person = JSON.parse(jsonString);\nconsole.log(person.name); // John\n\nconst personObject = { name: \"John\", age: 30 };\nconst json = JSON.stringify(personObject);\nconsole.log(json); // {\"name\":\"John\",\"age\":30}"
             }
           }
         ]

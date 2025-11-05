@@ -253,6 +253,11 @@ const PRESENTATIONS_CONFIG = [
     title: "Introduction to MongoDB",
     description: "Complete NoSQL database guide from beginner to production ready",
     keywords: ["mongodb", "nosql", "document", "database", "bson", "aggregation", "atlas"]
+  },{
+    file: "presentations/intro-sql-databases.json",
+    title: "SQL & Databases – Fundamentals of Relational Database Management",
+    description: "Complete guide to relational databases and SQL from basics to advanced concepts",
+    keywords: ["sql", "database", "rdbms", "mysql", "postgresql", "normalization", "acid", "joins"]
   },
   {
     file: "presentations/intro-js.json",
