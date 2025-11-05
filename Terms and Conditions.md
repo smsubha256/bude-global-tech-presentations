@@ -6,7 +6,7 @@ Welcome to Bude Global Tech Presentations! These Terms and Conditions ("Terms") 
 
 ## 1. Acceptance of Terms
 
-By accessing and using this GitHub repository and its associated content, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our [Privacy Policy](PRIVACY_POLICY.md - *To be created*) and [Code of Conduct](CODE_OF_CONDUCT.md).
+By accessing and using this GitHub repository and its associated content, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our [Privacy Policy](PRIVACY_POLICY.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## 2. Intellectual Property
 
@@ -50,5 +50,5 @@ By continuing to access or use our Service after those revisions become effectiv
 
 If you have any questions about these Terms and Conditions, please contact us:
 
-*   By email: [contact@budeglobal.in](mailto:contact@budeglobal.in)
+*   By email: [budeglobalerp@gmail.com](mailto:budeglobalerp@gmail.com)
 *   By visiting this page on our website: [https://budeglobal.in/contact](https://budeglobal.in/contact)

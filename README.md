@@ -20,7 +20,7 @@
 
 Welcome to the official repository for **Bude Global Tech Presentations** — a cutting-edge platform designed to democratize technical knowledge through engaging, interactive presentations. Built by developers, for developers, this platform serves as a centralized hub where the Bude Global community can discover, share, and learn from expertly crafted technical content.
 
-**Important**: By using this service, you agree to our [Terms and Conditions](Terms%20and%20Conditions.md) and [Privacy Policy](PRIVACY_POLICY.md - *To be created*).
+**Important**: By using this service, you agree to our [Terms and Conditions](Terms%20and%20Conditions.md) and [Privacy Policy](PRIVACY_POLICY.md).
 
 ### 🎯 Mission
 
