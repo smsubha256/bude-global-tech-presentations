@@ -20,6 +20,8 @@
 
 Welcome to the official repository for **Bude Global Tech Presentations** — a cutting-edge platform designed to democratize technical knowledge through engaging, interactive presentations. Built by developers, for developers, this platform serves as a centralized hub where the Bude Global community can discover, share, and learn from expertly crafted technical content.
 
+**Important**: By using this service, you agree to our [Terms and Conditions](Terms%20and%20Conditions.md) and [Privacy Policy](PRIVACY_POLICY.md - *To be created*).
+
 ### 🎯 Mission
 
 Our mission is to foster a culture of continuous learning and knowledge sharing by providing an accessible, modern platform for technical presentations that covers everything from programming languages and frameworks to DevOps tools and best practices.
@@ -42,6 +44,7 @@ Our mission is to foster a culture of continuous learning and knowledge sharing 
 - [🔧 Customization](#-customization)
 - [❓ FAQ](#-faq)
 - [©️ License](#-license)
+- [📜 Terms and Conditions](#-terms-and-conditions)
 - [🙏 Acknowledgments](#-acknowledgments)
 - [📧 Contact](#-contact)
 
@@ -595,6 +598,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - Include copyright notice
 
 ---
+
+## 📜 Terms and Conditions
+
+By accessing and using this service, you agree to be bound by our [Terms and Conditions](Terms%20and%20Conditions.md).
 
 ## 🙏 Acknowledgments
 
