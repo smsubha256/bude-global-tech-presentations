@@ -6,7 +6,7 @@
 
 **A Dynamic, Interactive Platform for Technical Knowledge Sharing**
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![GitHub Stars](https://img.shields.io/github/stars/BUDEGlobalEnterprise/bude-global-tech-presentations?style=social)](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations)
 
@@ -162,7 +162,7 @@ bude-global-tech-presentations/
 ├── 📄 style.css                        # Custom styles (optional)
 ├── 📄 README.md                        # This file
 ├── 📄 CONTRIBUTING.md                  # Contribution guidelines
-└── 📄 LICENSE                          # MIT License
+└── 📄 LICENSE                          # GNU GENERAL PUBLIC LICENSE
 
 ```
 
@@ -555,7 +555,7 @@ Update social links in the `<footer>` section of `index.html`.
 ## ❓ FAQ
 
 ### Q: Can I use this for my own presentations?
-**A:** Absolutely! This project is open-source under MIT License. Feel free to fork and customize.
+**A:** Absolutely! This project is open-source under GNU GENERAL PUBLIC LICENSE. Feel free to fork and customize.
 
 ### Q: Do I need a server to host this?
 **A:** No! It's a static site. You can host on GitHub Pages, Netlify, Vercel, or any static hosting service.
@@ -579,7 +579,7 @@ Update social links in the `<footer>` section of `index.html`.
 
 ## ©️ License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **GNU GENERAL PUBLIC LICENSE** - see the [LICENSE](LICENSE) file for details.
 
 ### What This Means
 

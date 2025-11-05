@@ -10,9 +10,9 @@ By accessing and using this GitHub repository and its associated content, you ac
 
 ## 2. Intellectual Property
 
-The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of Bude Global Enterprise and its licensors. The presentations and their content are provided under the [MIT License](LICENSE), unless otherwise specified within individual presentation files.
+The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of Bude Global Enterprise and its licensors. The presentations and their content are provided under the [GNU GENERAL PUBLIC LICENSE](LICENSE), unless otherwise specified within individual presentation files.
 
-You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Service, except as generally permitted by the MIT License or other applicable licenses.
+You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Service, except as generally permitted by the GNU GENERAL PUBLIC LICENSE or other applicable licenses.
 
 ## 3. User Conduct
 
