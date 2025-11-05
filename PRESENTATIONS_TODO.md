@@ -68,11 +68,11 @@
 ## ⬜ Pending Presentations (87)
 
 ### 🔵 Programming Languages & Core Tech (14)
-- [ ] #28 JavaScript Fundamentals
-- [ ] #29 TypeScript + Node.js
-- [ ] #35 Vue.js
-- [ ] #36 Angular
-- [ ] #37 Svelte
+- [ ] [#63 JavaScript Fundamentals](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/63)
+- [ ] [#64 TypeScript + Node.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/64)
+- [ ] [#65 Vue.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/65)
+- [ ] [#66 Angular](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/66)
+- [ ] [#67 Svelte](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/67)
 - [ ] [#1 Go (Golang)](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/1) - Introduction to Go programming
 - [ ] [#2 Rust](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/2) - Systems programming with Rust
 - [ ] [#3 PHP](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/3) - Modern PHP development
@@ -84,8 +84,8 @@
 - [ ] [#9 Regex](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/9) - Regular expressions guide
 
 ### 🟣 Backend Frameworks (10)
-- [ ] #33 GraphQL
-- [ ] #34 REST & Swagger
+- [ ] [#68 GraphQL](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/68)
+- [ ] [#69 REST & Swagger](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/69)
 - [ ] [#10 Django](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/10) - Python web framework
 - [ ] [#11 Flask](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/11) - Lightweight Python web framework
 - [ ] [#12 FastAPI](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/12) - Modern Python API framework
@@ -96,7 +96,7 @@
 - [ ] [#17 Bun / Hono](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/17) - Next-gen JavaScript runtime
 
 ### 🔴 Databases & Storage (9)
-- [ ] #30 SQL & Databases
+- [ ] [#70 SQL & Databases](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/70)
 - [ ] [#18 Redis](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/18) - In-memory data structure store
 - [ ] [#19 SQLite](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/19) - Embedded database engine
 - [ ] [#20 Cassandra](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/20) - Distributed NoSQL database
@@ -107,11 +107,11 @@
 - [ ] [#25 Elasticsearch](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/25) - Search and analytics engine
 
 ### 🟠 DevOps, Infrastructure & Cloud (15)
-- [ ] #22 WSL
-- [ ] #31 AWS Cloud
-- [ ] #32 Kubernetes
-- [ ] #38 System Design
-- [ ] #39 DevOps – CI/CD
+- [ ] [#71 WSL](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/71)
+- [ ] [#72 AWS Cloud](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/72)
+- [ ] [#73 Kubernetes](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/73)
+- [ ] [#74 System Design](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/74)
+- [ ] [#75 DevOps – CI/CD](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/75)
 - [ ] [#26 Terraform](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/26) - Infrastructure as Code
 - [ ] [#27 Ansible](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/27) - Configuration management tool
 - [ ] [#28 Helm](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/28) - Kubernetes package manager
@@ -133,9 +133,9 @@
 - [ ] [#42 Secret Management](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/42) - Managing credentials securely
 
 ### 🟢 AI, Data & Automation (8)
-- [ ] #40 Machine Learning with Python
+- [ ] [#76 Machine Learning with Python](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/76)
 - [ ] [#43 LangChain](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/43) - Building LLM applications
-- [ ] [#44 LLMs + Vector DBs](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/44) - AI-powered search
+- [ ] [#44 LLMs + Vector DBs](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/.venv/issues/44) - AI-powered search
 - [ ] [#45 Pandas Data Analysis](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/45) - Python data manipulation
 - [ ] [#46 Apache Kafka](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/46) - Distributed streaming platform
 - [ ] [#47 Airflow](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/47) - Workflow orchestration
@@ -143,13 +143,13 @@
 - [ ] [#49 Computer Vision Basics](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/49) - Image processing with OpenCV
 
 ### 🟤 Tools & Productivity (13)
-- [ ] #19 Microsoft PowerToys
-- [ ] #20 Stirling PDF
-- [ ] #21 n8n
-- [ ] #23 ImHex
-- [ ] #24 AdminLTE
-- [ ] #25 Grocy
-- [ ] #26 Ghost Blogging Platform
+- [ ] [#77 Microsoft PowerToys](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/77)
+- [ ] [#78 Stirling PDF](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/78)
+- [ ] [#79 n8n](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/79)
+- [ ] [#80 ImHex](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/80)
+- [ ] [#81 AdminLTE](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/81)
+- [ ] [#82 Grocy](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/82)
+- [ ] [#83 Ghost Blogging Platform](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/83)
 - [ ] [#50 Obsidian PKM](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/50) - Personal knowledge management
 - [ ] [#51 Zettelkasten](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/51) - Note-taking methodology
 - [ ] [#52 Notion for Docs](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/52) - Collaborative documentation
