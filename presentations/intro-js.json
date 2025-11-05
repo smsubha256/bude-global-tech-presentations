@@ -206,7 +206,7 @@
             "emoji": "🔧",
             "title": "Defining and Calling Functions",
             "box": {
-              "code": "// Function declaration\nfunction greet(name) {\n  return 'Hello, ' + name + '!';\n}\n\n// Function expression\nconst greet2 = function(name) {\n  return 'Hello, ' + name + '!';\n};\n\n// Arrow function\nconst greet3 = (name) => {\n  return 'Hello, ' + name + '!';\n};\n\n// Calling a function\nlet message = greet('John'); // 'Hello, John!'\n"
+              "code": "// Function declaration\nfunction greet(name) {\n  return 'Hello, ' + name + '!';\n}\n\n// Function expression\nconst greet2 = function(name) {\n  return 'Hello, ' + name + '!';\n};\n\n// Arrow function\nconst greet3 = (name) => {\n  return 'Hello, ' + name + '!';\n};\n\n// Calling a function\nlet message = greet('John'); // 'Hello, John!'"
             }
           }
         ]
