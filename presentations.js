@@ -82,7 +82,7 @@ const PRESENTATIONS_CONFIG = [
     file: "presentations/erpnext-presentation.json",
     title: "Introduction to ERPNext",
     description:
-      "World's best open source ERP - complete business management solution",
+      "World best open source ERP - complete business management solution",
     keywords: [
       "erpnext",
       "erp",
@@ -127,10 +127,12 @@ const PRESENTATIONS_CONFIG = [
       "windows",
       "macos",
     ],
-  }, {
+  },
+  {
     file: "presentations/intro-git-github.json",
     title: "Introduction to Git & GitHub",
-    description: "Complete version control mastery from zero to collaboration pro",
+    description:
+      "Complete version control mastery from zero to collaboration pro",
     keywords: [
       "git",
       "github",
@@ -146,18 +148,35 @@ const PRESENTATIONS_CONFIG = [
     file: "presentations/intro-gitea.json",
     title: "Introduction to Gitea",
     description: "Lightweight, self-hosted Git service with complete control",
-    keywords: ["gitea", "self-hosted", "git", "devops", "ci/cd", "docker", "kubernetes"],
+    keywords: [
+      "gitea",
+      "self-hosted",
+      "git",
+      "devops",
+      "ci/cd",
+      "docker",
+      "kubernetes",
+    ],
   },
   {
     file: "presentations/intro-linux.json",
     title: "Introduction to Linux",
     description: "Complete operating system guide from beginner to power user",
-    keywords: ["linux", "ubuntu", "debian", "command-line", "bash", "sysadmin", "devops"],
+    keywords: [
+      "linux",
+      "ubuntu",
+      "debian",
+      "command-line",
+      "bash",
+      "sysadmin",
+      "devops",
+    ],
   },
   {
     file: "presentations/intro-docker.json",
     title: "Introduction to Docker & Containerization",
-    description: "Complete containerization guide from beginner to production deployment",
+    description:
+      "Complete containerization guide from beginner to production deployment",
     keywords: [
       "docker",
       "containers",
@@ -187,6 +206,17 @@ const PRESENTATIONS_CONFIG = [
       "react",
       "vue",
     ],
+  },
+  {
+    file: "presentations/bootstrap-presentation.json",
+    title: "Introduction to Bootstrap",
+    description: "Complete CSS framework guide from basics to advanced component development",
+    keywords: ["bootstrap", "css", "frontend", "ui", "responsive", "components", "grid", "react", "vue", "angular"]
+  }, {
+    file: "presentations/react-presentation.json",
+    title: "Introduction to React",
+    description: "Complete React.js guide from fundamentals to advanced hooks and state management",
+    keywords: ["react", "reactjs", "javascript", "frontend", "hooks", "components", "jsx", "state", "props"]
   }
 
   // Add more presentations here as you create them
