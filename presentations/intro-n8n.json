@@ -1,0 +1,1196 @@
+{
+  "file": "presentations/intro-n8n.json",
+  "title": "Introduction to n8n",
+  "description": "Complete workflow automation platform guide from basics to advanced enterprise deployment",
+  "keywords": [
+    "n8n",
+    "workflow-automation",
+    "node-based-automation",
+    "self-hosted",
+    "open-source",
+    "fair-code",
+    "api-integration",
+    "webhooks",
+    "automation-tools",
+    "no-code",
+    "low-code",
+    "workflow-orchestration",
+    "business-automation"
+  ],
+  "presentation": {
+    "topics": [
+      {
+        "id": "title",
+        "title": "Title Slide",
+        "slides": [
+          {
+            "type": "title",
+            "title": "n8n Workflow Automation",
+            "subtitle": "Complete Node-Based Automation Platform<br>From Basics to Enterprise Deployment"
+          }
+        ]
+      },
+      {
+        "id": "presenter",
+        "title": "Presenter Slide",
+        "slides": [
+          {
+            "type": "presenter",
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Backend Development & Automation Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
+          }
+        ]
+      },
+      {
+        "id": "agenda",
+        "title": "Agenda",
+        "slides": [
+          {
+            "type": "content",
+            "title": "What We'll Cover",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>What is n8n?</strong> - Workflow Automation Platform"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Key Benefits</strong> - Why Choose n8n?"
+                },
+                {
+                  "emoji": "🔓",
+                  "text": "<strong>Open Source Advantage</strong> - Fair-Code License"
+                },
+                {
+                  "emoji": "🐳",
+                  "text": "<strong>Installation</strong> - Docker, npm, Cloud, Desktop"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Core Concepts</strong> - Nodes, Workflows, Triggers"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>API Integrations</strong> - REST, Webhooks, OAuth"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Database Connections</strong> - MySQL, PostgreSQL"
+                },
+                {
+                  "emoji": "🎮",
+                  "text": "<strong>Logic & Control</strong> - Conditions, Loops, Error Handling"
+                },
+                {
+                  "emoji": "🤖",
+                  "text": "<strong>Real-World Examples</strong> - GitHub, Slack, Telegram"
+                },
+                {
+                  "emoji": "🏢",
+                  "text": "<strong>Production Deployment</strong> - Scaling, Security, Multi-user"
+                },
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>Custom Development</strong> - Building Custom Nodes"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Advanced Topics</strong> - AI Integration, Cloud Deployment"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "what-is-n8n",
+        "title": "What is n8n?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Understanding n8n"
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "What is n8n?",
+            "box": {
+              "content": "<span class=\"highlight\">Fair-code licensed workflow automation tool</span>",
+              "list": [
+                {
+                  "emoji": "🔓",
+                  "text": "<strong>License</strong> - Fair-code (source available)"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Purpose</strong> - Connect APIs and services"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>Interface</strong> - Visual workflow editor"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Capabilities</strong> - 200+ built-in integrations"
+                },
+                {
+                  "emoji": "🏠",
+                  "text": "<strong>Deployment</strong> - Self-hosted or cloud"
+                }
+              ]
+            },
+            "note": {
+              "text": "<strong>Fun fact:</strong> n8n stands for 'nodemation' - node-based automation!"
+            }
+          }
+        ]
+      },
+      {
+        "id": "why-n8n",
+        "title": "Why Use n8n?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Key Benefits & Advantages"
+          },
+          {
+            "type": "content",
+            "emoji": "💪",
+            "title": "Why Choose n8n?",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🏠",
+                  "text": "<strong>Self-Hosted</strong> - Complete data control"
+                },
+                {
+                  "emoji": "🔓",
+                  "text": "<strong>Fair-Code</strong> - Source available, flexible licensing"
+                },
+                {
+                  "emoji": "💰",
+                  "text": "<strong>Cost Effective</strong> - No per-user fees"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Powerful</strong> - Advanced workflows with code"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Flexible</strong> - No-code to full-code spectrum"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Extensible</strong> - Build custom nodes"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": "Tool Comparison",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "n8n vs Alternatives"
+          },
+          {
+            "type": "content",
+            "emoji": "🆚",
+            "title": "Automation Platform Comparison",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>n8n</strong> - Self-hosted, fair-code, powerful"
+                },
+                {
+                  "emoji": "💸",
+                  "text": "<strong>Zapier</strong> - Cloud-only, expensive at scale"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Make</strong> - Visual, cloud-focused"
+                },
+                {
+                  "emoji": "🔌",
+                  "text": "<strong>Node-RED</strong> - IoT focused, less business apps"
+                },
+                {
+                  "emoji": "🐍",
+                  "text": "<strong>Airflow</strong> - Code-first, complex setup"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>n8n Advantage</strong> - Best of all worlds"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "open-source-advantage",
+        "title": "Open Source Advantage",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Fair-Code License"
+          },
+          {
+            "type": "content",
+            "emoji": "🔓",
+            "title": "Fair-Code Benefits",
+            "box": {
+              "list": [
+                {
+                  "emoji": "👁️",
+                  "text": "<strong>Transparency</strong> - Source code available"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Customization</strong> - Modify to your needs"
+                },
+                {
+                  "emoji": "🏠",
+                  "text": "<strong>Self-Hosting</strong> - Deploy anywhere"
+                },
+                {
+                  "emoji": "💰",
+                  "text": "<strong>No Vendor Lock-in</strong> - Own your automation"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Community</strong> - Active development"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "deployment-options",
+        "title": "Deployment Options",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Self-Hosted vs Cloud"
+          },
+          {
+            "type": "content",
+            "emoji": "☁️",
+            "title": "Deployment Choices",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🏠",
+                  "text": "<strong>Self-Hosted</strong> - Full control, free"
+                },
+                {
+                  "emoji": "☁️",
+                  "text": "<strong>n8n.cloud</strong> - Managed, paid"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>Desktop App</strong> - Local development"
+                },
+                {
+                  "emoji": "🐳",
+                  "text": "<strong>Docker</strong> - Recommended for servers"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>npm</strong> - Direct installation"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "installation",
+        "title": "Installation Methods",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Getting n8n"
+          },
+          {
+            "type": "content",
+            "emoji": "📥",
+            "title": "Installation Options",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🐳",
+                  "text": "<strong>Docker</strong> - Recommended for production"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>npm</strong> - Node.js package manager"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>Desktop App</strong> - GUI installer"
+                },
+                {
+                  "emoji": "☁️",
+                  "text": "<strong>n8n.cloud</strong> - Hosted service"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Cloud Platforms</strong> - Render, Railway, etc."
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🐳",
+            "title": "Docker Installation",
+            "box": {
+              "content": "<strong>Quick start with Docker</strong>",
+              "code": "# Basic Docker run\ndocker run -it --rm \\\n  --name n8n \\\n  -p 5678:5678 \\\n  -v ~/.n8n:/home/node/.n8n \\\n  n8nio/n8n\n\n# With Docker Compose\nversion: '3.8'\nservices:\n  n8n:\n    image: n8nio/n8n\n    ports:\n      - \"5678:5678\"\n    environment:\n      - N8N_BASIC_AUTH_ACTIVE=true\n      - N8N_BASIC_AUTH_USER=user\n      - N8N_BASIC_AUTH_PASSWORD=pass\n    volumes:\n      - n8n_data:/home/node/.n8n\n\nvolumes:\n  n8n_data:"
+            }
+          }
+        ]
+      },
+      {
+        "id": "security",
+        "title": "Security & Encryption",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Security Features"
+          },
+          {
+            "type": "content",
+            "emoji": "🔒",
+            "title": "Security Measures",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔐",
+                  "text": "<strong>Encryption</strong> - Data encryption at rest"
+                },
+                {
+                  "emoji": "🔑",
+                  "text": "<strong>Authentication</strong> - User login security"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>HTTPS</strong> - Secure communications"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>Audit Logs</strong> - Track all operations"
+                },
+                {
+                  "emoji": "👥",
+                  "text": "<strong>Role-based Access</strong> - Granular permissions"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "docker-production",
+        "title": "n8n in Docker",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Production Docker Setup"
+          },
+          {
+            "type": "content",
+            "emoji": "🐳",
+            "title": "Docker with Database",
+            "box": {
+              "content": "<strong>Production-ready Docker Compose</strong>",
+              "code": "version: '3.8'\nservices:\n  n8n:\n    image: n8nio/n8n\n    ports:\n      - \"5678:5678\"\n    environment:\n      - DB_TYPE=postgresdb\n      - DB_POSTGRESDB_HOST=postgres\n      - DB_POSTGRESDB_USER=n8n\n      - DB_POSTGRESDB_PASSWORD=password\n      - DB_POSTGRESDB_DATABASE=n8n\n      - N8N_BASIC_AUTH_ACTIVE=true\n    depends_on:\n      - postgres\n    volumes:\n      - n8n_data:/home/node/.n8n\n\n  postgres:\n    image: postgres:13\n    environment:\n      - POSTGRES_USER=n8n\n      - POSTGRES_PASSWORD=password\n      - POSTGRES_DB=n8n\n    volumes:\n      - postgres_data:/var/lib/postgresql/data\n\nvolumes:\n  n8n_data:\n  postgres_data:"
+            }
+          }
+        ]
+      },
+      {
+        "id": "reverse-proxy",
+        "title": "Reverse Proxy Setup",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Nginx / Traefik / Caddy"
+          },
+          {
+            "type": "content",
+            "emoji": "🌐",
+            "title": "Reverse Proxy Configuration",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Nginx</strong> - High performance web server"
+                },
+                {
+                  "emoji": "🐝",
+                  "text": "<strong>Traefik</strong> - Automatic service discovery"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Caddy</strong> - Automatic HTTPS, simple config"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>SSL Termination</strong> - HTTPS encryption"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Load Balancing</strong> - Multiple n8n instances"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "postgres-backend",
+        "title": "PostgreSQL Backend",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Database Configuration"
+          },
+          {
+            "type": "content",
+            "emoji": "🐘",
+            "title": "PostgreSQL Benefits",
+            "box": {
+              "list": [
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Data Persistence</strong> - Workflows survive restarts"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Performance</strong> - Faster than SQLite"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>Reliability</strong> - ACID compliance"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Scalability</strong> - Handle large workloads"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Backups</strong> - Standard database backups"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "user-management",
+        "title": "User Management",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Multi-User Setup"
+          },
+          {
+            "type": "content",
+            "emoji": "👥",
+            "title": "User Management Features",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔑",
+                  "text": "<strong>Authentication</strong> - User login system"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Roles</strong> - Owner, member, limited user"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Permissions</strong> - Granular access control"
+                },
+                {
+                  "emoji": "👀",
+                  "text": "<strong>Audit Trail</strong> - Track user activities"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>SSO</strong> - Single sign-on integration"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "production-scaling",
+        "title": "Production Scaling",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Scaling & Performance"
+          },
+          {
+            "type": "content",
+            "emoji": "🚀",
+            "title": "Production Best Practices",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔢",
+                  "text": "<strong>Multiple Workers</strong> - Parallel execution"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Queue System</strong> - Background processing"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Database Optimization</strong> - Performance tuning"
+                },
+                {
+                  "emoji": "📈",
+                  "text": "<strong>Monitoring</strong> - Health checks and metrics"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>High Availability</strong> - Redundant setup"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "redis-queue",
+        "title": "Redis Queue Mode",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Redis Integration"
+          },
+          {
+            "type": "content",
+            "emoji": "🔄",
+            "title": "Redis Benefits",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Performance</strong> - In-memory data store"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Queue Management</strong> - Reliable job processing"
+                },
+                {
+                  "emoji": "🔀",
+                  "text": "<strong>Load Distribution</strong> - Multiple worker nodes"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Session Storage</strong> - User session management"
+                },
+                {
+                  "emoji": "📈",
+                  "text": "<strong>Scalability</strong> - Horizontal scaling"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "workflow-versioning",
+        "title": "Workflow Versioning",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Backup & Version Control"
+          },
+          {
+            "type": "content",
+            "emoji": "💾",
+            "title": "Versioning Features",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Auto-save</strong> - Automatic version creation"
+                },
+                {
+                  "emoji": "📋",
+                  "text": "<strong>Manual Snapshots</strong> - Create named versions"
+                },
+                {
+                  "emoji": "↩️",
+                  "text": "<strong>Rollback</strong> - Restore previous versions"
+                },
+                {
+                  "emoji": "📤",
+                  "text": "<strong>Export/Import</strong> - Backup workflows"
+                },
+                {
+                  "emoji": "🔍",
+                  "text": "<strong>Change Tracking</strong> - See version differences"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cloud-deployment",
+        "title": "Cloud Deployment",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Deploying to Cloud Platforms"
+          },
+          {
+            "type": "content",
+            "emoji": "☁️",
+            "title": "Cloud Platforms",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Render</strong> - Simple deployment"
+                },
+                {
+                  "emoji": "🚄",
+                  "text": "<strong>Railway</strong> - Git-based deployment"
+                },
+                {
+                  "emoji": "✈️",
+                  "text": "<strong>Fly.io</strong> - Global edge deployment"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>VPS</strong> - Virtual private server"
+                },
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>Kubernetes</strong> - Container orchestration"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cli-env-variables",
+        "title": "CLI & Environment Variables",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Command Line Interface"
+          },
+          {
+            "type": "content",
+            "emoji": "💻",
+            "title": "CLI Features",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>Configuration</strong> - Set via environment vars"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Management</strong> - Workflow import/export"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Monitoring</strong> - System status checks"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Automation</strong> - Script n8n operations"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>Security</strong> - Secure credential setup"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "custom-nodes",
+        "title": "Custom Nodes",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Building Custom Nodes"
+          },
+          {
+            "type": "content",
+            "emoji": "🔧",
+            "title": "Custom Node Development",
+            "box": {
+              "list": [
+                {
+                  "emoji": "💻",
+                  "text": "<strong>JavaScript/TypeScript</strong> - Development languages"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>NPM Packages</strong> - Reusable components"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Templates</strong> - Quick start examples"
+                },
+                {
+                  "emoji": "🧪",
+                  "text": "<strong>Testing</strong> - Unit and integration tests"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>Documentation</strong> - API documentation"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ai-integrations",
+        "title": "AI Integrations",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "AI & Machine Learning"
+          },
+          {
+            "type": "content",
+            "emoji": "🤖",
+            "title": "AI Integration Examples",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔮",
+                  "text": "<strong>OpenAI</strong> - GPT models and embeddings"
+                },
+                {
+                  "emoji": "💬",
+                  "text": "<strong>Claude</strong> - Anthropic AI models"
+                },
+                {
+                  "emoji": "🌟",
+                  "text": "<strong>Gemini</strong> - Google AI services"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Data Processing</strong> - AI-powered analysis"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Automation</strong> - Intelligent workflows"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "real-world-use-cases",
+        "title": "Real-World Use Cases",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Practical Applications"
+          },
+          {
+            "type": "content",
+            "emoji": "💼",
+            "title": "Industry Applications",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Automation</strong> - Business process automation"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>ETL</strong> - Extract, transform, load data"
+                },
+                {
+                  "emoji": "🔔",
+                  "text": "<strong>Alerts</strong> - Monitoring and notifications"
+                },
+                {
+                  "emoji": "🤖",
+                  "text": "<strong>Bots</strong> - Chatbots and assistants"
+                },
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>DevOps</strong> - CI/CD and infrastructure"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "best-practices",
+        "title": "Best Practices",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Workflow Design"
+          },
+          {
+            "type": "content",
+            "emoji": "⭐",
+            "title": "Design Best Practices",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📐",
+                  "text": "<strong>Modular Design</strong> - Reusable components"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>Documentation</strong> - Clear workflow comments"
+                },
+                {
+                  "emoji": "🚨",
+                  "text": "<strong>Error Handling</strong> - Graceful failure"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Performance</strong> - Efficient node usage"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>Security</strong> - Secure credential management"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "debugging",
+        "title": "Debugging",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Troubleshooting"
+          },
+          {
+            "type": "content",
+            "emoji": "🔧",
+            "title": "Debugging Tools",
+            "box": {
+              "list": [
+                {
+                  "emoji": "👀",
+                  "text": "<strong>Execution View</strong> - Step-by-step debugging"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Logs</strong> - Detailed execution logs"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Test Data</strong> - Sample data testing"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Manual Execution</strong> - Trigger workflows manually"
+                },
+                {
+                  "emoji": "📋",
+                  "text": "<strong>Error Messages</strong> - Clear error descriptions"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "community-nodes",
+        "title": "Community Nodes",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Marketplace & Community"
+          },
+          {
+            "type": "content",
+            "emoji": "🌐",
+            "title": "Community Resources",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Marketplace</strong> - Pre-built nodes"
+                },
+                {
+                  "emoji": "💬",
+                  "text": "<strong>Forums</strong> - Community support"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>Documentation</strong> - Official guides"
+                },
+                {
+                  "emoji": "🎥",
+                  "text": "<strong>Tutorials</strong> - Video and written guides"
+                },
+                {
+                  "emoji": "🐙",
+                  "text": "<strong>GitHub</strong> - Source code and issues"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "roadmap",
+        "title": "Roadmap",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Future Development"
+          },
+          {
+            "type": "content",
+            "emoji": "🗺️",
+            "title": "n8n Roadmap",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>New Features</strong> - Regular updates"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Performance</strong> - Optimization improvements"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Integrations</strong> - More app connections"
+                },
+                {
+                  "emoji": "💡",
+                  "text": "<strong>Community Driven</strong> - User feature requests"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cheat-sheet",
+        "title": "Cheat Sheet",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📋",
+            "title": "n8n Cheat Sheet",
+            "box": {
+              "content": "<strong>Common Nodes Quick Reference</strong>",
+              "code": "Essential Nodes:\n• HTTP Request - Make API calls\n• Webhook - Receive webhook calls\n• Cron - Schedule workflows\n• Code - Custom JavaScript\n• IF - Conditional logic\n• Switch - Multiple conditions\n• Merge - Combine data streams\n• Wait - Pause execution\n\nData Nodes:\n• Spreadsheet File - Read/write CSV, Excel\n• Google Sheets - Spreadsheet integration\n• Database - SQL queries\n• XML - XML data processing\n• JSON - JSON manipulation\n\nCommunication Nodes:\n• Email - Send/receive emails\n• Slack - Team messaging\n• Telegram - Bot messages\n• Discord - Community notifications\n\nUtility Nodes:\n• Set - Assign variables\n• Function - Custom code\n• Date & Time - Time operations\n• Aggregate - Batch processing"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hands-on-demo",
+        "title": "Hands-On Demo",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Live Demonstration"
+          },
+          {
+            "type": "content",
+            "emoji": "🔨",
+            "title": "Demo Workflow: Complete Automation",
+            "box": {
+              "list": [
+                {
+                  "emoji": "1️⃣",
+                  "text": "Webhook trigger from external app"
+                },
+                {
+                  "emoji": "2️⃣",
+                  "text": "Data transformation and validation"
+                },
+                {
+                  "emoji": "3️⃣",
+                  "text": "Database operation (insert/update)"
+                },
+                {
+                  "emoji": "4️⃣",
+                  "text": "External API call for processing"
+                },
+                {
+                  "emoji": "5️⃣",
+                  "text": "Conditional logic based on results"
+                },
+                {
+                  "emoji": "6️⃣",
+                  "text": "Multiple notification channels"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "learning-resources",
+        "title": "Learning Resources",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📚",
+            "title": "Continue Learning",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Official Docs</strong> - docs.n8n.io"
+                },
+                {
+                  "emoji": "🐙",
+                  "text": "<strong>GitHub Repository</strong> - github.com/n8n-io/n8n"
+                },
+                {
+                  "emoji": "💬",
+                  "text": "<strong>Community</strong> - Community forum"
+                },
+                {
+                  "emoji": "🎥",
+                  "text": "<strong>Video Tutorials</strong> - YouTube channel"
+                },
+                {
+                  "emoji": "📖",
+                  "text": "<strong>Blog</strong> - Updates and case studies"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "title": "Quick Quiz",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "🧠",
+            "title": "Test Your Knowledge",
+            "box": {
+              "list": [
+                {
+                  "emoji": "1️⃣",
+                  "text": "What does n8n stand for?"
+                },
+                {
+                  "emoji": "2️⃣",
+                  "text": "How do you trigger a workflow on a schedule?"
+                },
+                {
+                  "emoji": "3️⃣",
+                  "text": "What's the main advantage of self-hosting n8n?"
+                },
+                {
+                  "emoji": "4️⃣",
+                  "text": "How can you handle errors in a workflow?"
+                },
+                {
+                  "emoji": "5️⃣",
+                  "text": "What database is recommended for production?"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "summary",
+        "title": "Summary",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📝",
+            "title": "Key Takeaways",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔓",
+                  "text": "n8n = Fair-code workflow automation"
+                },
+                {
+                  "emoji": "🏠",
+                  "text": "Self-hosted for complete data control"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "200+ integrations and growing"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "No-code to full-code flexibility"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "Extensible with custom nodes"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "Production-ready with scaling options"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "qa-and-thank-you",
+        "title": "Q&A and Thank You",
+        "slides": [
+          {
+            "type": "qa",
+            "title": "Questions? 💬",
+            "content": "Let's discuss n8n workflows, integrations, or specific automation challenges!<br><span class=\"gradient-accent\">All automation questions welcome!</span>"
+          },
+          {
+            "type": "thank-you",
+            "title": "Thank You! 🎉",
+            "box": {
+              "content": "<span class=\"emoji\">🔄</span> Ready to automate your workflows?<br><span class=\"gradient-accent\">Start building with n8n today!</span>",
+              "note": "Fair-Code • Self-Hosted • Powerful Automation"
+            },
+            "footer": {
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
