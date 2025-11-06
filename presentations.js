@@ -243,17 +243,20 @@ const PRESENTATIONS_CONFIG = [
       "indexing",
       "transactions"
     ]
-  }, {
+  },
+  {
     file: "presentations/intro-mysql.json",
     title: "Introduction to MySQL",
     description: "Complete database management guide from beginner to production ready",
-        keywords: ["mysql", "database", "sql", "rdbms", "innodb", "replication", "backup"]
-      }, {
-        file: "presentations/intro-mongodb.json",
+    keywords: ["mysql", "database", "sql", "rdbms", "innodb", "replication", "backup"]
+  },
+  {
+    file: "presentations/intro-mongodb.json",
     title: "Introduction to MongoDB",
     description: "Complete NoSQL database guide from beginner to production ready",
     keywords: ["mongodb", "nosql", "document", "database", "bson", "aggregation", "atlas"]
-  },{
+  },
+  {
     file: "presentations/intro-sql-databases.json",
     title: "SQL & Databases – Fundamentals of Relational Database Management",
     description: "Complete guide to relational databases and SQL from basics to advanced concepts",
@@ -264,51 +267,73 @@ const PRESENTATIONS_CONFIG = [
     title: "Introduction to JavaScript",
     description: "An introduction to the fundamentals of JavaScript.",
     keywords: ["javascript", "web", "programming", "frontend"]
-  },{
-  file: "presentations/intro-typescript.json",
-  title: "TypeScript – Typed JavaScript for Scalable Applications",
-  description: "Complete guide to TypeScript from basics to advanced patterns",
-  keywords: ["typescript", "javascript", "types", "static-typing", "angular", "react", "nodejs"]
-},{
-  "file": "presentations/intro-powertoys.json",
-  "title": "Introduction to Microsoft PowerToys",
-  "description": "Complete Windows productivity toolkit guide from installation to advanced workflows",
-  "keywords": [
-    "microsoft",
-    "powertoys",
-    "windows",
-    "productivity",
-    "utilities",
-    "automation",
-    "keyboard-shortcuts",
-    "window-management",
-    "fancyzones",
-    "powertoys-run",
-    "windows-tools",
-    "power-user",
-    "workflow-optimization"
-  ]
-},{
-  "file": "presentations/intro-stirling-pdf.json",
-  "title": "Introduction to Stirling PDF",
-  "description": "Complete self-hosted PDF processing toolkit with advanced document management capabilities",
-  "keywords": [
-    "stirling-pdf",
-    "pdf",
-    "document-processing",
-    "self-hosted",
-    "open-source",
-    "docker",
-    "ocr",
-    "pdf-manipulation",
-    "document-management",
-    "privacy",
-    "pdf-tools",
-    "self-hosted-pdf",
-    "pdf-conversion",
-    "pdf-editing"
-  ]
-}
-
+  },
+  {
+    file: "presentations/intro-typescript.json",
+    title: "TypeScript – Typed JavaScript for Scalable Applications",
+    description: "Complete guide to TypeScript from basics to advanced patterns",
+    keywords: ["typescript", "javascript", "types", "static-typing", "angular", "react", "nodejs"]
+  },
+  {
+    file: "presentations/intro-powertoys.json",
+    title: "Introduction to Microsoft PowerToys",
+    description: "Complete Windows productivity toolkit guide from installation to advanced workflows",
+    keywords: [
+      "microsoft",
+      "powertoys",
+      "windows",
+      "productivity",
+      "utilities",
+      "automation",
+      "keyboard-shortcuts",
+      "window-management",
+      "fancyzones",
+      "powertoys-run",
+      "windows-tools",
+      "power-user",
+      "workflow-optimization"
+    ]
+  },
+  {
+    file: "presentations/intro-stirling-pdf.json",
+    title: "Introduction to Stirling PDF",
+    description: "Complete self-hosted PDF processing toolkit with advanced document management capabilities",
+    keywords: [
+      "stirling-pdf",
+      "pdf",
+      "document-processing",
+      "self-hosted",
+      "open-source",
+      "docker",
+      "ocr",
+      "pdf-manipulation",
+      "document-management",
+      "privacy",
+      "pdf-tools",
+      "self-hosted-pdf",
+      "pdf-conversion",
+      "pdf-editing"
+    ]
+  },
+  {
+    file: "presentations/intro-n8n.json",
+    title: "Introduction to n8n",
+    description: "Complete workflow automation platform guide from basics to advanced enterprise deployment",
+    keywords: [
+      "n8n",
+      "workflow-automation",
+      "node-based-automation",
+      "self-hosted",
+      "open-source",
+      "fair-code",
+      "api-integration",
+      "webhooks",
+      "automation-tools",
+      "no-code",
+      "low-code",
+      "workflow-orchestration",
+      "business-automation"
+    ]
+  }
   // Add more presentations here as you create them
 ];
