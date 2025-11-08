@@ -19,34 +19,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadPresentations() {
     const container = document.getElementById('categories-container');
 
-    for (const config of PRESENTATIONS_CONFIG) {
-        try {
-            const response = await fetch(config.file);
-            console.log('res : ',response);
-            if (!response.ok) continue;
+    // Clear any previous data
+    allPresentations.length = 0;
 
-            const data = await response.json();
-            if (validatePresentationFormat(data)) {
-                allPresentations.push({
-                    ...config,
-                    data: data,
-                    valid: true,
-                });
-            }
-
-        } catch (error) {
-            console.warn(`Failed to load ${config.file}:`, error);
+    try {
+        // Only store configs (no JSON fetch)
+        for (const config of PRESENTATIONS_CONFIG) {
+            allPresentations.push({
+                ...config,
+                valid: true,
+                data: null, // Data will be fetched later on demand
+            });
         }
-    }
 
-    if (allPresentations.length === 0) {
-        container.innerHTML = '<div class="no-results">⚠️ No presentations found</div>';
-        return;
-    }
+        if (allPresentations.length === 0) {
+            container.innerHTML = '<div class="no-results">⚠️ No presentations found</div>';
+            return;
+        }
 
-    categorizePresentations();
-    updateStats();
-    renderCategories();
+        categorizePresentations();
+        updateStats();
+        renderCategories();
+
+    } catch (error) {
+        console.error("Error loading presentations:", error);
+        container.innerHTML = '<div class="no-results">⚠️ Failed to load presentations</div>';
+    }
 }
 
 /**
@@ -183,8 +181,8 @@ function renderCategories() {
     let html = '';
 
     // Sort categories by presentation count (descending)
-    const sortedCategories = Object.entries(categorizedPresentations)
-        .sort((a, b) => b[1].length - a[1].length);
+    const sortedCategories = Object.entries(categorizedPresentations);
+       // .sort((a, b) => b[1].length - a[1].length);
 
     sortedCategories.forEach(([categoryId, presentations]) => {
         const category = categoryMetadata[categoryId];
@@ -370,17 +368,37 @@ function validatePresentationFormat(data) {
  */
 async function loadPresentation(file) {
     const presentation = allPresentations.find(p => p.file === file);
-    if (!presentation) return;
+    if (!presentation) {
+        alert("Presentation not found.");
+        return;
+    }
 
     try {
+        // Fetch JSON only now (on-demand)
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+        const data = await response.json();
+
+        if (!validatePresentationFormat(data)) {
+            throw new Error(`Invalid presentation format in ${file}`);
+        }
+
+        // Cache loaded data (optional)
+        presentation.data = data;
+
+        // Switch to presentation mode
         document.body.classList.add('presentation-mode');
         document.querySelector('.reveal').classList.add('active');
 
-        await renderSlides(presentation.data);
+        // Render slides
+        await renderSlides(data);
+
+        // Update document title
         document.title = `${presentation.title} | Bude Global`;
+
     } catch (error) {
-        console.error('Error loading presentation:', error);
-        alert('Failed to load presentation. Please try again.');
+        console.error("Error loading presentation:", error);
+        alert("Failed to load presentation. Please try again.");
         returnToHomepage();
     }
 }
