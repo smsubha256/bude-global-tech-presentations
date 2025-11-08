@@ -301,8 +301,7 @@
             "title": "npm Installation",
             "box": {
               "content": "<strong>Using package manager</strong>",
-              "code": "# Using npm\nnpm install admin-lte@^3.2 --save\n\n# Using yarn\nyarn add admin-lte@^3.2\n\n# Using CDN in HTML\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css\">
-<script src=\"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js\"></script>\n\n# File structure after installation\nadmin-lte/\n├── dist/\n│   ├── css/\n│   ├── js/\n│   └── img/\n├── build/\n├── plugins/\n└── pages/"
+              "code": "# Using npm\nnpm install admin-lte@^3.2 --save\n\n# Using yarn\nyarn add admin-lte@^3.2\n\n# Using CDN in HTML\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css\"> <script src=\"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js\"></script>\n\n# File structure after installation\nadmin-lte/\n├── dist/\n│   ├── css/\n│   ├── js/\n│   └── img/\n├── build/\n├── plugins/\n└── pages/"
             }
           }
         ]
