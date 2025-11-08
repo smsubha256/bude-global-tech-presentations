@@ -1,21 +1,21 @@
 # 📋 Presentations Progress Tracker
 
 > **Last Updated**: November 2025
-> **Total Presentations**: 28 ✅ | 79 ⬜
-> **Completion**: 26.2%
+> **Total Presentations**: 29 ✅ | 78 ⬜
+> **Completion**: 27.1%
 
 ---
 
 ## 📊 Progress Overview
 
 ```
-████████░░░░░░░░░░░░░░░░░░░░░░░░ 26.2% Complete
+█████████░░░░░░░░░░░░░░░░░░░░░░░░ 27.1% Complete
 ```
 
 | Category | Completed | Pending | Total | Progress |
 |----------|-----------|---------|-------|----------|
-| 🟢 **Core Topics** | 28 | 13 | 41 | 68.3% |
-| 🔵 **Programming Languages** | 0 | 9 | 9 | 0% |
+| 🟢 **Core Topics** | 29 | 12 | 41 | 70.7% |
+| 🔵 **Programming Languages** | 1 | 8 | 9 | 11.1% |
 | 🟣 **Backend Frameworks** | 2 | 6 | 8 | 25% |
 | 🔴 **Databases & Storage** | 0 | 8 | 8 | 0% |
 | 🟠 **DevOps & Cloud** | 2 | 8 | 10 | 20% |
@@ -26,7 +26,7 @@
 
 ---
 
-## ✅ Completed Presentations (28/107)
+## ✅ Completed Presentations (29/107)
 
 <details open>
 <summary><strong>Core Topics Completed</strong></summary>
@@ -38,6 +38,7 @@
 - [x] #13 React - [View](presentations/react-presentation.json)
 - [x] #14 Next.js - [View](presentations/nextjs-presentation.json)
 - [x] #15 Node.js - [View](presentations/nodejs-presentation.json)
+- [x] #63 JavaScript Fundamentals - [View](presentations/intro-js.json)
 - [x] #68 GraphQL – API Query Language - [View](presentations/intro-graphql.json)
 - [x] #69 REST API & Swagger/OpenAPI - [View](presentations/intro-rest-api-swagger.json)
 
@@ -73,10 +74,9 @@
 
 ---
 
-## ⬜ Pending Presentations (79)
+## ⬜ Pending Presentations (78)
 
-### 🔵 Programming Languages & Core Tech (14)
-- [ ] [#63 JavaScript Fundamentals](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/63)
+### 🔵 Programming Languages & Core Tech (13)
 - [ ] [#64 TypeScript + Node.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/64)
 - [ ] [#65 Vue.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/65)
 - [ ] [#66 Angular](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/66)

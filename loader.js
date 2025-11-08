@@ -1,205 +1,400 @@
-let availablePresentations = [];
-let currentPresentation = null;
-const INITIAL_LOAD_COUNT = 5; // <-- New: Number of presentations to load first
+/**
+ * Dynamic Presentation Loader - Pure Category-Based System
+ * No keyword detection, purely driven by presentation metadata
+ */
 
-// Start the app
-document.addEventListener("DOMContentLoaded", init);
+let allPresentations = [];
+let categorizedPresentations = {};
+let categoryMetadata = {};
 
-// Initialize app
-async function init() {
-  // Setup listeners immediately so search bar is responsive
-  setupEventListeners();
-  // discoverPresentations will now handle its own display logic
-  await discoverPresentations();
-}
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadPresentations();
+    setupEventListeners();
+});
 
-// --- MODIFIED FUNCTION ---
-// Discover and validate available presentations (in two stages)
-async function discoverPresentations() {
-  const container = document.getElementById("suggestions-container");
-  container.innerHTML =
-    '<div class="loading">🔍 Discovering presentations...</div>';
+/**
+ * Load all presentations from PRESENTATIONS_CONFIG
+ */
+async function loadPresentations() {
+    const container = document.getElementById('categories-container');
 
-  availablePresentations = [];
+    for (const config of PRESENTATIONS_CONFIG) {
+        try {
+            const response = await fetch(config.file);
+            console.log('res : ',response);
+            if (!response.ok) continue;
 
-  // Assuming PRESENTATIONS_CONFIG is sorted newest first
-  const initialConfigs = PRESENTATIONS_CONFIG.slice(0, INITIAL_LOAD_COUNT);
-  const remainingConfigs = PRESENTATIONS_CONFIG.slice(INITIAL_LOAD_COUNT);
+            const data = await response.json();
+            if (validatePresentationFormat(data)) {
+                allPresentations.push({
+                    ...config,
+                    data: data,
+                    valid: true,
+                });
+            }
 
-  // --- Helper function to fetch and validate a single config ---
-  const fetchAndValidate = async (config) => {
-    try {
-      const response = await fetch(config.file);
-      if (!response.ok) return null; // Fail quietly
-
-      const data = await response.json();
-      if (validatePresentationFormat(data)) {
-        return {
-          ...config,
-          data: data,
-          valid: true,
-        };
-      }
-    } catch (error) {
-      console.warn(`Failed to load ${config.file}:`, error);
+        } catch (error) {
+            console.warn(`Failed to load ${config.file}:`, error);
+        }
     }
-    return null; // Return null on any error
-  };
 
-  // --- Part 1: Load Initial 5 Presentations (in parallel) ---
-  const initialPromises = initialConfigs.map(fetchAndValidate);
-  const initialResults = await Promise.all(initialPromises);
-  
-  // Filter out any nulls (failed fetches/validations)
-  availablePresentations = initialResults.filter((p) => p !== null);
-
-  // --- Display Initial Results IMMEDIATELY ---
-  // This will show the first 5, or "No presentations found" if all 5 failed.
-  displaySuggestions(availablePresentations);
-
-  // --- Part 2: Load Remaining in Background (also in parallel) ---
-  const remainingPromises = remainingConfigs.map(fetchAndValidate);
-  const remainingResults = await Promise.all(remainingPromises);
-
-  const newlyLoaded = remainingResults.filter((p) => p !== null);
-
-  if (newlyLoaded.length > 0) {
-    // Add the new presentations to the main array
-    availablePresentations.push(...newlyLoaded);
-
-    // --- Intelligently Update UI ---
-    const searchInput = document.getElementById("topic-search");
-    const query = searchInput.value.toLowerCase().trim();
-
-    if (query === "") {
-      // If user isn't searching, just update the main list with all items
-      displaySuggestions(availablePresentations);
-    } else {
-      // If user IS searching, re-run the search to include new results
-      handleSearch({ target: searchInput });
+    if (allPresentations.length === 0) {
+        container.innerHTML = '<div class="no-results">⚠️ No presentations found</div>';
+        return;
     }
-  }
 
-  // --- Final Error Check ---
-  // If, after ALL loading is done, we still have nothing, show the final error.
-  if (availablePresentations.length === 0) {
-    container.innerHTML =
-      '<div class="error-message">⚠️ No valid presentations found</div>';
-  }
+    categorizePresentations();
+    updateStats();
+    renderCategories();
 }
 
-// --- ORIGINAL FUNCTIONS (Unchanged) ---
+/**
+ * Categorize presentations based on their category metadata
+ * Dynamically creates categories from presentation data
+ */
+function categorizePresentations() {
+    categorizedPresentations = {};
+    categoryMetadata = {};
 
-// Validate presentation JSON format
-function validatePresentationFormat(data) {
-  return (
-    data &&
-    data.presentation &&
-    data.presentation.topics &&
-    Array.isArray(data.presentation.topics) &&
-    data.presentation.topics.length > 0 &&
-    data.presentation.topics[0].slides &&
-    Array.isArray(data.presentation.topics[0].slides)
-  );
-}
+    allPresentations.forEach(presentation => {
+        // Get categories from presentation config
+        const categories = presentation.category || ['uncategorized'];
+        console.log('Categories in:', presentation);
+        categories.forEach(categoryId => {
+            const normalizedId = categoryId.toLowerCase().trim();
 
-// Setup event listeners
-function setupEventListeners() {
-  const searchInput = document.getElementById("topic-search");
-  searchInput.addEventListener("input", handleSearch);
-  searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const firstItem = document.querySelector(".suggestion-item");
-      if (firstItem) firstItem.click();
-    }
-  });
-}
+            // Initialize category if it doesn't exist
+            if (!categorizedPresentations[normalizedId]) {
+                categorizedPresentations[normalizedId] = [];
 
-// Handle search input
-function handleSearch(e) {
-  const query = e.target.value.toLowerCase().trim();
+                // Create metadata dynamically from category ID
+                categoryMetadata[normalizedId] = createCategoryMetadata(normalizedId);
+            }
 
-  // Get the current full list of loaded presentations
-  const allLoadedPresentations = availablePresentations;
-
-  if (query === "") {
-    displaySuggestions(allLoadedPresentations);
-    return;
-  }
-
-  const filtered = allLoadedPresentations.filter((pres) => {
-    return (
-      pres.title.toLowerCase().includes(query) ||
-      pres.description.toLowerCase().includes(query) ||
-      pres.keywords.some((kw) => kw.includes(query))
-    );
-  });
-
-  displaySuggestions(filtered);
-}
-
-// Display suggestions
-function displaySuggestions(presentations) {
-  const container = document.getElementById("suggestions-container");
-
-  // This check is now important for the initial load
-  if (presentations.length === 0) {
-    // Don't show "No presentations found" if we are still loading in the background
-    // Only show it if the discoverPresentations function sets the final error message
-    // Or if it's a search result
-    const isLoading = container.querySelector(".loading");
-    if (!isLoading) {
-      container.innerHTML =
-        '<div class="error-message">🔍 No presentations found</div>';
-    }
-    return;
-  }
-
-  const suggestionsHTML = `
-          <div class="suggestions">
-            ${presentations
-              .map(
-                (pres) => `
-                <div class="suggestion-item" data-file="${pres.file}">
-                  <div class="title">📚 ${pres.title}</div>
-                  <div class="description">${pres.description}</div>
-                </div>
-              `
-              )
-              .join("")}
-          </div>
-        `;
-
-  container.innerHTML = suggestionsHTML;
-
-  // Add click handlers
-  document.querySelectorAll(".suggestion-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      const file = item.getAttribute("data-file");
-      // Find from the global list, as the 'presentations' arg might be filtered
-      const presentation = availablePresentations.find((p) => p.file === file);
-      if (presentation) {
-        loadPresentation(presentation);
-      }
+            // Add presentation to category (avoid duplicates)
+            if (!categorizedPresentations[normalizedId].includes(presentation)) {
+                categorizedPresentations[normalizedId].push(presentation);
+            }
+        });
     });
-  });
+
+    console.log('Categories created:', Object.keys(categorizedPresentations));
 }
 
-// Load selected presentation
-async function loadPresentation(presentation) {
-  try {
-    // Hide selector
-    document.getElementById("presentation-selector").classList.add("hidden");
+/**
+ * Dynamically create category metadata from category ID
+ * @param {String} categoryId - Category identifier
+ * @returns {Object} Category metadata
+ */
+function createCategoryMetadata(categoryId) {
+    // Define metadata mapping for known categories
+    const categoryDefinitions = {
+        'programming': {
+            name: 'Programming Languages',
+            icon: '🔵',
+            description: 'Modern programming languages and paradigms'
+        },
+        'backend': {
+            name: 'Backend Frameworks',
+            icon: '🟣',
+            description: 'Server-side frameworks and APIs'
+        },
+        'frontend': {
+            name: 'Frontend Frameworks',
+            icon: '🎨',
+            description: 'UI frameworks and libraries'
+        },
+        'database': {
+            name: 'Databases & Storage',
+            icon: '🔴',
+            description: 'Data storage and management systems'
+        },
+        'devops': {
+            name: 'DevOps & Cloud',
+            icon: '🟠',
+            description: 'Infrastructure, deployment, and orchestration'
+        },
+        'security': {
+            name: 'Security & Auth',
+            icon: '🟡',
+            description: 'Security protocols and authentication'
+        },
+        'ai-data': {
+            name: 'AI & Automation',
+            icon: '🟢',
+            description: 'Artificial intelligence and data processing'
+        },
+        'tools': {
+            name: 'Tools & Productivity',
+            icon: '🟤',
+            description: 'Development tools and productivity software'
+        },
+        'business': {
+            name: 'Business Applications',
+            icon: '🟣',
+            description: 'Enterprise and business management systems'
+        },
+        'uncategorized': {
+            name: 'Other Topics',
+            icon: '📚',
+            description: 'Miscellaneous technical topics'
+        }
+    };
 
-    // Load slides
-    currentPresentation = presentation;
-    await renderSlides(presentation.data); // Assuming renderSlides is defined elsewhere
+    // Return predefined metadata or generate from ID
+    if (categoryDefinitions[categoryId]) {
+        return {
+            id: categoryId,
+            ...categoryDefinitions[categoryId]
+        };
+    }
 
-    // Update page title
-    document.title = `${presentation.title} | Bude Global`;
-  } catch (error) {
-    console.error("Error loading presentation:", error);
-    alert("Failed to load presentation. Please try again.");
-    document.getElementById("presentation-selector").classList.remove("hidden");
-  }
+    // Auto-generate metadata for unknown categories
+    return {
+        id: categoryId,
+        name: categoryId.split('-').map(word =>
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' '),
+        icon: '📦',
+        description: `${categoryId} related topics`
+    };
 }
+
+/**
+ * Update statistics display
+ */
+function updateStats() {
+    const totalPresentations = allPresentations.length;
+    const totalCategories = Object.keys(categorizedPresentations).length;
+    const activeCategories = Object.values(categorizedPresentations)
+        .filter(arr => arr.length > 0).length;
+
+    document.getElementById('total-presentations').textContent = totalPresentations;
+    document.getElementById('total-categories').textContent = totalCategories;
+    document.getElementById('active-categories').textContent = activeCategories;
+}
+
+/**
+ * Render all categories and presentations
+ */
+function renderCategories() {
+    const container = document.getElementById('categories-container');
+    let html = '';
+
+    // Sort categories by presentation count (descending)
+    const sortedCategories = Object.entries(categorizedPresentations)
+        .sort((a, b) => b[1].length - a[1].length);
+
+    sortedCategories.forEach(([categoryId, presentations]) => {
+        const category = categoryMetadata[categoryId];
+        const count = presentations.length;
+
+        if (count === 0) return;
+
+        html += `
+            <div class="category-section" data-category="${categoryId}">
+                <div class="category-header" onclick="toggleCategory('${categoryId}')">
+                    <div class="category-title">
+                        <span class="category-icon">${category.icon}</span>
+                        <div class="category-info">
+                            <h2>${category.name}</h2>
+                            <p>${category.description}</p>
+                        </div>
+                        <span class="category-badge">${count} ${count === 1 ? 'presentation' : 'presentations'}</span>
+                    </div>
+                    <div class="category-controls">
+                        <span class="collapse-toggle">▼</span>
+                    </div>
+                </div>
+                <div class="presentations-grid">
+                    ${presentations.map(pres => createPresentationCard(pres)).join('')}
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html || '<div class="no-results">No presentations available</div>';
+}
+
+/**
+ * Create HTML for a single presentation card
+ */
+function createPresentationCard(presentation) {
+    const keywordsToShow = presentation.keywords ? presentation.keywords.slice(0, 3) : [];
+
+    return `
+        <div class="presentation-card" onclick="loadPresentation('${presentation.file}')">
+            <div class="icon">📚</div>
+            <div class="title">${presentation.title}</div>
+            <div class="description">${presentation.description}</div>
+            ${keywordsToShow.length > 0 ? `
+                <div class="keywords">
+                    ${keywordsToShow.map(kw =>
+        `<span class="keyword-tag">${kw}</span>`
+    ).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+/**
+ * Toggle category collapse state
+ */
+function toggleCategory(categoryId) {
+    const section = document.querySelector(`[data-category="${categoryId}"]`);
+    if (section) {
+        section.classList.toggle('collapsed');
+    }
+}
+
+/**
+ * Setup event listeners
+ */
+function setupEventListeners() {
+    const searchInput = document.getElementById('topic-search');
+    let searchTimeout;
+
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            filterPresentations(e.target.value);
+        }, 300);
+    });
+
+    // ESC key to return to homepage
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('presentation-mode')) {
+            if (confirm('Return to homepage?')) {
+                returnToHomepage();
+            }
+        }
+    });
+}
+
+/**
+ * Filter presentations based on search query
+ */
+function filterPresentations(query) {
+    const lowerQuery = query.toLowerCase().trim();
+
+    if (!lowerQuery) {
+        // Restore original categorization
+        renderCategories();
+        return;
+    }
+
+    // Filter presentations
+    const filtered = allPresentations.filter(pres => {
+        const titleMatch = pres.title.toLowerCase().includes(lowerQuery);
+        const descMatch = pres.description.toLowerCase().includes(lowerQuery);
+        const keywordMatch = pres.keywords && pres.keywords.some(kw =>
+            kw.toLowerCase().includes(lowerQuery)
+        );
+        return titleMatch || descMatch || keywordMatch;
+    });
+
+    if (filtered.length === 0) {
+        document.getElementById('categories-container').innerHTML =
+            `<div class="no-results">🔍 No presentations found for "${query}"</div>`;
+        return;
+    }
+
+    // Re-categorize filtered presentations
+    const filteredCategories = {};
+
+    filtered.forEach(pres => {
+        const categories = pres.category || ['uncategorized'];
+        categories.forEach(catId => {
+            const normalizedId = catId.toLowerCase().trim();
+            if (!filteredCategories[normalizedId]) {
+                filteredCategories[normalizedId] = [];
+            }
+            if (!filteredCategories[normalizedId].includes(pres)) {
+                filteredCategories[normalizedId].push(pres);
+            }
+        });
+    });
+
+    // Render filtered categories
+    const container = document.getElementById('categories-container');
+    let html = '';
+
+    Object.entries(filteredCategories)
+        .sort((a, b) => b[1].length - a[1].length)
+        .forEach(([categoryId, presentations]) => {
+            const category = categoryMetadata[categoryId];
+            const count = presentations.length;
+
+            html += `
+                <div class="category-section" data-category="${categoryId}">
+                    <div class="category-header" onclick="toggleCategory('${categoryId}')">
+                        <div class="category-title">
+                            <span class="category-icon">${category.icon}</span>
+                            <div class="category-info">
+                                <h2>${category.name}</h2>
+                                <p>${category.description}</p>
+                            </div>
+                            <span class="category-badge">${count} ${count === 1 ? 'result' : 'results'}</span>
+                        </div>
+                        <div class="category-controls">
+                            <span class="collapse-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="presentations-grid">
+                        ${presentations.map(pres => createPresentationCard(pres)).join('')}
+                    </div>
+                </div>
+            `;
+        });
+
+    container.innerHTML = html;
+}
+
+/**
+ * Validate presentation JSON format
+ */
+function validatePresentationFormat(data) {
+    return data &&
+        data.presentation &&
+        data.presentation.topics &&
+        Array.isArray(data.presentation.topics) &&
+        data.presentation.topics.length > 0 &&
+        data.presentation.topics[0].slides &&
+        Array.isArray(data.presentation.topics[0].slides);
+}
+
+/**
+ * Load and display a presentation
+ */
+async function loadPresentation(file) {
+    const presentation = allPresentations.find(p => p.file === file);
+    if (!presentation) return;
+
+    try {
+        document.body.classList.add('presentation-mode');
+        document.querySelector('.reveal').classList.add('active');
+
+        await renderSlides(presentation.data);
+        document.title = `${presentation.title} | Bude Global`;
+    } catch (error) {
+        console.error('Error loading presentation:', error);
+        alert('Failed to load presentation. Please try again.');
+        returnToHomepage();
+    }
+}
+
+/**
+ * Return to homepage from presentation
+ */
+function returnToHomepage() {
+    document.body.classList.remove('presentation-mode');
+    document.querySelector('.reveal').classList.remove('active');
+    document.title = 'Bude Global Tech Presentations | Dynamic, Open-Source Knowledge Platform';
+    location.reload();
+}
+
+// Export functions for global access
+window.toggleCategory = toggleCategory;
+window.loadPresentation = loadPresentation;

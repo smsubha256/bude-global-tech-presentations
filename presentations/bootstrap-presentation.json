@@ -1,4 +1,5 @@
 {
+  "category": "frontend",
   "presentation": {
     "topics": [
       {
@@ -273,7 +274,26 @@
             "title": "CDN Quick Start",
             "box": {
               "content": "<strong>Using Bootstrap via CDN</strong>",
-              "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Bootstrap Starter</title>\n  <!-- Bootstrap CSS -->\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n</head>\n<body>\n  <h1 class=\"text-center text-primary m-5\">Hello, Bootstrap!</h1>\n  \n  <div class=\"container\">\n    <button class=\"btn btn-primary\">Primary Button</button>\n    <button class=\"btn btn-success\">Success Button</button>\n  </div>\n\n  <!-- Bootstrap JS -->\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n</body>\n</html>"
+              "code": "<!DOCTYPE html>\n<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <title>Bootstrap Starter</title>
+  <!-- Bootstrap CSS -->
+  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
+</head>
+<body>
+  <h1 class=\"text-center text-primary m-5\">Hello, Bootstrap!</h1>
+  
+  <div class=\"container\">
+    <button class=\"btn btn-primary\">Primary Button</button>
+    <button class=\"btn btn-success\">Success Button</button>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>
+</body>
+</html>"
             }
           },
           {
@@ -282,7 +302,8 @@
             "title": "NPM Installation",
             "box": {
               "content": "<strong>Install via npm</strong>",
-              "code": "# Initialize package.json\nnpm init -y\n\n# Install Bootstrap\nnpm install bootstrap\n\n# Install Bootstrap Icons (optional)\nnpm install bootstrap-icons\n\n<!-- Import in your main CSS file -->\n/* styles.css */\n@import \"bootstrap/dist/css/bootstrap.min.css\";\n@import \"bootstrap-icons/font/bootstrap-icons.css\";\n\n<!-- Import in JavaScript -->\n// app.js\nimport 'bootstrap/dist/js/bootstrap.bundle.min.js';\n\n<!-- HTML structure -->\n<!DOCTYPE html>\n<html>\n<head>\n  <link href=\"./styles.css\" rel=\"stylesheet\">\n</head>\n<body>\n  <!-- Your content -->\n  <script src=\"./app.js\"></script>\n</body>\n</html>"
+              "code": "# Initialize package.json\nnpm init -y\n\n# Install Bootstrap\nnpm install bootstrap\n\n# Install Bootstrap Icons (optional)\nnpm install bootstrap-icons\n\n<!-- Import in your main CSS file -->\n/* styles.css */\n@import \"bootstrap/dist/css/bootstrap.min.css\";\n@import \"bootstrap-icons/font/bootstrap-icons.css\";\n\n<!-- Import in JavaScript -->\n// app.js\nimport 'bootstrap/dist/js/bootstrap.bundle.min.js';\n\n<!-- HTML structure -->\n<!DOCTYPE html>\n<html>\n<head>\n  <link href=\"./styles.css\" rel=\"stylesheet\">
+</head>\n<body>\n  <!-- Your content -->\n  <script src=\"./app.js\"></script>\n</body>\n</html>"
             }
           }
         ]
@@ -301,7 +322,33 @@
             "title": "Grid Basics",
             "box": {
               "content": "<strong>12-column responsive grid</strong>",
-              "code": "<!-- Basic grid structure -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col\">\n      Equal width column\n    </div>\n    <div class=\"col\">\n      Equal width column\n    </div>\n  </div>\n</div>\n\n<!-- Specified column widths -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-8\">\n      Main content (8/12)\n    </div>\n    <div class=\"col-4\">\n      Sidebar (4/12)\n    </div>\n  </div>\n</div>\n\n<!-- Responsive grid -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12 col-md-8 col-lg-9\">\n      Full width on mobile, 8/12 on tablet, 9/12 on desktop\n    </div>\n    <div class=\"col-12 col-md-4 col-lg-3\">\n      Full width on mobile, 4/12 on tablet, 3/12 on desktop\n    </div>\n  </div>\n</div>"
+              "code": "<!-- Basic grid structure -->\n<div class=\"container\">\n  <div class=\"row\">
+    <div class=\"col\">
+      Equal width column
+    </div>
+    <div class=\"col\">
+      Equal width column
+    </div>
+  </div>
+</div>\n\n<!-- Specified column widths -->\n<div class=\"container\">
+  <div class=\"row\">
+    <div class=\"col-8\">
+      Main content (8/12)
+    </div>
+    <div class=\"col-4\">
+      Sidebar (4/12)
+    </div>
+  </div>
+</div>\n\n<!-- Responsive grid -->\n<div class=\"container\">
+  <div class=\"row\">
+    <div class=\"col-12 col-md-8 col-lg-9\">
+      Full width on mobile, 8/12 on tablet, 9/12 on desktop
+    </div>
+    <div class=\"col-12 col-md-4 col-lg-3\">
+      Full width on mobile, 4/12 on tablet, 3/12 on desktop
+    </div>
+  </div>
+</div>"
             }
           },
           {
@@ -310,7 +357,15 @@
             "title": "Breakpoints",
             "box": {
               "content": "<strong>Responsive breakpoints</strong>",
-              "code": "<!-- Breakpoint prefixes -->\nxs:  < 576px   (no prefix)\nsm:  ≥ 576px\nmd:  ≥ 768px\nlg:  ≥ 992px\nxl:  ≥ 1200px\nxxl: ≥ 1400px\n\n<!-- Usage examples -->\n<div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">\n  Responsive column\n</div>\n\n<!-- Hiding elements -->\n<div class=\"d-none d-md-block\">\n  Hidden on mobile, visible on tablet+\n</div>\n\n<div class=\"d-block d-md-none\">\n  Visible only on mobile\n</div>\n\n<!-- Responsive text alignment -->\n<p class=\"text-start text-md-center text-lg-end\">\n  Responsive text alignment\n</p>"
+              "code": "<!-- Breakpoint prefixes -->\nxs:  < 576px   (no prefix)\nsm:  ≥ 576px\nmd:  ≥ 768px\nlg:  ≥ 992px\nxl:  ≥ 1200px\nxxl: ≥ 1400px\n\n<!-- Usage examples -->\n<div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">
+  Responsive column
+</div>\n\n<!-- Hiding elements -->\n<div class=\"d-none d-md-block\">
+  Hidden on mobile, visible on tablet+
+</div>\n\n<div class=\"d-block d-md-none\">
+  Visible only on mobile
+</div>\n\n<!-- Responsive text alignment -->\n<p class=\"text-start text-md-center text-lg-end\">
+  Responsive text alignment
+</p>"
             }
           }
         ]
@@ -329,7 +384,17 @@
             "title": "Buttons & Button Groups",
             "box": {
               "content": "<strong>Button components</strong>",
-              "code": "<!-- Basic buttons -->\n<button type=\"button\" class=\"btn btn-primary\">Primary</button>\n<button type=\"button\" class=\"btn btn-secondary\">Secondary</button>\n<button type=\"button\" class=\"btn btn-success\">Success</button>\n<button type=\"button\" class=\"btn btn-danger\">Danger</button>\n<button type=\"button\" class=\"btn btn-warning\">Warning</button>\n<button type=\"button\" class=\"btn btn-info\">Info</button>\n<button type=\"button\" class=\"btn btn-light\">Light</button>\n<button type=\"button\" class=\"btn btn-dark\">Dark</button>\n\n<!-- Button variants -->\n<button class=\"btn btn-outline-primary\">Outline</button>\n<button class=\"btn btn-primary btn-lg\">Large</button>\n<button class=\"btn btn-primary btn-sm\">Small</button>\n\n<!-- Button groups -->\n<div class=\"btn-group\" role=\"group\">\n  <button type=\"button\" class=\"btn btn-primary\">Left</button>\n  <button type=\"button\" class=\"btn btn-primary\">Middle</button>\n  <button type=\"button\" class=\"btn btn-primary\">Right</button>\n</div>\n\n<!-- Toggle buttons -->\n<div class=\"btn-group\" role=\"group\">\n  <input type=\"radio\" class=\"btn-check\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked>\n  <label class=\"btn btn-outline-primary\" for=\"option1\">Radio 1</label>\n  \n  <input type=\"radio\" class=\"btn-check\" name=\"options\" id=\"option2\" autocomplete=\"off\">\n  <label class=\"btn btn-outline-primary\" for=\"option2\">Radio 2</label>\n</div>"
+              "code": "<!-- Basic buttons -->\n<button type=\"button\" class=\"btn btn-primary\">Primary</button>\n<button type=\"button\" class=\"btn btn-secondary\">Secondary</button>\n<button type=\"button\" class=\"btn btn-success\">Success</button>\n<button type=\"button\" class=\"btn btn-danger\">Danger</button>\n<button type=\"button\" class=\"btn btn-warning\">Warning</button>\n<button type=\"button\" class=\"btn btn-info\">Info</button>\n<button type=\"button\" class=\"btn btn-light\">Light</button>\n<button type=\"button\" class=\"btn btn-dark\">Dark</button>\n\n<!-- Button variants -->\n<button class=\"btn btn-outline-primary\">Outline</button>\n<button class=\"btn btn-primary btn-lg\">Large</button>\n<button class=\"btn btn-primary btn-sm\">Small</button>\n\n<!-- Button groups -->\n<div class=\"btn-group\" role=\"group\">
+  <button type=\"button\" class=\"btn btn-primary\">Left</button>
+  <button type=\"button\" class=\"btn btn-primary\">Middle</button>
+  <button type=\"button\" class=\"btn btn-primary\">Right</button>
+</div>\n\n<!-- Toggle buttons -->\n<div class=\"btn-group\" role=\"group\">
+  <input type=\"radio\" class=\"btn-check\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked>
+  <label class=\"btn btn-outline-primary\" for=\"option1\">Radio 1</label>
+  
+  <input type=\"radio\" class=\"btn-check\" name=\"options\" id=\"option2\" autocomplete=\"off">
+  <label class=\"btn btn-outline-primary\" for=\"option2\">Radio 2</label>
+</div>"
             }
           },
           {
@@ -338,7 +403,40 @@
             "title": "Forms & Validation",
             "box": {
               "content": "<strong>Form components</strong>",
-              "code": "<!-- Basic form -->\n<form>\n  <div class=\"mb-3\">\n    <label for=\"exampleInput\" class=\"form-label\">Email address</label>\n    <input type=\"email\" class=\"form-control\" id=\"exampleInput\" placeholder=\"name@example.com\">\n    <div class=\"form-text\">We'll never share your email.</div>\n  </div>\n  \n  <div class=\"mb-3\">\n    <label for=\"exampleSelect\" class=\"form-label\">Select menu</label>\n    <select class=\"form-select\" id=\"exampleSelect\">\n      <option selected>Open this select menu</option>\n      <option value=\"1\">One</option>\n      <option value=\"2\">Two</option>\n    </select>\n  </div>\n  \n  <div class=\"mb-3\">\n    <label for=\"exampleTextarea\" class=\"form-label\">Example textarea</label>\n    <textarea class=\"form-control\" id=\"exampleTextarea\" rows=\"3\"></textarea>\n  </div>\n  \n  <div class=\"mb-3 form-check\">\n    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck\">\n    <label class=\"form-check-label\" for=\"exampleCheck\">Check me out</label>\n  </div>\n  \n  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n</form>\n\n<!-- Form validation -->\n<form class=\"needs-validation\" novalidate>\n  <div class=\"mb-3\">\n    <label for=\"validationInput\" class=\"form-label\">Required field</label>\n    <input type=\"text\" class=\"form-control\" id=\"validationInput\" required>\n    <div class=\"invalid-feedback\">\n      Please provide a valid value.\n    </div>\n  </div>\n</form>"
+              "code": "<!-- Basic form -->\n<form>\n  <div class=\"mb-3\">
+    <label for=\"exampleInput\" class=\"form-label\">Email address</label>
+    <input type=\"email\" class=\"form-control\" id=\"exampleInput\" placeholder=\"name@example.com\">
+    <div class=\"form-text\">We'll never share your email.</div>
+  </div>
+  
+  <div class=\"mb-3\">
+    <label for=\"exampleSelect\" class=\"form-label\">Select menu</label>
+    <select class=\"form-select\" id=\"exampleSelect\">
+      <option selected>Open this select menu</option>
+      <option value=\"1\">One</option>
+      <option value=\"2\">Two</option>
+    </select>
+  </div>
+  
+  <div class=\"mb-3\">
+    <label for=\"exampleTextarea\" class=\"form-label\">Example textarea</label>
+    <textarea class=\"form-control\" id=\"exampleTextarea\" rows=\"3\"></textarea>
+  </div>
+  
+  <div class=\"mb-3 form-check\">
+    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck\">
+    <label class=\"form-check-label\" for=\"exampleCheck\">Check me out</label>
+  </div>
+  
+  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>
+</form>\n\n<!-- Form validation -->\n<form class=\"needs-validation\" novalidate>\n  <div class=\"mb-3\">
+    <label for=\"validationInput\" class=\"form-label\">Required field</label>
+    <input type=\"text\" class=\"form-control\" id=\"validationInput\" required>
+    <div class=\"invalid-feedback\">
+      Please provide a valid value.
+    </div>
+  </div>
+</form>"
             }
           }
         ]
@@ -357,7 +455,45 @@
             "title": "Navbar Component",
             "box": {
               "content": "<strong>Responsive navigation bar</strong>",
-              "code": "<!-- Basic navbar -->\n<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">My Website</a>\n    \n    <!-- Mobile toggle -->\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    \n    <!-- Navbar items -->\n    <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n      <ul class=\"navbar-nav me-auto\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link active\" href=\"#\">Home</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Features</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Pricing</a>\n        </li>\n      </ul>\n      \n      <!-- Search form -->\n      <form class=\"d-flex\">\n        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\">\n        <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n      </form>\n    </div>\n  </div>\n</nav>\n\n<!-- Navbar variations -->\n<nav class=\"navbar navbar-dark bg-dark\">Dark navbar</nav>\n<nav class=\"navbar navbar-light\" style=\"background-color: #e3f2fd;\">Custom color</nav>\n\n<!-- Fixed navbar -->\n<nav class=\"navbar fixed-top navbar-light bg-light\">Fixed to top</nav>\n<nav class=\"navbar fixed-bottom navbar-light bg-light\">Fixed to bottom</nav>"
+              "code": "<!-- Basic navbar -->\n<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+  <div class=\"container\">
+    <a class=\"navbar-brand\" href=\"#\">My Website</a>
+    
+    <!-- Mobile toggle -->
+    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">
+      <span class=\"navbar-toggler-icon\"></span>
+    </button>
+    
+    <!-- Navbar items -->
+    <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+      <ul class=\"navbar-nav me-auto\">
+        <li class=\"nav-item\">
+          <a class=\"nav-link active\" href=\"#\">Home</a>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"#\">Features</a>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"#\">Pricing</a>
+        </li>
+      </ul>
+      
+      <!-- Search form -->
+      <form class=\"d-flex\">
+        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Search\">
+        <button class=\"btn btn-outline-success\" type=\"submit\">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!--Navbar variations -->
+<nav class=\"navbar navbar-dark bg-dark\">Dark navbar</nav>
+<nav class=\"navbar navbar-light\" style=\"background-color: #e3f2fd;\">Custom color</nav>
+
+<!-- Fixed navbar -->
+<nav class=\"navbar fixed-top navbar-light bg-light\">Fixed to top</nav>
+<nav class=\"navbar fixed-bottom navbar-light bg-light\">Fixed to bottom</nav>"
             }
           }
         ]
@@ -376,7 +512,36 @@
             "title": "Cards Component",
             "box": {
               "content": "<strong>Card layouts</strong>",
-              "code": "<!-- Basic card -->\n<div class=\"card\" style=\"width: 18rem;\">\n  <img src=\"...\" class=\"card-img-top\" alt=\"...\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Card title</h5>\n    <p class=\"card-text\">Some quick example text to build on the card title.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n\n<!-- Card with header and footer -->\n<div class=\"card\">\n  <div class=\"card-header\">\n    Featured\n  </div>\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Special title treatment</h5>\n    <p class=\"card-text\">With supporting text below as a natural lead-in.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n  <div class=\"card-footer text-muted\">\n    2 days ago\n  </div>\n</div>\n\n<!-- Card groups -->\n<div class=\"card-group\">\n  <div class=\"card\">\n    <!-- Card content -->\n  </div>\n  <div class=\"card\">\n    <!-- Card content -->\n  </div>\n  <div class=\"card\">\n    <!-- Card content -->\n  </div>\n</div>"
+              "code": "<!-- Basic card -->\n<div class=\"card\" style=\"width: 18rem;\">
+  <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+  <div class=\"card-body\">
+    <h5 class=\"card-title\">Card title</h5>
+    <p class=\"card-text\">Some quick example text to build on the card title.</p>
+    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+  </div>
+</div>\n\n<!-- Card with header and footer -->\n<div class=\"card\">
+  <div class=\"card-header\">
+    Featured
+  </div>
+  <div class=\"card-body\">
+    <h5 class=\"card-title\">Special title treatment</h5>
+    <p class=\"card-text\">With supporting text below as a natural lead-in.</p>
+    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+  </div>
+  <div class=\"card-footer text-muted\">
+    2 days ago
+  </div>
+</div>\n\n<!-- Card groups -->\n<div class=\"card-group\">
+  <div class=\"card\">
+    <!-- Card content -->
+  </div>
+  <div class=\"card\">
+    <!-- Card content -->
+  </div>
+  <div class=\"card\">
+    <!-- Card content -->
+  </div>
+</div>"
             }
           },
           {
@@ -385,7 +550,31 @@
             "title": "Modals & Popovers",
             "box": {
               "content": "<strong>Modal dialogs</strong>",
-              "code": "<!-- Modal trigger -->\n<button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">\n  Launch demo modal\n</button>\n\n<!-- Modal structure -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\">Modal title</h5>\n        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>\n      </div>\n      <div class=\"modal-body\">\n        <p>Modal body text goes here.</p>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Popovers -->\n<button type=\"button\" class=\"btn btn-lg btn-danger\" data-bs-toggle=\"popover\" title=\"Popover title\" data-bs-content=\"And here's some amazing content. It's very engaging. Right?\">\n  Click to toggle popover\n</button>\n\n<!-- Tooltips -->\n<button type=\"button\" class=\"btn btn-secondary\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"Tooltip on top\">\n  Tooltip on top\n</button>"
+              "code": "<!-- Modal trigger -->\n<button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">
+  Launch demo modal
+</button>
+
+<!-- Modal structure -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\">
+  <div class=\"modal-dialog\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\">Modal title</h5>
+        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
+      </div>
+      <div class=\"modal-body\">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>
+        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>\n\n<!-- Popovers -->\n<button type=\"button\" class=\"btn btn-lg btn-danger\" data-bs-toggle=\"popover\" title=\"Popover title\" data-bs-content=\"And here's some amazing content. It's very engaging. Right?\">
+  Click to toggle popover
+</button>\n\n<!-- Tooltips -->\n<button type=\"button\" class=\"btn btn-secondary\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"Tooltip on top\">
+  Tooltip on top
+</button>"
             }
           }
         ]
@@ -404,7 +593,11 @@
             "title": "Spacing Utilities",
             "box": {
               "content": "<strong>Margin and padding</strong>",
-              "code": "<!-- Margin utilities -->\n<div class=\"m-1\">Margin all sides - 0.25rem</div>\n<div class=\"m-2\">Margin all sides - 0.5rem</div>\n<div class=\"m-3\">Margin all sides - 1rem</div>\n<div class=\"m-4\">Margin all sides - 1.5rem</div>\n<div class=\"m-5\">Margin all sides - 3rem</div>\n\n<!-- Directional margin -->\n<div class=\"mt-3\">Margin top</div>\n<div class=\"mb-3\">Margin bottom</div>\n<div class=\"ms-3\">Margin start (left)</div>\n<div class=\"me-3\">Margin end (right)</div>\n<div class=\"mx-3\">Margin x-axis</div>\n<div class=\"my-3\">Margin y-axis</div>\n\n<!-- Padding utilities -->\n<div class=\"p-1\">Padding all sides</div>\n<div class=\"pt-3\">Padding top</div>\n<div class=\"pb-3\">Padding bottom</div>\n<div class=\"px-4\">Padding x-axis</div>\n\n<!-- Responsive spacing -->\n<div class=\"m-3 m-md-4 m-lg-5\">\n  Responsive margins\n</div>\n\n<!-- Auto margin -->\n<div class=\"mx-auto\" style=\"width: 200px;\">\n  Centered with auto margin\n</div>"
+              "code": "<!-- Margin utilities -->\n<div class=\"m-1\">Margin all sides - 0.25rem</div>\n<div class=\"m-2\">Margin all sides - 0.5rem</div>\n<div class=\"m-3\">Margin all sides - 1rem</div>\n<div class=\"m-4\">Margin all sides - 1.5rem</div>\n<div class=\"m-5\">Margin all sides - 3rem</div>\n\n<!-- Directional margin -->\n<div class=\"mt-3\">Margin top</div>\n<div class=\"mb-3\">Margin bottom</div>\n<div class=\"ms-3\">Margin start (left)</div>\n<div class=\"me-3\">Margin end (right)</div>\n<div class=\"mx-3\">Margin x-axis</div>\n<div class=\"my-3\">Margin y-axis</div>\n\n<!-- Padding utilities -->\n<div class=\"p-1\">Padding all sides</div>\n<div class=\"pt-3\">Padding top</div>\n<div class=\"pb-3\">Padding bottom</div>\n<div class=\"px-4\">Padding x-axis</div>\n\n<!-- Responsive spacing -->\n<div class=\"m-3 m-md-4 m-lg-5\">
+  Responsive margins
+</div>\n\n<!-- Auto margin -->\n<div class=\"mx-auto\" style=\"width: 200px;\">
+  Centered with auto margin
+</div>"
             }
           },
           {
@@ -413,7 +606,12 @@
             "title": "Flexbox Utilities",
             "box": {
               "content": "<strong>Flexbox helpers</strong>",
-              "code": "<!-- Flex container -->\n<div class=\"d-flex\">\n  <div>Flex item</div>\n  <div>Flex item</div>\n</div>\n\n<!-- Flex direction -->\n<div class=\"d-flex flex-row\">Horizontal (default)</div>\n<div class=\"d-flex flex-column\">Vertical</div>\n<div class=\"d-flex flex-row-reverse\">Reverse horizontal</div>\n\n<!-- Justify content -->\n<div class=\"d-flex justify-content-start\">Start</div>\n<div class=\"d-flex justify-content-center\">Center</div>\n<div class=\"d-flex justify-content-end\">End</div>\n<div class=\"d-flex justify-content-between\">Space between</div>\n<div class=\"d-flex justify-content-around\">Space around</div>\n\n<!-- Align items -->\n<div class=\"d-flex align-items-start\">Align start</div>\n<div class=\"d-flex align-items-center\">Align center</div>\n<div class=\"d-flex align-items-end\">Align end</div>\n\n<!-- Flex wrap -->\n<div class=\"d-flex flex-nowrap\">No wrap</div>\n<div class=\"d-flex flex-wrap\">Wrap</div>\n<div class=\"d-flex flex-wrap-reverse\">Wrap reverse</div>\n\n<!-- Responsive flex -->\n<div class=\"d-flex flex-column flex-md-row\">\n  Column on mobile, row on desktop\n</div>"
+              "code": "<!-- Flex container -->\n<div class=\"d-flex\">
+  <div>Flex item</div>
+  <div>Flex item</div>
+</div>\n\n<!-- Flex direction -->\n<div class=\"d-flex flex-row\">Horizontal (default)</div>\n<div class=\"d-flex flex-column\">Vertical</div>\n<div class=\"d-flex flex-row-reverse\">Reverse horizontal</div>\n\n<!-- Justify content -->\n<div class=\"d-flex justify-content-start\">Start</div>\n<div class=\"d-flex justify-content-center\">Center</div>\n<div class=\"d-flex justify-content-end\">End</div>\n<div class=\"d-flex justify-content-between\">Space between</div>\n<div class=\"d-flex justify-content-around\">Space around</div>\n\n<!-- Align items -->\n<div class=\"d-flex align-items-start\">Align start</div>\n<div class=\"d-flex align-items-center\">Align center</div>\n<div class=\"d-flex align-items-end\">Align end</div>\n\n<!-- Flex wrap -->\n<div class=\"d-flex flex-nowrap\">No wrap</div>\n<div class=\"d-flex flex-wrap\">Wrap</div>\n<div class=\"d-flex flex-wrap-reverse\">Wrap reverse</div>\n\n<!-- Responsive flex -->\n<div class=\"d-flex flex-column flex-md-row\">
+  Column on mobile, row on desktop
+</div>"
             }
           }
         ]
@@ -432,7 +630,37 @@
             "title": "Using Bootstrap Icons",
             "box": {
               "content": "<strong>Icon integration</strong>",
-              "code": "<!-- Include Bootstrap Icons CSS -->\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css\">\n\n<!-- Using icons -->\n<i class=\"bi bi-alarm\"></i> Alarm icon\n<i class=\"bi bi-heart-fill text-danger\"></i> Heart icon (filled)\n<i class=\"bi bi-arrow-right-circle\"></i> Arrow icon\n\n<!-- Icon sizes -->\n<i class=\"bi bi-star\" style=\"font-size: 1rem;\"></i> Small\n<i class=\"bi bi-star\" style=\"font-size: 2rem;\"></i> Medium\n<i class=\"bi bi-star\" style=\"font-size: 3rem;\"></i> Large\n\n<!-- Icons in buttons -->\n<button class=\"btn btn-primary\">\n  <i class=\"bi bi-download me-2\"></i>\n  Download\n</button>\n\n<!-- Icons in navigation -->\n<nav>\n  <a href=\"#\">\n    <i class=\"bi bi-house-door me-1\"></i>\n    Home\n  </a>\n</nav>\n\n<!-- Social media icons -->\n<div>\n  <i class=\"bi bi-twitter text-primary\"></i>\n  <i class=\"bi bi-facebook text-primary\"></i>\n  <i class=\"bi bi-instagram text-danger\"></i>\n  <i class=\"bi bi-linkedin text-primary\"></i>\n</div>\n\n<!-- Animated icons -->\n<button class=\"btn btn-primary\">\n  <i class=\"bi bi-arrow-repeat\"></i> Refresh\n</button>\n<button class=\"btn btn-success\">\n  <i class=\"bi bi-check-circle\"></i> Confirm\n</button>"
+              "code": "<!-- Include Bootstrap Icons CSS -->\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css\">
+
+<!-- Using icons -->\n<i class=\"bi bi-alarm\"></i> Alarm icon\n<i class=\"bi bi-heart-fill text-danger\"></i> Heart icon (filled)\n<i class=\"bi bi-arrow-right-circle\"></i> Arrow icon
+
+<!-- Icon sizes -->\n<i class=\"bi bi-star\" style=\"font-size: 1rem;\"></i> Small\n<i class=\"bi bi-star\" style=\"font-size: 2rem;\"></i> Medium\n<i class=\"bi bi-star\" style=\"font-size: 3rem;\"></i> Large
+
+<!-- Icons in buttons -->\n<button class=\"btn btn-primary\">
+  <i class=\"bi bi-download me-2\"></i>
+  Download
+</button>
+
+<!-- Icons in navigation -->\n<nav>
+  <a href=\"#\">
+    <i class=\"bi bi-house-door me-1\"></i>
+    Home
+  </a>
+</nav>
+
+<!-- Social media icons -->\n<div>
+  <i class=\"bi bi-twitter text-primary\"></i>
+  <i class=\"bi bi-facebook text-primary\"></i>
+  <i class=\"bi bi-instagram text-danger\"></i>
+  <i class=\"bi bi-linkedin text-primary\"></i>
+</div>
+
+<!-- Animated icons -->\n<button class=\"btn btn-primary\">
+  <i class=\"bi bi-arrow-repeat\"></i> Refresh
+</button>
+<button class=\"btn btn-success\">
+  <i class=\"bi bi-check-circle\"></i> Confirm
+</button>"
             }
           }
         ]
@@ -451,7 +679,43 @@
             "title": "SASS Customization",
             "box": {
               "content": "<strong>Customizing with SASS</strong>",
-              "code": "// Custom variables\n// Change default colors\n$primary: #c45500;\n$secondary: #6c757d;\n$success: #198754;\n$info: #0dcaf0;\n$warning: #ffc107;\n$danger: #dc3545;\n$light: #f8f9fa;\n$dark: #212529;\n\n// Change font family\n$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;\n\n// Change border radius\n$border-radius: 0.5rem;\n$border-radius-lg: 0.75rem;\n$border-radius-sm: 0.25rem;\n\n// Change spacing scale\n$spacer: 1rem;\n$spacers: (\n  0: 0,\n  1: $spacer * 0.25,\n  2: $spacer * 0.5,\n  3: $spacer,\n  4: $spacer * 1.5,\n  5: $spacer * 3,\n  6: $spacer * 4,\n  7: $spacer * 5,\n  8: $spacer * 6,\n);\n\n// Import Bootstrap\n@import \"bootstrap/scss/bootstrap\";\n\n// Build command\n// sass --watch scss/custom.scss:css/custom.css"
+              "code": "// Custom variables\n// Change default colors
+$primary: #c45500;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+// Change font family
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+
+// Change border radius
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+$border-radius-sm: 0.25rem;
+
+// Change spacing scale
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+  7: $spacer * 5,
+  8: $spacer * 6,
+);
+
+// Import Bootstrap
+@import \"bootstrap/scss/bootstrap\";
+
+// Build command
+// sass --watch scss/custom.scss:css/custom.css"
             }
           }
         ]
@@ -489,7 +753,18 @@
             "title": "React Bootstrap",
             "box": {
               "content": "<strong>Bootstrap with React</strong>",
-              "code": "// Installation\nnpm install react-bootstrap bootstrap\n\n// Usage in React component\nimport React from 'react';\nimport { Container, Row, Col, Button, Card } from 'react-bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n\nfunction App() {\n  return (\n    <Container>\n      <Row>\n        <Col md={8}>\n          <Card>\n            <Card.Body>\n              <Card.Title>React Bootstrap Card</Card.Title>\n              <Card.Text>\n                Using Bootstrap components in React\n              </Card.Text>\n              <Button variant=\"primary\">Click Me</Button>\n            </Card.Body>\n          </Card>\n        </Col>\n        <Col md={4}>\n          <Button variant=\"success\" size=\"lg\">\n            Large Button\n          </Button>\n        </Col>\n      </Row>\n    </Container>\n  );\n}\n\nexport default App;\n\n// React Bootstrap components include:\n// - Accordion, Alert, Badge, Breadcrumb\n// - Button, Card, Carousel, Collapse\n// - Dropdown, Form, Modal, Nav\n// - Navbar, Pagination, Progress, Spinner\n// - Table, Tabs, Toast, Tooltip"
+              "code": "// Installation\nnpm install react-bootstrap bootstrap\n\n// Usage in React component\nimport React from 'react';\nimport { Container, Row, Col, Button, Card } from 'react-bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n\nfunction App() {\n  return (\n    <Container>\n      <Row>\n        <Col md={8}>\n          <Card>\n            <Card.Body>\n              <Card.Title>React Bootstrap Card</Card.Title>\n              <Card.Text>\n                Using Bootstrap components in React\n              </Card.Text>\n              <Button variant=\"primary\">Click Me</Button>\n            </Card.Body>\n          </Card>\n        </Col>\n        <Col md={4}>\n          <Button variant=\"success\" size=\"lg\">
+            Large Button
+          </Button>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
+
+export default App;
+
+// React Bootstrap components include:\n// - Accordion, Alert, Badge, Breadcrumb\n// - Button, Card, Carousel, Collapse\n// - Dropdown, Form, Modal, Nav\n// - Navbar, Pagination, Progress, Spinner\n// - Table, Tabs, Toast, Tooltip"
             }
           }
         ]
@@ -508,7 +783,94 @@
             "title": "Landing Page Example",
             "box": {
               "content": "<strong>Complete landing page structure</strong>",
-              "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Business Landing Page</title>\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css\">\n</head>\n<body>\n  <!-- Navigation -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n    <div class=\"container\">\n      <a class=\"navbar-brand\" href=\"#\">Brand</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n        <ul class=\"navbar-nav ms-auto\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Home</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Features</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Pricing</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Contact</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n  <!-- Hero Section -->\n  <section class=\"bg-primary text-white py-5\">\n    <div class=\"container\">\n      <div class=\"row align-items-center\">\n        <div class=\"col-lg-6\">\n          <h1 class=\"display-4 fw-bold\">Amazing Product</h1>\n          <p class=\"lead\">Transform your business with our innovative solution.</p>\n          <button class=\"btn btn-light btn-lg\">Get Started</button>\n        </div>\n        <div class=\"col-lg-6\">\n          <img src=\"hero-image.jpg\" class=\"img-fluid\" alt=\"Hero\">\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- Features Section -->\n  <section class=\"py-5\">\n    <div class=\"container\">\n      <div class=\"row text-center\">\n        <div class=\"col-md-4\">\n          <i class=\"bi bi-lightning-charge display-4 text-primary\"></i>\n          <h3>Fast</h3>\n          <p>Lightning fast performance</p>\n        </div>\n        <div class=\"col-md-4\">\n          <i class=\"bi bi-shield-check display-4 text-primary\"></i>\n          <h3>Secure</h3>\n          <p>Enterprise-grade security</p>\n        </div>\n        <div class=\"col-md-4\">\n          <i class=\"bi bi-phone display-4 text-primary\"></i>\n          <h3>Responsive</h3>\n          <p>Works on all devices</p>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n</body>\n</html>"
+              "code": "<!DOCTYPE html>\n<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <title>Business Landing Page</title>
+  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
+  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
+    <div class=\"container\">
+      <a class=\"navbar-brand\" href=\"#\">Brand</a>
+      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">
+        <span class=\"navbar-toggler-icon\"></span>
+      </button>
+      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
+        <ul class=\"navbar-nav ms-auto\">
+          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Home</a></li>
+          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Features</a></li>
+          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Pricing</a></li>
+          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class=\"bg-primary text-white py-5\">
+    <div class=\"container\">
+      <div class=\"row align-items-center\">
+        <div class=\"col-lg-6\">
+          <h1 class=\"display-4 fw-bold\">Amazing Product</h1>
+          <p class=\"lead\">Transform your business with our innovative solution.</p>
+          <button class=\"btn btn-light btn-lg\">Get Started</button>
+        </div>
+        <div class=\"col-lg-6\">
+          <img src=\"hero-image.jpg\" class=\"img-fluid\" alt=\"Hero">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class=\"py-5\">
+    <div class=\"container\">
+      <div class=\"row\">
+        <div class=\"col-md-4\">
+          <div class=\"card text-center\">
+            <div class=\"card-body\">
+              <i class=\"bi bi-speedometer2 display-4 text-primary\"></i>
+              <h5 class=\"card-title mt-3\">Fast</h5>
+              <p class=\"card-text\">Optimized for performance.</p>
+            </div>
+          </div>
+        </div>
+        <div class=\"col-md-4\">
+          <div class=\"card text-center\">
+            <div class=\"card-body\">
+              <i class=\"bi bi-shield-lock display-4 text-primary\"></i>
+              <h5 class=\"card-title mt-3\">Secure</h5>
+              <p class=\"card-text\">Built with security in mind.</p>
+            </div>
+          </div>
+        </div>
+        <div class=\"col-md-4\">
+          <div class=\"card text-center\">
+            <div class=\"card-body\">
+              <i class=\"bi bi-phone display-4 text-primary\"></i>
+              <h5 class=\"card-title mt-3\">Responsive</h5>
+              <p class=\"card-text\">Looks great on any device.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class=\"bg-dark text-white py-4\">
+    <div class=\"container text-center\">
+      <p>&copy; 2024 Brand. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>
+</body>
+</html>"
             }
           }
         ]
@@ -557,7 +919,7 @@
         ]
       },
       {
-        "id": "cheat-sheet",
+        "id": "cheat-sheet',
         "title": "Cheat Sheet",
         "slides": [
           {
