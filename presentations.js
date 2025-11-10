@@ -14,6 +14,13 @@ const PRESENTATIONS_CONFIG = [
     category: ["programming"]
   },
   {
+    file: "presentations/intro-js.json",
+    title: "JavaScript Fundamentals",
+    description: "An Introduction to the Language of the Web",
+    keywords: ["javascript", "js", "web development", "frontend", "es6"],
+    category: ["programming", "frontend"]
+  },
+  {
     file: "presentations/intro-keycloak.json",
     title: "Introduction to Keycloak",
     description: "Learn about Keycloak, an open source identity and access management solution",
@@ -153,8 +160,6 @@ const PRESENTATIONS_CONFIG = [
     keywords: ["sql", "database", "rdbms", "mysql", "postgresql", "normalization", "acid", "joins"],
     category: ["database"]
   },
-
-
   {
     file: "presentations/intro-typescript.json",
     title: "TypeScript – Typed JavaScript for Scalable Applications",
@@ -238,5 +243,25 @@ const PRESENTATIONS_CONFIG = [
     description: "Production-grade platform for automating deployment, scaling, and management of containerized applications",
     keywords: ["kubernetes", "k8s", "container-orchestration", "docker", "cloud-native", "microservices", "devops", "cncf", "cka", "ckad"],
     category: ["devops"]
+  },
+  {
+    file: "presentations/intro-frappe-product-suite.json",
+    title: "Introduction to Frappe Product Suite",
+    description: "Complete ecosystem of open source business applications including ERPNext, CRM, HR, and more built on Frappe Framework",
+    keywords: [
+      "frappe",
+      "erpnext",
+      "business",
+      "enterprise",
+      "open source",
+      "erp",
+      "crm",
+      "hr",
+      "accounting",
+      "framework",
+      "product suite",
+      "business applications"
+    ],
+    category: ["business"]
   }
 ];

@@ -32,6 +32,8 @@ async function loadPresentations() {
             });
         }
 
+        console.log(PRESENTATIONS_CONFIG);
+
         if (allPresentations.length === 0) {
             container.innerHTML = '<div class="no-results">⚠️ No presentations found</div>';
             return;
