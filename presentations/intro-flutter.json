@@ -1,0 +1,883 @@
+{
+  "presentation": {
+    "topics": [
+      {
+        "id": "title",
+        "title": "Title Slide",
+        "slides": [
+          {
+            "type": "title",
+            "title": "Introduction to Flutter",
+            "subtitle": "Building Cross-Platform Apps with Dart<br>From Zero to Mobile Developer"
+          }
+        ]
+      },
+      {
+        "id": "presenter",
+        "title": "Presenter Slide",
+        "slides": [
+          {
+            "type": "presenter",
+            "name": "Your Name Here",
+            "title": "Flutter Developer",
+            "experience": "X years in Mobile Development & Cross-Platform",
+            "oss_experience": "Flutter & Dart Specialist",
+            "github": "https://github.com/yourusername",
+            "website": "https://your-portfolio.com"
+          }
+        ]
+      },
+      {
+        "id": "agenda",
+        "title": "Agenda",
+        "slides": [
+          {
+            "type": "content",
+            "title": "What We'll Cover",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>What is Flutter?</strong> - Framework Overview"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Why Flutter?</strong> - Advantages & Benefits"
+                },
+                {
+                  "emoji": "🆚",
+                  "text": "<strong>Flutter vs Competitors</strong> - React Native, Kotlin, SwiftUI"
+                },
+                {
+                  "emoji": "🏗️",
+                  "text": "<strong>Flutter Architecture</strong> - How It Works"
+                },
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>Environment Setup</strong> - SDK & Tools Installation"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>First Flutter App</strong> - Hello World & Beyond"
+                },
+                {
+                  "emoji": "🧩",
+                  "text": "<strong>Widgets</strong> - Building Blocks of Flutter"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>UI & Layouts</strong> - Creating Beautiful Interfaces"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>State Management</strong> - Provider, BLoC, Riverpod"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Networking</strong> - API Integration & HTTP"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Data Persistence</strong> - Local Storage & Databases"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Advanced Topics</strong> - Animations, Testing, Deployment"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "what-is-flutter",
+        "title": "What is Flutter?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Understanding Flutter"
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "What is Flutter?",
+            "box": {
+              "content": "<span class=\"highlight\">Google's open-source UI toolkit</span> for building natively compiled applications",
+              "list": [
+                {
+                  "emoji": "📱",
+                  "text": "<strong>Platforms</strong> - Mobile, Web, Desktop, Embedded"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Language</strong> - Dart (Also by Google)"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Performance</strong> - Native compilation, 60/120fps"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>UI</strong> - Customizable, beautiful widgets"
+                },
+                {
+                  "emoji": "🔥",
+                  "text": "<strong>Hot Reload</strong> - Instant code changes"
+                }
+              ]
+            },
+            "note": {
+              "text": "<strong>Fun fact:</strong> Flutter powers apps from Google, Alibaba, BMW, and many Fortune 500 companies!"
+            }
+          }
+        ]
+      },
+      {
+        "id": "why-flutter",
+        "title": "Why Choose Flutter?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Flutter Advantages"
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Key Benefits",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Single Codebase</strong> - Build for iOS, Android, Web, Desktop"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Native Performance</strong> - Compiled to native code"
+                },
+                {
+                  "emoji": "🔥",
+                  "text": "<strong>Hot Reload</strong> - Instant development feedback"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>Beautiful UI</strong> - Rich set of customizable widgets"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Productivity</strong> - Faster development cycle"
+                },
+                {
+                  "emoji": "💰",
+                  "text": "<strong>Cost Effective</strong> - One team, multiple platforms"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "flutter-vs-others",
+        "title": "Framework Comparison",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Flutter vs Alternatives"
+          },
+          {
+            "type": "content",
+            "emoji": "🆚",
+            "title": "Cross-Platform Framework Comparison",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Flutter</strong> - Native performance, single codebase"
+                },
+                {
+                  "emoji": "⚛️",
+                  "text": "<strong>React Native</strong> - JavaScript, large ecosystem"
+                },
+                {
+                  "emoji": "🤖",
+                  "text": "<strong>Kotlin Multiplatform</strong> - Native Android focus"
+                },
+                {
+                  "emoji": "🍎",
+                  "text": "<strong>SwiftUI</strong> - Apple ecosystem only"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>Flutter</strong> - Consistent UI across platforms"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Flutter</strong> - Better performance than RN"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Flutter Architecture",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "How Flutter Works"
+          },
+          {
+            "type": "content",
+            "emoji": "🏗️",
+            "title": "Flutter Architecture Layers",
+            "box": {
+              "content": "<strong>Layered architecture for maximum flexibility</strong>",
+              "code": "Flutter App\n├── Widgets (Your Code)\n├── Rendering\n├── Animation/Gestures\n├── Foundation\n└── Engine (C++)\n    ├─ Skia (2D Graphics)\n    ├─ Dart Runtime\n    └─ Platform Channels"
+            }
+          }
+        ]
+      },
+      {
+        "id": "environment-setup",
+        "title": "Environment Setup",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Setting Up Development Environment"
+          },
+          {
+            "type": "content",
+            "emoji": "⚙️",
+            "title": "Installation Steps",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📥",
+                  "text": "<strong>Download Flutter SDK</strong> - From flutter.dev"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Install IDE</strong> - VS Code or Android Studio"
+                },
+                {
+                  "emoji": "🤖",
+                  "text": "<strong>Android Setup</strong> - SDK, emulator"
+                },
+                {
+                  "emoji": "🍎",
+                  "text": "<strong>iOS Setup</strong> - Xcode (macOS only)"
+                },
+                {
+                  "emoji": "✅",
+                  "text": "<strong>Verify Installation</strong> - flutter doctor"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "💻",
+            "title": "Flutter Doctor Command",
+            "box": {
+              "content": "<strong>Check your Flutter installation</strong>",
+              "code": "# Run in terminal\nflutter doctor\n\n# Expected output:\n[✓] Flutter (Channel stable, 3.x.x)\n[✓] Android toolchain\n[✓] VS Code\n[✓] Connected device\n[!] Xcode - for iOS development (macOS only)\n\n# Install missing dependencies\nflutter doctor --android-licenses"
+            }
+          }
+        ]
+      },
+      {
+        "id": "first-app",
+        "title": "First Flutter App",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Creating Your First App"
+          },
+          {
+            "type": "content",
+            "emoji": "🚀",
+            "title": "Create New Flutter Project",
+            "box": {
+              "content": "<strong>Generate a new Flutter project</strong>",
+              "code": "# Create new project\nflutter create my_first_app\n\n# Navigate to project\ncd my_first_app\n\n# Run the app\nflutter run\n\n# Or use VS Code:\n# 1. Open Command Palette\n# 2. Type 'Flutter: New Project'\n# 3. Choose application type\n# 4. Select project location"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "📱",
+            "title": "Hello World in Flutter",
+            "box": {
+              "content": "<strong>Basic Flutter app structure</strong>",
+              "code": "import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: Text('My First App')),\n        body: Center(\n          child: Text('Hello, Flutter!'),\n        ),\n      ),\n    );\n  }\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "widgets",
+        "title": "Flutter Widgets",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Understanding Widgets"
+          },
+          {
+            "type": "content",
+            "emoji": "🧩",
+            "title": "What are Widgets?",
+            "box": {
+              "content": "<span class=\"highlight\">Everything is a Widget</span> in Flutter",
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Stateless Widget</strong> - Immutable, build once"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Stateful Widget</strong> - Mutable, can rebuild"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Built-in Widgets</strong> - Text, Container, Row, Column"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "<strong>Material/Cupertino</strong> - Platform-specific widgets"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Stateless vs Stateful Widgets",
+            "box": {
+              "content": "<strong>When to use each type</strong>",
+              "code": "// Stateless Widget - For static content\nclass MyText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text('Hello World');\n  }\n}\n\n// Stateful Widget - For dynamic content\nclass Counter extends StatefulWidget {\n  @override\n  _CounterState createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int count = 0;\n  \n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: [\n        Text('Count: $count'),\n        ElevatedButton(\n          onPressed: () => setState(() => count++),\n          child: Text('Increment'),\n        ),\n      ],\n    );\n  }\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hot-reload",
+        "title": "Hot Reload & Restart",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Development Experience"
+          },
+          {
+            "type": "content",
+            "emoji": "🔥",
+            "title": "Hot Reload vs Hot Restart",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Hot Reload</strong> - Instant UI updates, preserves state"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Hot Restart</strong> - Faster than full restart, resets state"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Full Restart</strong> - Complete app reload"
+                },
+                {
+                  "emoji": "💡",
+                  "text": "<strong>Best for</strong> - UI changes, styling, bug fixes"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ui-layouts",
+        "title": "UI & Layouts",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Building User Interfaces"
+          },
+          {
+            "type": "content",
+            "emoji": "🎨",
+            "title": "Common Layout Widgets",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Container</strong> - Box with padding, margin, decoration"
+                },
+                {
+                  "emoji": "➡️",
+                  "text": "<strong>Row</strong> - Horizontal layout"
+                },
+                {
+                  "emoji": "⬇️",
+                  "text": "<strong>Column</strong> - Vertical layout"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>Stack</strong> - Overlapping widgets"
+                },
+                {
+                  "emoji": "📐",
+                  "text": "<strong>Expanded/Flexible</strong> - Flexible sizing"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>ListView/GridView</strong> - Scrollable lists"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🏗️",
+            "title": "Basic Layout Example",
+            "box": {
+              "content": "<strong>Creating a simple layout</strong>",
+              "code": "Column(\n  children: [\n    Container(\n      padding: EdgeInsets.all(16),\n      color: Colors.blue,\n      child: Text('Header'),\n    ),\n    Expanded(\n      child: Row(\n        children: [\n          Expanded(\n            flex: 2,\n            child: Container(color: Colors.red),\n          ),\n          Expanded(\n            flex: 1,\n            child: Container(color: Colors.green),\n          ),\n        ],\n      ),\n    ),\n  ],\n)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "state-management",
+        "title": "State Management",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Managing App State"
+          },
+          {
+            "type": "content",
+            "emoji": "🔄",
+            "title": "State Management Options",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>setState</strong> - Simple, built-in"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Provider</strong> - Recommended, easy to learn"
+                },
+                {
+                  "emoji": "🎭",
+                  "text": "<strong>BLoC</strong> - Business Logic Component, reactive"
+                },
+                {
+                  "emoji": "🌊",
+                  "text": "<strong>Riverpod</strong> - Improved Provider"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>GetX</strong> - Lightweight, all-in-one"
+                },
+                {
+                  "emoji": "🔥",
+                  "text": "<strong>Redux</strong> - Predictable state container"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "📦",
+            "title": "Provider Example",
+            "box": {
+              "content": "<strong>Simple state management with Provider</strong>",
+              "code": "// Model\nclass Counter with ChangeNotifier {\n  int _count = 0;\n  int get count => _count;\n  \n  void increment() {\n    _count++;\n    notifyListeners();\n  }\n}\n\n// In main.dart\nChangeNotifierProvider(\n  create: (context) => Counter(),\n  child: MyApp(),\n)\n\n// In widget\nConsumer<Counter>(\n  builder: (context, counter, child) {\n    return Text('Count: ${counter.count}');\n  },\n)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "navigation",
+        "title": "Navigation & Routing",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "App Navigation"
+          },
+          {
+            "type": "content",
+            "emoji": "🧭",
+            "title": "Navigation Methods",
+            "box": {
+              "content": "<strong>Moving between screens</strong>",
+              "code": "// Navigator 1.0 - Imperative\nNavigator.push(\n  context,\n  MaterialPageRoute(builder: (context) => SecondScreen()),\n);\n\n// Navigator 2.0 - Declarative\nMaterialApp(\n  routes: {\n    '/': (context) => HomeScreen(),\n    '/details': (context) => DetailsScreen(),\n  },\n)\n\n// Named routes\nNavigator.pushNamed(context, '/details');\n\n// GoRouter (Popular package)\nfinal _router = GoRouter(\n  routes: [\n    GoRoute(path: '/', builder: (context, state) => Home()),\n    GoRoute(path: '/details', builder: (context, state) => Details()),\n  ],\n)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "networking",
+        "title": "Networking & APIs",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "API Integration"
+          },
+          {
+            "type": "content",
+            "emoji": "🌐",
+            "title": "HTTP Requests",
+            "box": {
+              "content": "<strong>Making API calls</strong>",
+              "code": "// Add http package to pubspec.yaml\n// dependencies:\n//   http: ^1.1.0\n\nimport 'package:http/http.dart' as http;\n\nclass ApiService {\n  static const String baseUrl = 'https://api.example.com';\n  \n  Future<User> fetchUser(int id) async {\n    final response = await http.get(\n      Uri.parse('$baseUrl/users/$id'),\n    );\n    \n    if (response.statusCode == 200) {\n      return User.fromJson(jsonDecode(response.body));\n    } else {\n      throw Exception('Failed to load user');\n    }\n  }\n}\n\n// Using Dio (alternative)\n// Better for complex requests, interceptors"
+            }
+          }
+        ]
+      },
+      {
+        "id": "data-persistence",
+        "title": "Data Storage",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Local Data Storage"
+          },
+          {
+            "type": "content",
+            "emoji": "💾",
+            "title": "Storage Options",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚙️",
+                  "text": "<strong>Shared Preferences</strong> - Simple key-value pairs"
+                },
+                {
+                  "emoji": "📁",
+                  "text": "<strong>SQLite</strong> - Relational database (sqflite)"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Hive</strong> - Fast NoSQL database"
+                },
+                {
+                  "emoji": "☁️",
+                  "text": "<strong>Firebase</strong> - Cloud database & auth"
+                },
+                {
+                  "emoji": "📄",
+                  "text": "<strong>Files</strong> - Local file storage"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "firebase",
+        "title": "Firebase Integration",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Google Firebase Services"
+          },
+          {
+            "type": "content",
+            "emoji": "🔥",
+            "title": "Firebase Features for Flutter",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔐",
+                  "text": "<strong>Authentication</strong> - Email, Google, Facebook login"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Firestore</strong> - NoSQL cloud database"
+                },
+                {
+                  "emoji": "💾",
+                  "text": "<strong>Realtime Database</strong> - Real-time sync"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>Cloud Messaging</strong> - Push notifications"
+                },
+                {
+                  "emoji": "📈",
+                  "text": "<strong>Analytics</strong> - User behavior tracking"
+                },
+                {
+                  "emoji": "💥",
+                  "text": "<strong>Crashlytics</strong> - Crash reporting"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "title": "Testing in Flutter",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "App Testing"
+          },
+          {
+            "type": "content",
+            "emoji": "🧪",
+            "title": "Testing Pyramid",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔬",
+                  "text": "<strong>Unit Tests</strong> - Single function/class testing"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Widget Tests</strong> - UI component testing"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>Integration Tests</strong> - Full app testing"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Test Examples",
+            "box": {
+              "content": "<strong>Writing tests in Flutter</strong>",
+              "code": "// Unit test\ntest('Counter value should be incremented', () {\n  final counter = Counter();\n  counter.increment();\n  expect(counter.value, 1);\n});\n\n// Widget test\ntestWidgets('MyWidget has a title and message', (tester) async {\n  await tester.pumpWidget(MyWidget());\n  expect(find.text('Title'), findsOneWidget);\n  expect(find.text('Message'), findsOneWidget);\n});\n\n// Integration test\nvoid main() {\n  testWidgets('Tap counter button', (tester) async {\n    app.main();\n    await tester.pumpAndSettle();\n    await tester.tap(find.byIcon(Icons.add));\n    await tester.pump();\n    expect(find.text('1'), findsOneWidget);\n  });\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deployment",
+        "title": "Building & Deployment",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "App Distribution"
+          },
+          {
+            "type": "content",
+            "emoji": "📲",
+            "title": "Build Commands",
+            "box": {
+              "content": "<strong>Building for different platforms</strong>",
+              "code": "# Build APK (Android)\nflutter build apk --release\n\n# Build App Bundle (Android)\nflutter build appbundle --release\n\n# Build iOS\nflutter build ios --release\n\n# Build Web\nflutter build web --release\n\n# Build Desktop (macOS)\nflutter build macos --release\n\n# Build Desktop (Windows)\nflutter build windows --release\n\n# Build Desktop (Linux)\nflutter build linux --release"
+            }
+          }
+        ]
+      },
+      {
+        "id": "demo-project",
+        "title": "Hands-On Project",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "🔨",
+            "title": "Mini Project: Task Manager App",
+            "box": {
+              "list": [
+                {
+                  "emoji": "1️⃣",
+                  "text": "Create new Flutter project"
+                },
+                {
+                  "emoji": "2️⃣",
+                  "text": "Design task list UI with ListView"
+                },
+                {
+                  "emoji": "3️⃣",
+                  "text": "Add task creation form"
+                },
+                {
+                  "emoji": "4️⃣",
+                  "text": "Implement task completion toggle"
+                },
+                {
+                  "emoji": "5️⃣",
+                  "text": "Add task deletion with swipe"
+                },
+                {
+                  "emoji": "6️⃣",
+                  "text": "Persist data with Hive/Shared Preferences"
+                },
+                {
+                  "emoji": "7️⃣",
+                  "text": "Add dark/light theme"
+                },
+                {
+                  "emoji": "8️⃣",
+                  "text": "Test on multiple platforms"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-errors",
+        "title": "Common Errors & Fixes",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "🐛",
+            "title": "Frequent Flutter Issues",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Hot reload not working</strong> - Try hot restart"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Package not found</strong> - Run flutter pub get"
+                },
+                {
+                  "emoji": "🤖",
+                  "text": "<strong>Android build fails</strong> - Check Android SDK path"
+                },
+                {
+                  "emoji": "🍎",
+                  "text": "<strong>iOS build fails</strong> - Open iOS folder in Xcode"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>State not updating</strong> - Check setState() calls"
+                },
+                {
+                  "emoji": "📱",
+                  "text": "<strong>UI overflow</strong> - Use Expanded or ListView"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cheat-sheet",
+        "title": "Cheat Sheet",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📋",
+            "title": "Flutter Command Cheat Sheet",
+            "box": {
+              "content": "<strong>Essential Flutter commands</strong>",
+              "code": "# Project Management\nflutter create project_name\nflutter pub get\nflutter pub add package_name\n\n# Development\nflutter run\nflutter run -d chrome          # Web\nflutter run -d windows         # Windows\n\n# Building\nflutter build apk\nflutter build ios\nflutter build web\n\n# Testing & Analysis\nflutter test\nflutter test --coverage\nflutter analyze\n\n# Utilities\nflutter doctor\nflutter clean\nflutter upgrade\n\n# Debugging\nflutter logs\nflutter attach\n\n# Code Generation\nflutter packages pub run build_runner build\nflutter packages pub run build_runner watch"
+            }
+          }
+        ]
+      },
+      {
+        "id": "resources",
+        "title": "Learning Resources",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📚",
+            "title": "Continue Learning Flutter",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Official Docs</strong> - flutter.dev"
+                },
+                {
+                  "emoji": "📖",
+                  "text": "<strong>Flutter Cookbook</strong> - Official recipes"
+                },
+                {
+                  "emoji": "🎓",
+                  "text": "<strong>Flutter Udemy Course</strong> - Angela Yu / Maximilian"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>YouTube</strong> - Flutter Official, FilledStacks"
+                },
+                {
+                  "emoji": "🐦",
+                  "text": "<strong>Twitter</strong> - @flutterdev, @dart_lang"
+                },
+                {
+                  "emoji": "👥",
+                  "text": "<strong>Communities</strong> - Flutter Dev Discord, Reddit"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "recap",
+        "title": "Quick Recap",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📝",
+            "title": "Key Takeaways",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "Flutter = Cross-platform UI toolkit by Google"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "Single codebase for mobile, web, desktop"
+                },
+                {
+                  "emoji": "🔥",
+                  "text": "Hot reload enables rapid development"
+                },
+                {
+                  "emoji": "🧩",
+                  "text": "Everything is a widget"
+                },
+                {
+                  "emoji": "🎨",
+                  "text": "Rich set of customizable widgets"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "High demand skill in job market"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "qa-and-thank-you",
+        "title": "Q&A and Thank You",
+        "slides": [
+          {
+            "type": "qa",
+            "title": "Questions? 💬",
+            "content": "Let's discuss Flutter concepts, widgets, or specific use cases!<br><span class=\"gradient-accent\">All Flutter questions welcome!</span>"
+          },
+          {
+            "type": "thank-you",
+            "title": "Thank You! 🎉",
+            "box": {
+              "content": "<span class=\"emoji\">📱</span> Ready to build amazing apps?<br><span class=\"gradient-accent\">Start your Flutter journey today!</span>",
+              "note": "Cross-Platform • Beautiful • Productive"
+            },
+            "footer": {
+              "org": "Your Organization Name",
+              "tagline": "Building the future of cross-platform development"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

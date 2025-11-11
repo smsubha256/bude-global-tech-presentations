@@ -1,45 +1,51 @@
 # 📋 Presentations Progress Tracker
 
 > **Last Updated**: November 2025
-> **Total Presentations**: 28 ✅ | 79 ⬜
-> **Completion**: 26.2%
+> **Total Presentations**: 38 ✅ | 69 ⬜
+> **Completion**: 35.5%
 
 ---
 
 ## 📊 Progress Overview
 
 ```
-████████░░░░░░░░░░░░░░░░░░░░░░░░ 26.2% Complete
+███████████░░░░░░░░░░░░░░░░░░░░ 35.5% Complete
 ```
 
 | Category | Completed | Pending | Total | Progress |
 |----------|-----------|---------|-------|----------|
-| 🟢 **Core Topics** | 28 | 13 | 41 | 68.3% |
-| 🔵 **Programming Languages** | 0 | 9 | 9 | 0% |
+| 🟢 **Core Topics** | 38 | 69 | 107 | 35.5% |
+| 🔵 **Programming Languages** | 6 | 3 | 9 | 66.7% |
 | 🟣 **Backend Frameworks** | 2 | 6 | 8 | 25% |
-| 🔴 **Databases & Storage** | 0 | 8 | 8 | 0% |
+| 🔴 **Databases & Storage** | 1 | 7 | 8 | 12.5% |
 | 🟠 **DevOps & Cloud** | 2 | 8 | 10 | 20% |
 | 🟡 **Security & Auth** | 0 | 7 | 7 | 0% |
 | 🟢 **AI & Automation** | 0 | 7 | 7 | 0% |
-| 🟤 **Tools & Productivity** | 4 | 2 | 6 | 66.7% |
-| 🟣 **Business Applications** | 0 | 7 | 7 | 0% |
+| 🟤 **Tools & Productivity** | 7 | 2 | 9 | 77.8% |
+| 🟣 **Business Applications** | 1 | 6 | 7 | 14.3% |
 
 ---
 
-## ✅ Completed Presentations (28/107)
+## ✅ Completed Presentations (38/107)
 
 <details open>
 <summary><strong>Core Topics Completed</strong></summary>
 
 ### Programming & Frameworks
 - [x] #1 Python - [View](presentations/intro-python.json)
+- [x] #2 Rust - [View](presentations/intro-rust.json)
+- [x] #3 PHP - [View](presentations/intro-php.json)
 - [x] #6 C# - [View](presentations/intro-csharp.json)
 - [x] #7 .NET MAUI - [View](presentations/intro-maui.json)
+- [x] #7 Dart & Flutter - [View](presentations/intro-dart.json)
 - [x] #13 React - [View](presentations/react-presentation.json)
 - [x] #14 Next.js - [View](presentations/nextjs-presentation.json)
 - [x] #15 Node.js - [View](presentations/nodejs-presentation.json)
+- [x] #63 JavaScript Fundamentals - [View](presentations/intro-js.json)
+- [x] #64 TypeScript + Node.js - [View](presentations/intro-typescript.json)
 - [x] #68 GraphQL – API Query Language - [View](presentations/intro-graphql.json)
 - [x] #69 REST API & Swagger/OpenAPI - [View](presentations/intro-rest-api-swagger.json)
+- [x] Flutter - [View](presentations/intro-flutter.json)
 
 ### CSS Frameworks
 - [x] #11 Tailwind CSS - [View](presentations/tailwind-css-presentation.json)
@@ -49,6 +55,7 @@
 - [x] #16 PostgreSQL - [View](presentations/intro-postgresql.json)
 - [x] #17 MySQL - [View](presentations/intro-mysql.json)
 - [x] #18 MongoDB - [View](presentations/intro-mongodb.json)
+- [x] #70 SQL & Databases - [View](presentations/intro-sql-databases.json)
 
 ### DevOps & Cloud
 - [x] #9 Linux - [View](presentations/intro-linux.json)
@@ -63,31 +70,30 @@
 - [x] #4 Frappe - [View](presentations/frappe-presentation.json)
 - [x] #5 ERPNext - [View](presentations/erpnext-presentation.json)
 - [x] #8 Gitea - [View](presentations/intro-gitea.json)
+- [x] #77 Microsoft PowerToys - [View](presentations/intro-powertoys.json)
+- [x] #78 Stirling PDF - [View](presentations/intro-stirling-pdf.json)
+- [x] #79 n8n - [View](presentations/intro-n8n.json)
 - [x] Introduction to OSS - [View](presentations/intro-oss.json)
 - [x] #80 Introduction to ImHex - Advanced Hex Editor - [View](presentations/intro-imhex.json)
 - [x] #81 Introduction to AdminLTE - [View](presentations/intro-adminlte.json)
 - [x] #82 Introduction to Grocy - ERP for Home & Small Inventory Management - [View](presentations/intro-grocy.json)
 - [x] #83 Ghost - Just a Blogging Platform - [View](presentations/intro-ghost.json)
+- [x] Frappe Product Suite - [View](presentations/intro-frappe-product-suite.json)
 
 </details>
 
 ---
 
-## ⬜ Pending Presentations (79)
+## ⬜ Pending Presentations (69)
 
-### 🔵 Programming Languages & Core Tech (14)
-- [ ] [#63 JavaScript Fundamentals](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/63)
-- [ ] [#64 TypeScript + Node.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/64)
+### 🔵 Programming Languages & Core Tech (9)
 - [ ] [#65 Vue.js](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/65)
 - [ ] [#66 Angular](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/66)
 - [ ] [#67 Svelte](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/67)
 - [ ] [#1 Go (Golang)](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/1) - Introduction to Go programming
-- [ ] [#2 Rust](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/2) - Systems programming with Rust
-- [ ] [#3 PHP](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/3) - Modern PHP development
 - [ ] [#4 Ruby](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/4) - Ruby language fundamentals
 - [ ] [#5 Swift](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/5) - iOS development with Swift
 - [ ] [#6 Kotlin](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/6) - Android development with Kotlin
-- [ ] [#7 Dart & Flutter](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/7) - Cross-platform mobile development
 - [ ] [#8 Bash Scripting](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/8) - Shell scripting mastery
 - [ ] [#9 Regex](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/9) - Regular expressions guide
 
@@ -101,8 +107,7 @@
 - [ ] [#16 Express.js Deep Dive](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/16) - Node.js web framework
 - [ ] [#17 Bun / Hono](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/17) - Next-gen JavaScript runtime
 
-### 🔴 Databases & Storage (9)
-- [ ] [#70 SQL & Databases](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/70)
+### 🔴 Databases & Storage (8)
 - [ ] [#18 Redis](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/18) - In-memory data structure store
 - [ ] [#19 SQLite](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/19) - Embedded database engine
 - [ ] [#20 Cassandra](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/20) - Distributed NoSQL database
@@ -146,10 +151,7 @@
 - [ ] [#48 RPA Automation](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/48) - Robotic Process Automation
 - [ ] [#49 Computer Vision Basics](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/49) - Image processing with OpenCV
 
-### 🟤 Tools & Productivity (9)
-- [ ] [#77 Microsoft PowerToys](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/77)
-- [ ] [#78 Stirling PDF](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/78)
-- [ ] [#79 n8n](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/79)
+### 🟤 Tools & Productivity (6)
 - [ ] [#50 Obsidian PKM](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/50) - Personal knowledge management
 - [ ] [#51 Zettelkasten](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/51) - Note-taking methodology
 - [ ] [#52 Notion for Docs](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/52) - Collaborative documentation
@@ -157,7 +159,7 @@
 - [ ] [#54 Raycast / Alfred](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/54) - Productivity launchers
 - [ ] [#55 AI Coding Assistants](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/55) - GitHub Copilot, Cursor, etc.
 
-### 🟣 Business Applications (7)
+### 🟣 Business Applications (6)
 - [ ] [#56 Odoo ERP](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/56) - Open-source ERP suite
 - [ ] [#57 Dolibarr](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/57) - ERP & CRM software
 - [ ] [#58 OpenProject](https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues/58) - Project management platform
@@ -201,7 +203,7 @@ Top contributors will be featured here!
 
 | Rank | Contributor | Presentations | Topics |
 |------|-------------|---------------|---------|
-| 🥇 | @aravind-govindhasamy | 28 | Various |
+| 🥇 | @aravind-govindhasamy | 38 | Various |
 | 🥈 | Your name here! | - | - |
 | 🥉 | Your name here! | - | - |
 
@@ -237,9 +239,9 @@ Have a topic not on this list? [Open a feature request](https://github.com/BUDEG
 ## 📊 Statistics
 
 - **Total Topics Planned**: 107
-- **Completed**: 28 (26.2%)
+- **Completed**: 38 (35.5%)
 - **In Progress**: 0
-- **Remaining**: 79 (73.8%)
+- **Remaining**: 69 (64.5%)
 - **Average per month**: ~3-5 presentations
 - **Estimated Completion**: Q4 2025
 

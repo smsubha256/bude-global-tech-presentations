@@ -1,0 +1,688 @@
+{
+  "presentation": {
+    "topics": [
+      {
+        "id": "title",
+        "title": "Title Slide",
+        "slides": [
+          {
+            "type": "title",
+            "title": "Introduction to Dart Programming",
+            "subtitle": "Complete Language Guide<br>From Basics to Advanced Concepts"
+          }
+        ]
+      },
+      {
+        "id": "presenter",
+        "title": "Presenter Slide",
+        "slides": [
+          {
+            "type": "presenter",
+            "name": "Dart Developer",
+            "title": "Flutter & Dart Specialist",
+            "experience": "5 years in Mobile & Full-Stack Development",
+            "oss_experience": "Dart Packages & Open Source Contributor",
+            "github": "https://github.com/dart-dev",
+            "website": "https://dart.dev"
+          }
+        ]
+      },
+      {
+        "id": "agenda",
+        "title": "Agenda",
+        "slides": [
+          {
+            "type": "content",
+            "title": "What We'll Cover",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>What is Dart?</strong> - Language Overview & Philosophy"
+                },
+                {
+                  "emoji": "📜",
+                  "text": "<strong>History & Evolution</strong> - From Dart 1 to Dart 3"
+                },
+                {
+                  "emoji": "⭐",
+                  "text": "<strong>Why Choose Dart?</strong> - Key Features & Benefits"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Platform Support</strong> - Mobile, Web, Desktop, Backend"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Installation & Setup</strong> - SDK, CLI, DartPad"
+                },
+                {
+                  "emoji": "🔤",
+                  "text": "<strong>Basic Syntax</strong> - Variables, Data Types, Functions"
+                },
+                {
+                  "emoji": "🎭",
+                  "text": "<strong>Null Safety</strong> - Sound Null Safety System"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Control Flow</strong> - Loops, Conditionals, Switch"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Collections</strong> - List, Set, Map Operations"
+                },
+                {
+                  "emoji": "🏗️",
+                  "text": "<strong>OOP in Dart</strong> - Classes, Inheritance, Mixins"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Async Programming</strong> - Future, Async/Await, Streams"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Advanced Features</strong> - Generics, Extensions, Isolates"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>Package Ecosystem</strong> - pub.dev, Dependencies"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "<strong>Real-world Usage</strong> - Flutter, Backend, CLI Tools"
+                },
+                {
+                  "emoji": "🧪",
+                  "text": "<strong>Testing & Debugging</strong> - Unit Tests, DevTools"
+                },
+                {
+                  "emoji": "🔮",
+                  "text": "<strong>Dart 3 Features</strong> - Records, Patterns, Sealed Classes"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "what-is-dart",
+        "title": "What is Dart?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Understanding Dart"
+          },
+          {
+            "type": "content",
+            "emoji": "🎯",
+            "title": "What is Dart?",
+            "box": {
+              "content": "<span class=\"highlight\">Client-optimized language for fast apps on any platform</span>",
+              "list": [
+                {
+                  "emoji": "🏢",
+                  "text": "<strong>Created by</strong> - Google (2011)"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Purpose</strong> - Replace JavaScript for web, enable Flutter"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Type System</strong> - Sound null safety, strong typing"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Paradigms</strong> - Object-oriented, functional, reactive"
+                },
+                {
+                  "emoji": "🎭",
+                  "text": "<strong>Compilation</strong> - JIT (development) & AOT (production)"
+                }
+              ]
+            },
+            "note": {
+              "text": "<strong>Fun fact:</strong> Dart powers Flutter - one of the most popular cross-platform frameworks!"
+            }
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "title": "History & Evolution",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Dart Timeline"
+          },
+          {
+            "type": "content",
+            "emoji": "📜",
+            "title": "Key Milestones",
+            "box": {
+              "list": [
+                {
+                  "emoji": "1️⃣",
+                  "text": "<strong>2011</strong> - Dart announced by Google"
+                },
+                {
+                  "emoji": "2️⃣",
+                  "text": "<strong>2013</strong> - Dart 1.0 released"
+                },
+                {
+                  "emoji": "3️⃣",
+                  "text": "<strong>2018</strong> - Dart 2.0 with strong typing"
+                },
+                {
+                  "emoji": "4️⃣",
+                  "text": "<strong>2020</strong> - Sound null safety introduced"
+                },
+                {
+                  "emoji": "5️⃣",
+                  "text": "<strong>2021</strong> - Dart 2.14 with improved FFI"
+                },
+                {
+                  "emoji": "6️⃣",
+                  "text": "<strong>2023</strong> - Dart 3 with major features"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "why-dart",
+        "title": "Why Choose Dart?",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Dart Advantages"
+          },
+          {
+            "type": "content",
+            "emoji": "⭐",
+            "title": "Key Benefits",
+            "box": {
+              "list": [
+                {
+                  "emoji": "⚡",
+                  "text": "<strong>Productivity</strong> - Familiar syntax for Java/JS/C# developers"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "<strong>Sound Null Safety</strong> - Catch errors at compile time"
+                },
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Multi-platform</strong> - Mobile, web, desktop, server"
+                },
+                {
+                  "emoji": "🔥",
+                  "text": "<strong>Performance</strong> - AOT compilation for fast startup"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "<strong>Hot Reload</strong> - Instant code changes in development"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Great Ecosystem</strong> - Rich package library on pub.dev"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "installation",
+        "title": "Installation & Setup",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Getting Started"
+          },
+          {
+            "type": "content",
+            "emoji": "💻",
+            "title": "Installation Methods",
+            "box": {
+              "list": [
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Standalone SDK</strong> - Download from dart.dev"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>Flutter SDK</strong> - Includes Dart"
+                },
+                {
+                  "emoji": "🐳",
+                  "text": "<strong>Docker</strong> - Official Dart images"
+                },
+                {
+                  "emoji": "📚",
+                  "text": "<strong>Package Managers</strong> - Homebrew, Chocolatey, Apt"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>DartPad</strong> - Online editor (no install needed)"
+                }
+              ]
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Quick Setup Commands",
+            "box": {
+              "content": "<strong>Installation examples</strong>",
+              "code": "# macOS with Homebrew\nbrew tap dart-lang/dart\nbrew install dart\n\n# Windows with Chocolatey\nchoco install dart-sdk\n\n# Linux with apt\nsudo apt update\nsudo apt install dart\n\n# Verify installation\ndart --version\n\n# Create new project\ndart create my_project\ncd my_project\n\n# Run project\ndart run"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hello-world",
+        "title": "Hello World & Basics",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "First Dart Program"
+          },
+          {
+            "type": "content",
+            "emoji": "🌍",
+            "title": "Hello World Example",
+            "box": {
+              "content": "<strong>Basic Dart program structure</strong>",
+              "code": "// main function is the entry point\nvoid main() {\n  // Print to console\n  print('Hello, Dart!');\n  \n  // Variable declaration\n  var name = 'Dart Developer';\n  final version = 3.0;\n  \n  // String interpolation\n  print('Welcome to $name using Dart $version');\n  \n  // Function call\n  greetUser('Alice');\n}\n\n// Function definition\nvoid greetUser(String name) {\n  print('Hello, $name!');\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "variables-types",
+        "title": "Variables & Data Types",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Data Types in Dart"
+          },
+          {
+            "type": "content",
+            "emoji": "🔤",
+            "title": "Variable Declaration",
+            "box": {
+              "content": "<strong>Different ways to declare variables</strong>",
+              "code": "// Explicit type declaration\nString name = 'John';\nint age = 25;\ndouble height = 5.9;\nbool isStudent = true;\n\n// Type inference with var\nvar company = 'Google';\nvar year = 2024;\n\n// Final variables (set once)\nfinal String language = 'Dart';\nfinal currentTime = DateTime.now();\n\n// Const (compile-time constants)\nconst double pi = 3.14159;\nconst List<int> numbers = [1, 2, 3];\n\n// Late initialization\nlate String description;\ndescription = 'This is initialized later';"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "📊",
+            "title": "Data Types Overview",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🔢",
+                  "text": "<strong>Numbers</strong> - int, double, num"
+                },
+                {
+                  "emoji": "📝",
+                  "text": "<strong>Strings</strong> - String with interpolation"
+                },
+                {
+                  "emoji": "✅",
+                  "text": "<strong>Booleans</strong> - bool (true/false)"
+                },
+                {
+                  "emoji": "📦",
+                  "text": "<strong>Collections</strong> - List, Set, Map"
+                },
+                {
+                  "emoji": "🎭",
+                  "text": "<strong>Dynamic</strong> - dynamic, Object, var"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "null-safety",
+        "title": "Null Safety",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Sound Null Safety"
+          },
+          {
+            "type": "content",
+            "emoji": "🔒",
+            "title": "Null Safety Basics",
+            "box": {
+              "content": "<strong>Preventing null reference errors</strong>",
+              "code": "// Non-nullable by default\nString name = 'John';  // Cannot be null\n// String name = null; // This would cause compile error\n\n// Nullable variables\nString? nullableName = null;  // Can be null\nnullableName = 'Now it has a value';\n\n// Safe access\nprint(nullableName?.length);  // null-aware operator\nprint(nullableName!.length);  // null assertion (use carefully)\n\n// Default values\nString displayName = nullableName ?? 'Guest';\n\n// Late initialization\nlate String lateName;\nvoid initialize() {\n  lateName = 'Initialized later';\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "functions",
+        "title": "Functions",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Functions in Dart"
+          },
+          {
+            "type": "content",
+            "emoji": "🔧",
+            "title": "Function Types",
+            "box": {
+              "content": "<strong>Different function syntaxes</strong>",
+              "code": "// Basic function\nint add(int a, int b) {\n  return a + b;\n}\n\n// Arrow syntax for single expression\nint multiply(int a, int b) => a * b;\n\n// Optional positional parameters\nvoid greet(String name, [String? title]) {\n  if (title != null) {\n    print('Hello $title $name');\n  } else {\n    print('Hello $name');\n  }\n}\n\n// Named parameters\nvoid configure({required String host, int port = 8080, bool secure = true}) {\n  print('Connecting to $host:$port (secure: $secure)');\n}\n\n// Default parameters\nvoid logMessage(String message, [String level = 'INFO']) {\n  print('[$level] $message');\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "collections",
+        "title": "Collections",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Working with Collections"
+          },
+          {
+            "type": "content",
+            "emoji": "📦",
+            "title": "List, Set, and Map",
+            "box": {
+              "content": "<strong>Collection types and operations</strong>",
+              "code": "// Lists (ordered collection)\nList<String> fruits = ['apple', 'banana', 'orange'];\nfruits.add('grape');\nprint(fruits[0]);  // 'apple'\n\n// Sets (unique items)\nSet<int> numbers = {1, 2, 3, 3, 4};  // {1, 2, 3, 4}\nnumbers.add(5);\n\n// Maps (key-value pairs)\nMap<String, int> ages = {\n  'Alice': 30,\n  'Bob': 25,\n  'Charlie': 35,\n};\nages['David'] = 28;\nprint(ages['Alice']);  // 30\n\n// Collection operators\nvar doubled = numbers.map((n) => n * 2).toList();\nvar evenNumbers = numbers.where((n) => n % 2 == 0).toList();\nvar hasApple = fruits.any((fruit) => fruit == 'apple');"
+            }
+          }
+        ]
+      },
+      {
+        "id": "oop",
+        "title": "Object-Oriented Programming",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "OOP in Dart"
+          },
+          {
+            "type": "content",
+            "emoji": "🏗️",
+            "title": "Classes and Objects",
+            "box": {
+              "content": "<strong>Class definition and usage</strong>",
+              "code": "class Person {\n  // Properties\n  String name;\n  int age;\n  \n  // Constructor\n  Person(this.name, this.age);\n  \n  // Named constructor\n  Person.newborn(String name) : this(name, 0);\n  \n  // Method\n  void introduce() {\n    print('Hello, I\\'m $name and I\\'m $age years old');\n  }\n  \n  // Getter\n  String get description => '$name ($age)';\n  \n  // Setter\n  set updateAge(int newAge) {\n    if (newAge > 0) age = newAge;\n  }\n}\n\n// Usage\nvoid main() {\n  var person = Person('Alice', 30);\n  person.introduce();\n  print(person.description);\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🔄",
+            "title": "Inheritance & Mixins",
+            "box": {
+              "content": "<strong>Advanced OOP features</strong>",
+              "code": "// Base class\nabstract class Animal {\n  void makeSound();\n  void sleep() => print('Sleeping...');\n}\n\n// Interface (implicit in Dart)\nclass Flyable {\n  void fly() => print('Flying');\n}\n\n// Mixin\nmixin Swimmable {\n  void swim() => print('Swimming');\n}\n\n// Inheritance with mixin\nclass Bird extends Animal with Swimmable {\n  @override\n  void makeSound() => print('Chirp chirp!');\n}\n\n// Implementation\nclass Duck extends Animal with Swimmable, Flyable {\n  @override\n  void makeSound() => print('Quack!');\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "async-programming",
+        "title": "Async Programming",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Asynchronous Dart"
+          },
+          {
+            "type": "content",
+            "emoji": "⚡",
+            "title": "Future and Async/Await",
+            "box": {
+              "content": "<strong>Handling asynchronous operations</strong>",
+              "code": "// Future-based API\nFuture<String> fetchUserData() {\n  return Future.delayed(\n    Duration(seconds: 2),\n    () => 'User data loaded',\n  );\n}\n\n// Using async/await\nFuture<void> loadData() async {\n  print('Loading...');\n  try {\n    final data = await fetchUserData();\n    print('Data: $data');\n  } catch (e) {\n    print('Error: $e');\n  }\n}\n\n// Multiple async operations\nFuture<void> loadAllData() async {\n  final results = await Future.wait([\n    fetchUserData(),\n    Future.delayed(Duration(seconds: 1), () => 'Settings'),\n  ]);\n  print('All data: $results');\n}\n\n// Error handling\nFuture<String> safeFetch() async {\n  try {\n    return await fetchUserData();\n  } catch (e) {\n    return 'Default data';\n  }\n}"
+            }
+          },
+          {
+            "type": "content",
+            "emoji": "🌊",
+            "title": "Streams",
+            "box": {
+              "content": "<strong>Reactive programming with streams</strong>",
+              "code": "import 'dart:async';\n\n// Creating a stream\nStream<int> countStream(int max) async* {\n  for (int i = 1; i <= max; i++) {\n    await Future.delayed(Duration(seconds: 1));\n    yield i;\n  }\n}\n\n// Using streams\nvoid listenToStream() {\n  final stream = countStream(5);\n  \n  stream.listen(\n    (data) => print('Data: $data'),\n    onError: (error) => print('Error: $error'),\n    onDone: () => print('Stream completed'),\n  );\n}\n\n// Stream transformation\nvoid transformStream() {\n  countStream(3)\n    .map((number) => number * 2)\n    .where((number) => number > 2)\n    .listen(print);  // Prints: 4, 6\n}"
+            }
+          }
+        ]
+      },
+      {
+        "id": "dart-3",
+        "title": "Dart 3 Features",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "What's New in Dart 3"
+          },
+          {
+            "type": "content",
+            "emoji": "🔮",
+            "title": "Records & Patterns",
+            "box": {
+              "content": "<strong>New language features</strong>",
+              "code": "// Records - lightweight anonymous tuples\n(String, int) getUserInfo() {\n  return ('Alice', 30);  // Record\n}\n\n// Pattern matching\nvar (name, age) = getUserInfo();\nprint('$name is $age years old');\n\n// Switch expressions with patterns\nString describeNumber(int number) => switch (number) {\n  0 => 'Zero',\n  1 => 'One',\n  _ => 'Other',\n};\n\n// Sealed classes for exhaustive switching\nsealed class Shape {}\nclass Square implements Shape {\n  final double side;\n  Square(this.side);\n}\nclass Circle implements Shape {\n  final double radius;\n  Circle(this.radius);\n}\n\ndouble calculateArea(Shape shape) => switch (shape) {\n  Square(side: var s) => s * s,\n  Circle(radius: var r) => 3.14 * r * r,\n};"
+            }
+          }
+        ]
+      },
+      {
+        "id": "real-world",
+        "title": "Real World Usage",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Dart in Production"
+          },
+          {
+            "type": "content",
+            "emoji": "📱",
+            "title": "Platform Support",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "<strong>Flutter</strong> - Cross-platform mobile, web, desktop"
+                },
+                {
+                  "emoji": "🖥️",
+                  "text": "<strong>Backend</strong> - Dart Frog, Shelf, Serverpod"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>CLI Tools</strong> - Scripts, automation, utilities"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>Web</strong> - AngularDart, pure Dart web apps"
+                },
+                {
+                  "emoji": "📊",
+                  "text": "<strong>Data Processing</strong> - ETL, analytics, batch jobs"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "demo-project",
+        "title": "Hands-On Project",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "🔨",
+            "title": "Mini Project: Weather CLI App",
+            "box": {
+              "list": [
+                {
+                  "emoji": "1️⃣",
+                  "text": "Create new Dart project"
+                },
+                {
+                  "emoji": "2️⃣",
+                  "text": "Add HTTP package dependency"
+                },
+                {
+                  "emoji": "3️⃣",
+                  "text": "Implement weather API client"
+                },
+                {
+                  "emoji": "4️⃣",
+                  "text": "Create command-line interface"
+                },
+                {
+                  "emoji": "5️⃣",
+                  "text": "Add error handling and validation"
+                },
+                {
+                  "emoji": "6️⃣",
+                  "text": "Format output with colors"
+                },
+                {
+                  "emoji": "7️⃣",
+                  "text": "Add unit tests"
+                },
+                {
+                  "emoji": "8️⃣",
+                  "text": "Package and distribute"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "resources",
+        "title": "Learning Resources",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📚",
+            "title": "Continue Learning",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🌐",
+                  "text": "<strong>dart.dev</strong> - Official documentation & tutorials"
+                },
+                {
+                  "emoji": "📖",
+                  "text": "<strong>Dart Apprentice</strong> - Book by Ray Wenderlich"
+                },
+                {
+                  "emoji": "🎓",
+                  "text": "<strong>Flutter & Dart Cookbook</strong> - Practical examples"
+                },
+                {
+                  "emoji": "💻",
+                  "text": "<strong>Dart Pad</strong> - Online coding environment"
+                },
+                {
+                  "emoji": "🎥",
+                  "text": "<strong>YouTube Tutorials</strong> - Flutter & Dart channels"
+                },
+                {
+                  "emoji": "🔧",
+                  "text": "<strong>pub.dev</strong> - Package repository and examples"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cheat-sheet",
+        "title": "Cheat Sheet",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📋",
+            "title": "Dart Quick Reference",
+            "box": {
+              "content": "<strong>Essential syntax quick reference</strong>",
+              "code": "// Variables\nvar name = 'Dart';\nfinal version = 3.0;\nconst pi = 3.14;\n\n// Functions\nint add(int a, int b) => a + b;\nvoid log(String msg) => print(msg);\n\n// Collections\nList<int> numbers = [1, 2, 3];\nSet<String> unique = {'a', 'b'};\nMap<String, int> scores = {'Alice': 95};\n\n// Control flow\nif (condition) { }\nfor (var item in list) { }\nwhile (condition) { }\n\n// Classes\nclass Person {\n  Person(this.name);\n  String name;\n  void greet() => print('Hello $name');\n}\n\n// Async\nFuture<String> fetch() async {\n  return await http.get(url);\n}\n\n// Error handling\ntry { risky(); } \ncatch (e) { handle(e); }\nfinally { cleanup(); }"
+            }
+          }
+        ]
+      },
+      {
+        "id": "recap",
+        "title": "Quick Recap",
+        "slides": [
+          {
+            "type": "content",
+            "emoji": "📝",
+            "title": "Key Takeaways",
+            "box": {
+              "list": [
+                {
+                  "emoji": "🎯",
+                  "text": "Dart = Client-optimized, multi-platform language"
+                },
+                {
+                  "emoji": "🔒",
+                  "text": "Sound null safety prevents runtime errors"
+                },
+                {
+                  "emoji": "⚡",
+                  "text": "Great for Flutter and beyond"
+                },
+                {
+                  "emoji": "🔄",
+                  "text": "Familiar syntax for Java/JS/C# developers"
+                },
+                {
+                  "emoji": "🌐",
+                  "text": "Runs on mobile, web, desktop, and server"
+                },
+                {
+                  "emoji": "🚀",
+                  "text": "Essential for modern cross-platform development"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "qa-and-thank-you",
+        "title": "Q&A and Thank You",
+        "slides": [
+          {
+            "type": "qa",
+            "title": "Questions? 💬",
+            "content": "Let's discuss Dart concepts, Flutter, or specific use cases!<br><span class=\"gradient-accent\">All Dart questions welcome!</span>"
+          },
+          {
+            "type": "thank-you",
+            "title": "Thank You! 🎉",
+            "box": {
+              "content": "<span class=\"emoji\">🎯</span> Ready to master Dart?<br><span class=\"gradient-accent\">Start building with Dart today!</span>",
+              "note": "Productive • Reliable • Multi-platform"
+            },
+            "footer": {
+              "org": "Dart Developer Community",
+              "tagline": "Building the future of cross-platform apps"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

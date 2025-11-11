@@ -248,20 +248,35 @@ const PRESENTATIONS_CONFIG = [
     file: "presentations/intro-frappe-product-suite.json",
     title: "Introduction to Frappe Product Suite",
     description: "Complete ecosystem of open source business applications including ERPNext, CRM, HR, and more built on Frappe Framework",
-    keywords: [
-      "frappe",
-      "erpnext",
-      "business",
-      "enterprise",
-      "open source",
-      "erp",
-      "crm",
-      "hr",
-      "accounting",
-      "framework",
-      "product suite",
-      "business applications"
-    ],
+    keywords: ["frappe", "erpnext", "business", "enterprise", "open source", "erp", "crm", "hr", "accounting", "framework", "product suite", "business applications"],
     category: ["business"]
+  },
+  {
+    file: "presentations/intro-flutter.json",
+    title: "Flutter – Cross-Platform App Development",
+    description: "Google’s open-source framework for building high-performance, natively compiled mobile, web, and desktop applications from a single codebase using Dart.",
+    keywords: ["flutter", "dart", "mobile-development", "cross-platform", "ui", "widgets", "android", "ios", "desktop", "web"],
+    category: ["app-development", "frontend"]
+  },
+  {
+    file: "presentations/intro-php.json",
+    title: "PHP – Server-Side Web Development",
+    description: "A foundational scripting language for dynamic web applications, powering platforms like WordPress, Laravel, and Drupal with vast ecosystem support.",
+    keywords: ["php", "web-development", "backend", "laravel", "wordpress", "mysql", "server-side", "scripting", "mvc"],
+    category: ["backend", "web-development"]
+  }, {
+    file: "presentations/intro-rust.json",
+    title: "Rust – Systems Programming Language",
+    description: "A memory-safe, high-performance systems programming language focused on safety, concurrency, and speed — ideal for backend services, embedded systems, and performance-critical software.",
+    keywords: ["rust", "systems-programming", "memory-safety", "performance", "concurrency", "wasm", "cli", "backend", "safe-code"],
+    category: ["programming", "backend"]
+  },
+  {
+    file: "presentations/intro-dart.json",
+    title: "Dart – Modern Programming Language for Apps",
+    description: "Google’s modern, object-oriented programming language optimized for UI, fast compilation, and cross-platform development — powering Flutter and beyond.",
+    keywords: ["dart", "flutter", "programming", "oop", "async", "frontend", "backend", "mobile-development"],
+    category: ["programming", "app-development"]
   }
+
 ];
