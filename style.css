@@ -35,6 +35,9 @@ body {
   background-color: #ffffff;
   color: #111;
   overflow-x: hidden;
+  margin: 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #0a0f1f 0%, #050812 100%);
 }
 
 
@@ -560,3 +563,55 @@ body.presentation-mode .reveal {
         font-size: 1.4rem;
     }
 }
+
+ .floating-shape {
+      position: fixed;
+      opacity: 0.8;
+      z-index: 9999;
+      pointer-events: none;
+      animation: floatMove 10s ease-in-out infinite;
+  }
+
+  @keyframes floatMove {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+      50%  { transform: translate(40px, -40px) rotate(180deg) scale(1.3); }
+      100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .glow-line {
+    position: fixed;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.3), transparent);
+    opacity: 0.5;
+    animation: lineFlow 8s linear infinite;
+  }
+
+  @keyframes lineFlow {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  .glow-gradient {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.08), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(100, 0, 255, 0.1), transparent 70%),
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 200, 0.1), transparent 70%);
+    z-index: -1;
+    animation: pulse 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { filter: blur(40px); opacity: 0.7; }
+    100% { filter: blur(70px); opacity: 1; }
+  }
