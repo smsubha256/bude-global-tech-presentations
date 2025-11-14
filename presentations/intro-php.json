@@ -18,12 +18,12 @@
         "slides": [
           {
             "type": "presenter",
-            "name": "PHP Developer",
-            "title": "Web Development Specialist",
-            "experience": "Experienced in PHP, Laravel, WordPress & Modern Web Stack",
-            "oss_experience": "Backend Development & CMS Specialist",
-            "github": "https://github.com/php",
-            "website": "https://www.php.net"
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Full-Stack Development & UI Framework Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
           }
         ]
       },
@@ -963,9 +963,9 @@
               "content": "<span class=\"emoji\">🐘</span> Ready to master PHP?<br><span class=\"gradient-accent\">Start your PHP journey today!</span>",
               "note": "Versatile • Powerful • Enterprise-Ready"
             },
-            "footer": {
-              "org": "PHP Community",
-              "tagline": "Empowering web development worldwide since 1995"
+           "footer": {
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
             }
           }
         ]

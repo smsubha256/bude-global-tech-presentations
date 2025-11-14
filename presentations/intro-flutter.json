@@ -18,12 +18,12 @@
         "slides": [
           {
             "type": "presenter",
-            "name": "Your Name Here",
-            "title": "Flutter Developer",
-            "experience": "X years in Mobile Development & Cross-Platform",
-            "oss_experience": "Flutter & Dart Specialist",
-            "github": "https://github.com/yourusername",
-            "website": "https://your-portfolio.com"
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Full-Stack Development & UI Framework Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
           }
         ]
       },
@@ -872,8 +872,8 @@
               "note": "Cross-Platform • Beautiful • Productive"
             },
             "footer": {
-              "org": "Your Organization Name",
-              "tagline": "Building the future of cross-platform development"
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
             }
           }
         ]

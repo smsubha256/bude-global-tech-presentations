@@ -18,12 +18,12 @@
         "slides": [
           {
             "type": "presenter",
-            "name": "Dart Developer",
-            "title": "Flutter & Dart Specialist",
-            "experience": "5 years in Mobile & Full-Stack Development",
-            "oss_experience": "Dart Packages & Open Source Contributor",
-            "github": "https://github.com/dart-dev",
-            "website": "https://dart.dev"
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Backend Development & Automation Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
           }
         ]
       },
@@ -677,8 +677,8 @@
               "note": "Productive • Reliable • Multi-platform"
             },
             "footer": {
-              "org": "Dart Developer Community",
-              "tagline": "Building the future of cross-platform apps"
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
             }
           }
         ]

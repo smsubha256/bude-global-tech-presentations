@@ -277,6 +277,12 @@ const PRESENTATIONS_CONFIG = [
     description: "Google’s modern, object-oriented programming language optimized for UI, fast compilation, and cross-platform development — powering Flutter and beyond.",
     keywords: ["dart", "flutter", "programming", "oop", "async", "frontend", "backend", "mobile-development"],
     category: ["programming", "app-development"]
+  }, 
+  {
+    file: "presentations/intro-ruby.json",
+    title: "Ruby – Elegant, Expressive Programming Language",
+    description: "A developer-friendly, expressive scripting language known for simplicity and productivity, widely used in web development through frameworks like Ruby on Rails.",
+    keywords: ["ruby", "rails", "programming", "scripting", "web-development", "backend", "mvc", "oop", "productivity"],
+    category: ["programming", "backend"]
   }
-
 ];

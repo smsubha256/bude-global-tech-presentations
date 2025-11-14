@@ -18,12 +18,12 @@
         "slides": [
           {
             "type": "presenter",
-            "name": "Rust Developer",
-            "title": "Systems Programming Specialist",
-            "experience": "Experienced in Rust, C++, and systems programming",
-            "oss_experience": "Rust Open Source Contributor & Educator",
-            "github": "https://github.com/rust-lang",
-            "website": "https://www.rust-lang.org"
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Full-Stack Development & UI Framework Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
           }
         ]
       },
@@ -1034,8 +1034,8 @@
               "note": "Safe • Fast • Productive"
             },
             "footer": {
-              "org": "Rust Community",
-              "tagline": "Empowering everyone to build reliable and efficient software"
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
             }
           }
         ]

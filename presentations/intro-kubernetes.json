@@ -18,12 +18,12 @@
         "slides": [
           {
             "type": "presenter",
-            "name": "Kubernetes Engineer",
-            "title": "Cloud Native Specialist",
-            "experience": "4+ years in container orchestration & DevOps",
-            "oss_experience": "CNCF ecosystem & cloud native technologies",
-            "github": "https://github.com/kubernetes",
-            "website": "https://kubernetes.io"
+            "name": "Aravind Govindhasamy",
+            "title": "Software Developer",
+            "experience": "3 years in .NET, Python, IoT & RFID",
+            "oss_experience": "Full-Stack Development & UI Framework Specialist",
+            "github": "https://github.com/aravind-govindhasamy",
+            "website": "https://aravind-govindhasamy.github.io"
           }
         ]
       },
@@ -940,8 +940,8 @@
               "note": "Automated • Scalable • Cloud Native"
             },
             "footer": {
-              "org": "Cloud Native Computing Foundation",
-              "tagline": "Building sustainable ecosystems for cloud native software"
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Empowering developers worldwide"
             }
           }
         ]
