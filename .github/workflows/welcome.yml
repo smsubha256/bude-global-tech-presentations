@@ -1,0 +1,27 @@
+name: Welcome First Interaction
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First interaction (welcome)
+        uses: peter-evans/first-interaction@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # Customize messages
+          issue-message: |
+            Hi @{author}! 👋
+            
+            Thanks for opening this issue — we appreciate the contribution.
+            If you'd like to work on this, comment below to claim it and we'll assign you.
+            
+            Please follow the contribution guide: `CONTRIBUTING.md` and use the templates.
+          pr-message: |
+            Hi @{author}! Thanks for your PR. The maintainers will review shortly.
+            Make sure the PR follows our contribution checklist.
