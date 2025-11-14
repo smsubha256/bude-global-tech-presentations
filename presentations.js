@@ -191,6 +191,14 @@ const PRESENTATIONS_CONFIG = [
     difficulty: "intermediate"
   },
   {
+    file: "presentations/intro-ios-dev.json",
+    title: "iOS Advanced Development",
+    description: "Professional-grade iOS app development with SwiftUI and UIKit, covering modern architecture patterns, performance optimization, and framework integration.",
+    keywords: ["ios", "swift", "swiftui", "uikit", "mobile-development", "xcode", "cocoapods", "app-development", "ios-architecture", "performance"],
+    category: ["app-development", "frontend"],
+    difficulty: "advanced"
+  },
+  {
     file: "presentations/intro-adminlte.json",
     title: "Introduction to AdminLTE",
     description: "Complete admin dashboard template guide from setup to advanced customization",
