@@ -1,0 +1,31 @@
+labels:
+  - name: presentation-request
+    color: "0e8a16"
+    description: "Requests for new presentations / slide decks"
+  - name: feature-request
+    color: "1d76db"
+    description: "New feature proposals"
+  - name: bug
+    color: "d73a4a"
+    description: "Bug reports"
+  - name: enhancement
+    color: "a2eeef"
+    description: "Enhancements / improvements"
+  - name: documentation
+    color: "006b75"
+    description: "Docs and examples"
+  - name: good first issue
+    color: "7057ff"
+    description: "Beginner-friendly tasks"
+  - name: help wanted
+    color: "008672"
+    description: "Areas where maintainers request help"
+  - name: discussion
+    color: "5319e7"
+    description: "Open community discussion"
+  - name: triage
+    color: "bfe5bf"
+    description: "Needs triage"
+  - name: blocked
+    color: "d4c5f9"
+    description: "Work blocked / awaiting action"
