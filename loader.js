@@ -188,7 +188,16 @@ function renderCategories() {
 
     sortedCategories.forEach(([categoryId, presentations]) => {
         const category = categoryMetadata[categoryId];
-        const count = presentations.length;
+        
+        // Sort presentations by difficulty: beginner → intermediate → advanced
+        const difficultyOrder = { 'beginner': 0, 'intermediate': 1, 'advanced': 2 };
+        const sortedPresentations = presentations.sort((a, b) => {
+            const aDiff = difficultyOrder[a.difficulty] ?? 999;
+            const bDiff = difficultyOrder[b.difficulty] ?? 999;
+            return aDiff - bDiff;
+        });
+        
+        const count = sortedPresentations.length;
 
         if (count === 0) return;
 
@@ -208,7 +217,7 @@ function renderCategories() {
                     </div>
                 </div>
                 <div class="presentations-grid">
-                    ${presentations.map(pres => createPresentationCard(pres)).join('')}
+                    ${sortedPresentations.map(pres => createPresentationCard(pres)).join('')}
                 </div>
             </div>
         `;
@@ -222,10 +231,22 @@ function renderCategories() {
  */
 function createPresentationCard(presentation) {
     const keywordsToShow = presentation.keywords ? presentation.keywords.slice(0, 3) : [];
+    
+    // Difficulty badge styling
+    const difficultyBadges = {
+        'beginner': '<span class="difficulty-badge beginner">🟢 Beginner</span>',
+        'intermediate': '<span class="difficulty-badge intermediate">🟡 Intermediate</span>',
+        'advanced': '<span class="difficulty-badge advanced">🔴 Advanced</span>'
+    };
+    
+    const difficultyBadge = difficultyBadges[presentation.difficulty] || '';
 
     return `
         <div class="presentation-card" onclick="loadPresentation('${presentation.file}')">
-            <div class="icon">📚</div>
+            <div class="card-header">
+                <div class="icon">📚</div>
+                ${difficultyBadge}
+            </div>
             <div class="title">${presentation.title}</div>
             <div class="description">${presentation.description}</div>
             ${keywordsToShow.length > 0 ? `
@@ -325,7 +346,16 @@ function filterPresentations(query) {
         .sort((a, b) => b[1].length - a[1].length)
         .forEach(([categoryId, presentations]) => {
             const category = categoryMetadata[categoryId];
-            const count = presentations.length;
+            
+            // Sort presentations by difficulty: beginner → intermediate → advanced
+            const difficultyOrder = { 'beginner': 0, 'intermediate': 1, 'advanced': 2 };
+            const sortedPresentations = presentations.sort((a, b) => {
+                const aDiff = difficultyOrder[a.difficulty] ?? 999;
+                const bDiff = difficultyOrder[b.difficulty] ?? 999;
+                return aDiff - bDiff;
+            });
+            
+            const count = sortedPresentations.length;
 
             html += `
                 <div class="category-section" data-category="${categoryId}">
@@ -343,7 +373,7 @@ function filterPresentations(query) {
                         </div>
                     </div>
                     <div class="presentations-grid">
-                        ${presentations.map(pres => createPresentationCard(pres)).join('')}
+                        ${sortedPresentations.map(pres => createPresentationCard(pres)).join('')}
                     </div>
                 </div>
             `;
