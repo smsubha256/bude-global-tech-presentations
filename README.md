@@ -14,6 +14,14 @@
 
 </div>
 
+
+<p align="center">
+  Scan the QR to support the project 👇  
+  <br><br>
+  <img src="assets/images/Aravind_GooglePay_QR.png" width="250" />
+</p>
+
+
 ---
 
 ## 🌟 Overview
