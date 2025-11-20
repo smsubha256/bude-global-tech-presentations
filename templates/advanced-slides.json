@@ -1,0 +1,289 @@
+{
+  "presentation": {
+    "topics": [
+      {
+        "id": "title",
+        "title": "Title",
+        "slides": [
+          {
+            "type": "title",
+            "title": "Advanced Slide Components",
+            "subtitle": "Testing Enhanced Features in BUDE Presentations"
+          }
+        ]
+      },
+      {
+        "id": "comparison-examples",
+        "title": "Comparison Slides",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Comparison Slide Examples"
+          },
+          {
+            "type": "comparison",
+            "title": "React vs Vue.js",
+            "leftTitle": "React",
+            "leftPoints": [
+              "Developed by Facebook/Meta",
+              "JSX syntax for components",
+              "Large ecosystem and community",
+              "Virtual DOM for performance",
+              "One-way data binding",
+              "Requires additional libraries for routing"
+            ],
+            "rightTitle": "Vue.js",
+            "rightPoints": [
+              "Independent open-source project",
+              "Template-based syntax",
+              "Progressive framework design",
+              "Reactive data system",
+              "Two-way data binding available",
+              "Built-in routing and state management"
+            ]
+          },
+          {
+            "type": "comparison",
+            "title": "SQL vs NoSQL Databases",
+            "leftTitle": "SQL (Relational)",
+            "leftPoints": [
+              "Structured schema required",
+              "ACID transactions",
+              "Vertical scaling",
+              "Complex queries with JOINs",
+              "Best for: Financial systems, traditional apps"
+            ],
+            "rightTitle": "NoSQL (Document/Key-Value)",
+            "rightPoints": [
+              "Flexible schema design",
+              "Eventual consistency",
+              "Horizontal scaling",
+              "Simple queries on documents",
+              "Best for: Big data, real-time apps"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "image-text-examples",
+        "title": "Image/Text Layouts",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Image and Text Layouts"
+          },
+          {
+            "type": "imageText",
+            "title": "Docker Architecture",
+            "layout": "left-image",
+            "image": "https://via.placeholder.com/600x400/0060a0/ffffff?text=Docker+Architecture",
+            "imageAlt": "Docker architecture diagram",
+            "caption": "Docker container architecture overview",
+            "content": "<h4>Container Technology</h4><p>Docker revolutionized application deployment by containerizing applications with their dependencies. Each container runs in isolation while sharing the host operating system kernel.</p><ul><li>Lightweight and fast startup</li><li>Consistent across environments</li><li>Easy version control with images</li><li>Microservices architecture enabler</li></ul>"
+          },
+          {
+            "type": "imageText",
+            "title": "Kubernetes Cluster",
+            "layout": "right-image",
+            "image": "https://via.placeholder.com/600x400/6f42c1/ffffff?text=Kubernetes+Cluster",
+            "imageAlt": "Kubernetes cluster diagram",
+            "caption": "Kubernetes orchestration platform",
+            "content": "<h4>Container Orchestration</h4><p>Kubernetes automates deployment, scaling, and management of containerized applications across clusters of hosts.</p><ul><li>Automatic scaling and load balancing</li><li>Self-healing capabilities</li><li>Rolling updates and rollbacks</li><li>Service discovery and networking</li></ul>"
+          }
+        ]
+      },
+      {
+        "id": "quiz-examples",
+        "title": "Interactive Quizzes",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Interactive Quiz Examples"
+          },
+          {
+            "type": "quiz",
+            "question": "What does REST stand for in web API design?",
+            "options": [
+              "Relational Exchange State Transfer",
+              "Representational State Transfer",
+              "Remote Execution State Transaction",
+              "Resource Exchange System Transfer"
+            ],
+            "correctAnswer": 1,
+            "explanation": "REST stands for Representational State Transfer. It is an architectural style for designing networked applications, relying on stateless, client-server communication using standard HTTP methods."
+          },
+          {
+            "type": "quiz",
+            "question": "Which data structure operates on LIFO (Last In, First Out) principle?",
+            "options": [
+              "Queue",
+              "Array",
+              "Stack",
+              "Linked List"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A Stack operates on the LIFO principle where the last element added is the first one to be removed. This is useful for function call stacks, undo mechanisms, and expression evaluation."
+          },
+          {
+            "type": "quiz",
+            "question": "What is the time complexity of binary search in a sorted array?",
+            "options": [
+              "O(n)",
+              "O(log n)",
+              "O(n²)",
+              "O(1)"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Binary search has O(log n) time complexity because it divides the search space in half with each iteration. For an array of 1000 elements, it requires at most 10 comparisons (2^10 = 1024)."
+          }
+        ]
+      },
+      {
+        "id": "video-examples",
+        "title": "Video Embeds",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Embedded Video Examples"
+          },
+          {
+            "type": "video",
+            "title": "Introduction to Git",
+            "videoUrl": "https://www.youtube.com/watch?v=USjZcfj8yxE",
+            "caption": "Git basics and workflow tutorial"
+          },
+          {
+            "type": "content",
+            "title": "Video Slide Features",
+            "box": {
+              "title": "Supported Video Sources",
+              "list": [
+                { "emoji": "▶️", "text": "YouTube - Full embed support" },
+                { "emoji": "🎬", "text": "Vimeo - Professional hosting" },
+                { "emoji": "📹", "text": "Direct MP4/WebM - Self-hosted videos" }
+              ]
+            },
+            "note": {
+              "text": "Videos automatically adapt to screen size with 16:9 aspect ratio"
+            }
+          }
+        ]
+      },
+      {
+        "id": "chart-examples",
+        "title": "Data Visualization",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Chart Examples"
+          },
+          {
+            "type": "chart",
+            "title": "Technology Adoption - Bar Chart",
+            "chartType": "bar",
+            "labels": ["React", "Vue", "Angular", "Svelte", "Solid"],
+            "data": [78, 45, 32, 18, 12]
+          },
+          {
+            "type": "chart",
+            "title": "User Growth Over Time - Line Chart",
+            "chartType": "line",
+            "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            "data": [1200, 1900, 2500, 3100, 4200, 5300]
+          },
+          {
+            "type": "chart",
+            "title": "Market Share Distribution - Pie Chart",
+            "chartType": "pie",
+            "labels": ["Chrome", "Safari", "Firefox", "Edge", "Others"],
+            "data": [65, 18, 9, 5, 3]
+          }
+        ]
+      },
+      {
+        "id": "diagram-examples",
+        "title": "Diagrams",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Diagram Examples"
+          },
+          {
+            "type": "diagram",
+            "title": "Simple Architecture",
+            "content": "┌─────────────────────────────────────────────┐\n│              Client Layer                   │\n│         (Browser / Mobile App)              │\n└──────────────┬──────────────────────────────┘\n               │\n               │ HTTPS\n               │\n┌──────────────▼──────────────────────────────┐\n│           API Gateway                       │\n│        (Load Balancer)                      │\n└──────────┬────────────┬─────────────────────┘\n           │            │\n           │            │\n┌──────────▼────┐  ┌───▼─────────────────────┐\n│  Web Server   │  │  Application Server     │\n│   (Nginx)     │  │     (Node.js)           │\n└───────────────┘  └──────────┬──────────────┘\n                              │\n                              │\n                   ┌──────────▼──────────────┐\n                   │     Database Layer      │\n                   │    (PostgreSQL)         │\n                   └─────────────────────────┘"
+          },
+          {
+            "type": "diagram",
+            "title": "Git Workflow",
+            "content": "main branch:      A──B──C──D──E──F\n                      \\\n                       \\\nfeature branch:         G──H──I\n                                \\\n                                 \\\nmerge:                            J (merge commit)\n\n\nWorkflow Steps:\n1. Create branch from main\n2. Make commits (G, H, I)\n3. Open Pull Request\n4. Code Review\n5. Merge to main (J)"
+          }
+        ]
+      },
+      {
+        "id": "mixed-content",
+        "title": "Combined Examples",
+        "slides": [
+          {
+            "type": "topic-title",
+            "title": "Combining Multiple Components"
+          },
+          {
+            "type": "content",
+            "title": "Full Feature Overview",
+            "box": {
+              "title": "Enhanced Slide Components",
+              "list": [
+                { "emoji": "↔️", "text": "Comparison - Side-by-side layouts" },
+                { "emoji": "🖼️", "text": "Image/Text - Flexible positioning" },
+                { "emoji": "❓", "text": "Quiz - Interactive validation" },
+                { "emoji": "🎥", "text": "Video - Multiple sources" },
+                { "emoji": "📊", "text": "Charts - Bar, line, pie" },
+                { "emoji": "📐", "text": "Diagrams - ASCII/text based" }
+              ]
+            },
+            "note": {
+              "text": "All components are fully responsive and work on mobile devices"
+            }
+          },
+          {
+            "type": "comparison",
+            "title": "Old vs New Presentation Engine",
+            "leftTitle": "Version 1.0",
+            "leftPoints": [
+              "Basic content slides",
+              "Limited layouts",
+              "Static content only",
+              "No interactivity"
+            ],
+            "rightTitle": "Version 2.0 (Enhanced)",
+            "rightPoints": [
+              "10+ slide types",
+              "Flexible grid layouts",
+              "Videos and charts",
+              "Interactive quizzes"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thank-you",
+        "title": "Closing",
+        "slides": [
+          {
+            "type": "thank-you",
+            "title": "Thank You!",
+            "box": {
+              "content": "You've explored all the advanced slide components available in the enhanced BUDE Global Tech Presentations engine. Start building rich, interactive presentations today!",
+              "note": "Documentation available at docs/slide-types.md"
+            },
+            "footer": {
+              "org": "Bude Global Enterprise - India",
+              "tagline": "Building the future of technical presentations"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

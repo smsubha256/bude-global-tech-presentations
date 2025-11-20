@@ -9,6 +9,14 @@ const PRESENTATIONS_CONFIG = [
     difficulty: "beginner"
   },
   {
+    file: "templates/advanced-slides.json",
+    title: "Advanced Slide Components",
+    description: "Testing Enhanced Features in BUDE Presentations",
+    keywords: ["web", "html", "css", "javascript", "frontend", "backend", "fullstack"],
+    category: ["frontend", "backend"],
+    difficulty: "beginner"
+  },
+  {
     file: "presentations/intro-oss.json",
     title: "Introduction to Open Source",
     description: "Learn the fundamentals of open source software, from licensing to contributing",
