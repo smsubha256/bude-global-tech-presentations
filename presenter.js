@@ -1,23 +1,13 @@
 /**
- * BUDE Presentation Engine v3.0 - Enhanced Edition
- * Advanced Animation System with GPU Acceleration & Responsive Design
- * 
- * Features:
- * - 8 Background Animation Modes (Floating Shapes, Gradient Blobs, Neon Waves, etc.)
- * - GPU-accelerated rendering with Canvas 2D & CSS transforms
- * - Dynamic quality scaling for low-power devices
- * - Full responsive support (mobile portrait/landscape, tablets, desktop)
- * - 4K/Retina display optimization
- * - Per-slide or global animation configuration
- * - Smooth fade transitions between animation modes
+ * BUDE Presentation Engine v3.5 - Ultimate Edition
+ * With UI Control Panel & Fixed Mobile Support
  */
 
 // ============================================================================
-// GLOBAL CONFIGURATION & STATE MANAGEMENT
+// GLOBAL STATE
 // ============================================================================
 
 const ANIMATION_CONFIG = {
-    // Available animation modes
     modes: {
         FLOATING_SHAPES: 'floating-shapes',
         GRADIENT_BLOBS: 'gradient-blobs',
@@ -29,35 +19,30 @@ const ANIMATION_CONFIG = {
         COSMIC_DUST: 'cosmic-dust'
     },
     
-    // Performance settings
     quality: {
         HIGH: { particles: 100, shapes: 20, fps: 60 },
         MEDIUM: { particles: 50, shapes: 15, fps: 45 },
         LOW: { particles: 25, shapes: 10, fps: 30 }
     },
     
-    // Color palette
     colors: {
         primary: ['#0060a0', '#6f42c1', '#cb6ce6', '#23a6d5', '#23d5ab'],
         neon: ['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff0066'],
         cosmic: ['#1a1a2e', '#16213e', '#0f3460', '#533483', '#e94560']
     },
     
-    // Device detection
     isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
     isLowPower: false,
     pixelRatio: window.devicePixelRatio || 1,
     
-    // Current state
     currentMode: 'floating-shapes',
     currentQuality: 'HIGH',
-    isTransitioning: false
+    isTransitioning: false,
+    animationEnabled: true
 };
 
-// Quiz state management
 const quizState = {};
 
-// Animation instances storage
 let animationInstances = {
     canvas: null,
     ctx: null,
@@ -66,25 +51,109 @@ let animationInstances = {
     shapes: [],
     blobs: [],
     waves: [],
-    grid: null
+    intervalIds: []
 };
 
 // ============================================================================
-// DEVICE DETECTION & PERFORMANCE OPTIMIZATION
+// UI CONTROL PANEL
+// ============================================================================
+
+function createControlPanel() {
+    const panel = document.createElement('div');
+    panel.id = 'animation-control-panel';
+    panel.innerHTML = `
+        <div class="control-panel-header">
+            <span>🎨 Animation Controls</span>
+            <button id="toggle-panel" class="toggle-btn">−</button>
+        </div>
+        <div class="control-panel-content">
+            <div class="control-group">
+                <label>Animation Mode:</label>
+                <select id="animation-mode-select">
+                    <option value="floating-shapes">Floating Shapes</option>
+                    <option value="gradient-blobs">Gradient Blobs</option>
+                    <option value="neon-waves">Neon Waves</option>
+                    <option value="animated-grid">Animated Grid</option>
+                    <option value="particle-field">Particle Field</option>
+                    <option value="pulse-rings">Pulse Rings</option>
+                    <option value="parallax-layers">Parallax Layers</option>
+                    <option value="cosmic-dust">Cosmic Dust</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Quality:</label>
+                <select id="quality-select">
+                    <option value="HIGH">High</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="LOW">Low</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="animation-toggle" checked>
+                    Enable Animations
+                </label>
+            </div>
+            
+            <div class="control-group">
+                <button id="refresh-animation" class="action-btn">🔄 Refresh</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(panel);
+    
+    // Event listeners
+    document.getElementById('animation-mode-select').addEventListener('change', (e) => {
+        switchAnimationMode(e.target.value);
+    });
+    
+    document.getElementById('quality-select').addEventListener('change', (e) => {
+        ANIMATION_CONFIG.currentQuality = e.target.value;
+        switchAnimationMode(ANIMATION_CONFIG.currentMode);
+    });
+    
+    document.getElementById('animation-toggle').addEventListener('change', (e) => {
+        ANIMATION_CONFIG.animationEnabled = e.target.checked;
+        if (!e.target.checked) {
+            stopAllAnimations();
+        } else {
+            switchAnimationMode(ANIMATION_CONFIG.currentMode);
+        }
+    });
+    
+    document.getElementById('refresh-animation').addEventListener('click', () => {
+        switchAnimationMode(ANIMATION_CONFIG.currentMode);
+    });
+    
+    document.getElementById('toggle-panel').addEventListener('click', () => {
+        const content = document.querySelector('.control-panel-content');
+        const btn = document.getElementById('toggle-panel');
+        if (content.style.display === 'none') {
+            content.style.display = 'block';
+            btn.textContent = '−';
+        } else {
+            content.style.display = 'none';
+            btn.textContent = '+';
+        }
+    });
+}
+
+// ============================================================================
+// DEVICE DETECTION
 // ============================================================================
 
 function detectDeviceCapabilities() {
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     
-    // Check for low-power mode or weak GPU
     ANIMATION_CONFIG.isLowPower = 
         !gl || 
         ANIMATION_CONFIG.isMobile || 
-        navigator.hardwareConcurrency <= 2 ||
-        (navigator.getBattery && navigator.getBattery().then(b => b.charging === false));
+        navigator.hardwareConcurrency <= 2;
     
-    // Auto-adjust quality based on device
     if (ANIMATION_CONFIG.isLowPower) {
         ANIMATION_CONFIG.currentQuality = 'LOW';
     } else if (ANIMATION_CONFIG.isMobile) {
@@ -93,11 +162,121 @@ function detectDeviceCapabilities() {
         ANIMATION_CONFIG.currentQuality = 'HIGH';
     }
     
-    console.log(`[BUDE Engine] Device: ${ANIMATION_CONFIG.isMobile ? 'Mobile' : 'Desktop'}, Quality: ${ANIMATION_CONFIG.currentQuality}`);
+    // Update UI
+    const qualitySelect = document.getElementById('quality-select');
+    if (qualitySelect) {
+        qualitySelect.value = ANIMATION_CONFIG.currentQuality;
+    }
 }
 
 // ============================================================================
-// ANIMATION MODE 1: FLOATING SHAPES (Enhanced Original)
+// ANIMATION CLEANUP
+// ============================================================================
+
+function stopAllAnimations() {
+    // Cancel animation frame
+    if (animationInstances.animationFrameId) {
+        cancelAnimationFrame(animationInstances.animationFrameId);
+        animationInstances.animationFrameId = null;
+    }
+    
+    // Clear all intervals
+    animationInstances.intervalIds.forEach(id => clearInterval(id));
+    animationInstances.intervalIds = [];
+    
+    // Clear canvas
+    if (animationInstances.ctx && animationInstances.canvas) {
+        animationInstances.ctx.clearRect(0, 0, animationInstances.canvas.width, animationInstances.canvas.height);
+    }
+    
+    // Clear background container
+    const container = document.getElementById('animated-background');
+    if (container) {
+        container.innerHTML = '';
+    }
+    
+    // Reset arrays
+    animationInstances.particles = [];
+    animationInstances.shapes = [];
+    animationInstances.blobs = [];
+    animationInstances.waves = [];
+}
+
+// ============================================================================
+// CANVAS INITIALIZATION
+// ============================================================================
+
+function initializeAnimationCanvas() {
+    let canvas = document.getElementById('animation-canvas');
+    
+    if (!canvas) {
+        canvas = document.createElement('canvas');
+        canvas.id = 'animation-canvas';
+        canvas.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        `;
+        document.body.insertBefore(canvas, document.body.firstChild);
+    }
+    
+    const ctx = canvas.getContext('2d', { alpha: true, willReadFrequently: false });
+    
+    function resizeCanvas() {
+        const dpr = Math.min(ANIMATION_CONFIG.pixelRatio, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+        ctx.scale(dpr, dpr);
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        // Restart animation on resize
+        if (ANIMATION_CONFIG.animationEnabled) {
+            switchAnimationMode(ANIMATION_CONFIG.currentMode);
+        }
+    });
+    
+    animationInstances.canvas = canvas;
+    animationInstances.ctx = ctx;
+}
+
+// ============================================================================
+// BACKGROUND CONTAINER
+// ============================================================================
+
+function createAnimatedBackground() {
+    const existingBg = document.getElementById('animated-background');
+    if (existingBg) existingBg.remove();
+    
+    const bgContainer = document.createElement('div');
+    bgContainer.id = 'animated-background';
+    bgContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    `;
+    
+    document.body.insertBefore(bgContainer, document.body.firstChild);
+    initializeAnimationCanvas();
+}
+
+// ============================================================================
+// ANIMATION MODE 1: FLOATING SHAPES
 // ============================================================================
 
 function createFloatingShapes() {
@@ -108,19 +287,14 @@ function createFloatingShapes() {
     const shapes = ['circle', 'square', 'triangle', 'hexagon'];
     const colors = ANIMATION_CONFIG.colors.primary;
     
-    const positions = [
-        { top: '5%', left: '5%' }, { top: '5%', right: '5%' },
-        { bottom: '5%', left: '5%' }, { bottom: '5%', right: '5%' },
-        { top: '50%', left: '2%' }, { top: '25%', right: '2%' },
-        { bottom: '50%', right: '2%' }, { top: '75%', left: '2%' }
-    ];
+    const numShapes = Math.min(quality.shapes, 15);
     
-    for (let i = 0; i < Math.min(quality.shapes, positions.length); i++) {
+    for (let i = 0; i < numShapes; i++) {
         const shape = document.createElement('div');
         const type = shapes[Math.floor(Math.random() * shapes.length)];
         const color = colors[Math.floor(Math.random() * colors.length)];
-        const size = Math.random() * 40 + 30;
-        const duration = Math.random() * 8 + 10;
+        const size = Math.random() * 60 + 40;
+        const duration = Math.random() * 15 + 10;
         
         shape.className = `floating-shape ${type}`;
         shape.style.cssText = `
@@ -128,13 +302,13 @@ function createFloatingShapes() {
             width: ${size}px;
             height: ${size}px;
             background: ${color};
-            opacity: ${0.15 + Math.random() * 0.15};
+            opacity: ${0.12 + Math.random() * 0.1};
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
             animation: float-shape-${i} ${duration}s ease-in-out infinite;
             will-change: transform;
             transform: translateZ(0);
         `;
-        
-        Object.assign(shape.style, positions[i]);
         
         if (type === 'circle') {
             shape.style.borderRadius = '50%';
@@ -149,14 +323,13 @@ function createFloatingShapes() {
             shape.style.clipPath = 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)';
         }
         
-        // GPU-accelerated keyframe animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes float-shape-${i} {
                 0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-                25% { transform: translate3d(${Math.random() * 60 - 30}px, ${Math.random() * 60 - 30}px, 0) rotate(90deg); }
-                50% { transform: translate3d(${Math.random() * 60 - 30}px, ${Math.random() * 60 - 30}px, 0) rotate(180deg); }
-                75% { transform: translate3d(${Math.random() * 60 - 30}px, ${Math.random() * 60 - 30}px, 0) rotate(270deg); }
+                25% { transform: translate3d(${Math.random() * 80 - 40}px, ${Math.random() * 80 - 40}px, 0) rotate(90deg); }
+                50% { transform: translate3d(${Math.random() * 80 - 40}px, ${Math.random() * 80 - 40}px, 0) rotate(180deg); }
+                75% { transform: translate3d(${Math.random() * 80 - 40}px, ${Math.random() * 80 - 40}px, 0) rotate(270deg); }
             }
         `;
         document.head.appendChild(style);
@@ -167,7 +340,7 @@ function createFloatingShapes() {
 }
 
 // ============================================================================
-// ANIMATION MODE 2: GRADIENT BLOBS (Organic Flowing Shapes)
+// ANIMATION MODE 2: GRADIENT BLOBS
 // ============================================================================
 
 function createGradientBlobs() {
@@ -176,24 +349,24 @@ function createGradientBlobs() {
     
     const quality = ANIMATION_CONFIG.quality[ANIMATION_CONFIG.currentQuality];
     const colors = ANIMATION_CONFIG.colors.primary;
-    const blobCount = Math.floor(quality.shapes * 0.6);
+    const blobCount = Math.floor(quality.shapes * 0.5);
     
     for (let i = 0; i < blobCount; i++) {
         const blob = document.createElement('div');
-        const size = Math.random() * 300 + 200;
+        const size = Math.random() * 250 + 200;
         const color1 = colors[Math.floor(Math.random() * colors.length)];
         const color2 = colors[Math.floor(Math.random() * colors.length)];
-        const duration = Math.random() * 15 + 20;
+        const duration = Math.random() * 12 + 15;
         
         blob.className = 'gradient-blob';
         blob.style.cssText = `
             position: absolute;
             width: ${size}px;
             height: ${size}px;
-            background: radial-gradient(circle at 30% 40%, ${color1}33, ${color2}22);
+            background: radial-gradient(circle at 30% 40%, ${color1}44, ${color2}22);
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            filter: blur(40px);
-            opacity: 0.4;
+            filter: blur(35px);
+            opacity: 0.5;
             left: ${Math.random() * 100}%;
             top: ${Math.random() * 100}%;
             animation: blob-morph-${i} ${duration}s ease-in-out infinite;
@@ -226,44 +399,48 @@ function createGradientBlobs() {
 }
 
 // ============================================================================
-// ANIMATION MODE 3: NEON WAVES (Flowing Wave Patterns)
+// ANIMATION MODE 3: NEON WAVES
 // ============================================================================
 
 function createNeonWaves() {
     const canvas = animationInstances.canvas;
-    if (!canvas) return;
-    
     const ctx = animationInstances.ctx;
-    const quality = ANIMATION_CONFIG.quality[ANIMATION_CONFIG.currentQuality];
-    const colors = ANIMATION_CONFIG.colors.neon;
+    if (!canvas || !ctx) return;
     
+    const colors = ANIMATION_CONFIG.colors.neon;
     const waves = [];
+    
     for (let i = 0; i < 5; i++) {
         waves.push({
-            y: canvas.height * (i / 5),
-            length: 0.01 + Math.random() * 0.01,
-            amplitude: 20 + Math.random() * 40,
-            frequency: 0.01 + Math.random() * 0.01,
+            y: (canvas.height / window.devicePixelRatio) * (i / 5),
+            amplitude: 25 + Math.random() * 35,
+            frequency: 0.008 + Math.random() * 0.012,
+            phase: Math.random() * Math.PI * 2,
             color: colors[i % colors.length],
-            alpha: 0.15 + Math.random() * 0.1
+            alpha: 0.2
         });
     }
     
     animationInstances.waves = waves;
     
+    let animating = true;
+    
     function animateWaves() {
-        if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.NEON_WAVES) return;
+        if (!animating || ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.NEON_WAVES) return;
         
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
+        ctx.clearRect(0, 0, w, h);
         
         waves.forEach(wave => {
             ctx.beginPath();
             ctx.strokeStyle = wave.color;
             ctx.globalAlpha = wave.alpha;
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 2.5;
             
-            for (let x = 0; x < canvas.width; x += 5) {
-                const y = wave.y + Math.sin(x * wave.frequency + Date.now() * 0.001) * wave.amplitude;
+            for (let x = 0; x < w; x += 4) {
+                const y = wave.y + Math.sin(x * wave.frequency + wave.phase) * wave.amplitude;
                 if (x === 0) {
                     ctx.moveTo(x, y);
                 } else {
@@ -272,7 +449,7 @@ function createNeonWaves() {
             }
             
             ctx.stroke();
-            wave.frequency += 0.00001;
+            wave.phase += 0.02;
         });
         
         ctx.globalAlpha = 1;
@@ -283,58 +460,58 @@ function createNeonWaves() {
 }
 
 // ============================================================================
-// ANIMATION MODE 4: ANIMATED GRID (Cyberpunk Style Grid)
+// ANIMATION MODE 4: ANIMATED GRID
 // ============================================================================
 
 function createAnimatedGrid() {
     const canvas = animationInstances.canvas;
-    if (!canvas) return;
-    
     const ctx = animationInstances.ctx;
-    const gridSize = ANIMATION_CONFIG.isMobile ? 60 : 40;
-    const lineColor = '#0060a0';
+    if (!canvas || !ctx) return;
     
+    const gridSize = ANIMATION_CONFIG.isMobile ? 50 : 35;
+    const lineColor = '#0060a0';
     let offset = 0;
+    let animating = true;
     
     function animateGrid() {
-        if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.ANIMATED_GRID) return;
+        if (!animating || ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.ANIMATED_GRID) return;
         
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
+        ctx.clearRect(0, 0, w, h);
         ctx.strokeStyle = lineColor;
         ctx.lineWidth = 1;
-        ctx.globalAlpha = 0.15;
+        ctx.globalAlpha = 0.2;
         
-        // Vertical lines
-        for (let x = offset % gridSize; x < canvas.width; x += gridSize) {
+        for (let x = offset % gridSize; x < w; x += gridSize) {
             ctx.beginPath();
             ctx.moveTo(x, 0);
-            ctx.lineTo(x, canvas.height);
+            ctx.lineTo(x, h);
             ctx.stroke();
         }
         
-        // Horizontal lines
-        for (let y = offset % gridSize; y < canvas.height; y += gridSize) {
+        for (let y = offset % gridSize; y < h; y += gridSize) {
             ctx.beginPath();
             ctx.moveTo(0, y);
-            ctx.lineTo(canvas.width, y);
+            ctx.lineTo(w, y);
             ctx.stroke();
         }
         
-        // Glowing intersection points
         ctx.fillStyle = '#6f42c1';
-        ctx.globalAlpha = 0.3;
-        for (let x = offset % gridSize; x < canvas.width; x += gridSize) {
-            for (let y = offset % gridSize; y < canvas.height; y += gridSize) {
-                if (Math.random() > 0.97) {
+        ctx.globalAlpha = 0.4;
+        for (let x = offset % gridSize; x < w; x += gridSize) {
+            for (let y = offset % gridSize; y < h; y += gridSize) {
+                if (Math.random() > 0.98) {
                     ctx.beginPath();
-                    ctx.arc(x, y, 3, 0, Math.PI * 2);
+                    ctx.arc(x, y, 2.5, 0, Math.PI * 2);
                     ctx.fill();
                 }
             }
         }
         
         ctx.globalAlpha = 1;
-        offset += 0.5;
+        offset += 0.4;
         
         animationInstances.animationFrameId = requestAnimationFrame(animateGrid);
     }
@@ -343,58 +520,60 @@ function createAnimatedGrid() {
 }
 
 // ============================================================================
-// ANIMATION MODE 5: PARTICLE FIELD (Starfield Effect)
+// ANIMATION MODE 5: PARTICLE FIELD
 // ============================================================================
 
 function createParticleField() {
     const canvas = animationInstances.canvas;
-    if (!canvas) return;
-    
     const ctx = animationInstances.ctx;
+    if (!canvas || !ctx) return;
+    
     const quality = ANIMATION_CONFIG.quality[ANIMATION_CONFIG.currentQuality];
     const particles = [];
+    const w = canvas.width / window.devicePixelRatio;
+    const h = canvas.height / window.devicePixelRatio;
     
     for (let i = 0; i < quality.particles; i++) {
         particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            z: Math.random() * canvas.width,
+            x: Math.random() * w,
+            y: Math.random() * h,
             size: Math.random() * 2 + 1,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5,
+            speedX: (Math.random() - 0.5) * 0.6,
+            speedY: (Math.random() - 0.5) * 0.6,
             color: ANIMATION_CONFIG.colors.primary[Math.floor(Math.random() * 5)]
         });
     }
     
     animationInstances.particles = particles;
+    let animating = true;
     
     function animateParticles() {
-        if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.PARTICLE_FIELD) return;
+        if (!animating || ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.PARTICLE_FIELD) return;
         
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
+        ctx.clearRect(0, 0, w, h);
         
         particles.forEach(p => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             ctx.fillStyle = p.color;
-            ctx.globalAlpha = 0.6;
-            ctx.shadowColor = p.color;
-            ctx.shadowBlur = 10;
+            ctx.globalAlpha = 0.7;
             ctx.fill();
             
             p.x += p.speedX;
             p.y += p.speedY;
             
-            if (p.x < 0) p.x = canvas.width;
-            if (p.x > canvas.width) p.x = 0;
-            if (p.y < 0) p.y = canvas.height;
-            if (p.y > canvas.height) p.y = 0;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
         });
         
-        // Draw connections
-        ctx.globalAlpha = 0.1;
+        ctx.globalAlpha = 0.15;
         ctx.strokeStyle = '#6f42c1';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 0.8;
         
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
@@ -402,7 +581,7 @@ function createParticleField() {
                 const dy = particles[i].y - particles[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < 150) {
+                if (dist < 120) {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -412,8 +591,6 @@ function createParticleField() {
         }
         
         ctx.globalAlpha = 1;
-        ctx.shadowBlur = 0;
-        
         animationInstances.animationFrameId = requestAnimationFrame(animateParticles);
     }
     
@@ -421,37 +598,43 @@ function createParticleField() {
 }
 
 // ============================================================================
-// ANIMATION MODE 6: PULSE RINGS (Ripple Effect)
+// ANIMATION MODE 6: PULSE RINGS
 // ============================================================================
 
 function createPulseRings() {
     const canvas = animationInstances.canvas;
-    if (!canvas) return;
-    
     const ctx = animationInstances.ctx;
+    if (!canvas || !ctx) return;
+    
     const rings = [];
+    let animating = true;
     
     function addRing() {
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
         rings.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            x: Math.random() * w,
+            y: Math.random() * h,
             radius: 0,
-            maxRadius: Math.random() * 200 + 100,
-            speed: Math.random() * 2 + 1,
+            maxRadius: Math.random() * 150 + 100,
+            speed: Math.random() * 1.5 + 1,
             color: ANIMATION_CONFIG.colors.primary[Math.floor(Math.random() * 5)],
-            alpha: 0.5
+            alpha: 0.6
         });
     }
     
-    // Add initial rings
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => addRing(), i * 1000);
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => addRing(), i * 800);
     }
     
     function animateRings() {
-        if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.PULSE_RINGS) return;
+        if (!animating || ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.PULSE_RINGS) return;
         
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
+        ctx.clearRect(0, 0, w, h);
         
         rings.forEach((ring, index) => {
             ctx.beginPath();
@@ -477,7 +660,7 @@ function createPulseRings() {
 }
 
 // ============================================================================
-// ANIMATION MODE 7: PARALLAX LAYERS (Depth Effect)
+// ANIMATION MODE 7: PARALLAX LAYERS
 // ============================================================================
 
 function createParallaxLayers() {
@@ -485,9 +668,9 @@ function createParallaxLayers() {
     if (!container) return;
     
     const layers = [
-        { depth: 1, speed: 0.2, opacity: 0.15, blur: 0 },
-        { depth: 2, speed: 0.4, opacity: 0.12, blur: 2 },
-        { depth: 3, speed: 0.6, opacity: 0.08, blur: 4 }
+        { depth: 1, speed: 0.15, opacity: 0.12, blur: 0 },
+        { depth: 2, speed: 0.3, opacity: 0.1, blur: 2 },
+        { depth: 3, speed: 0.5, opacity: 0.08, blur: 3 }
     ];
     
     layers.forEach((layer, index) => {
@@ -502,10 +685,9 @@ function createParallaxLayers() {
             transform: translateZ(0);
         `;
         
-        // Add shapes to each layer
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             const shape = document.createElement('div');
-            const size = Math.random() * 100 + 50;
+            const size = Math.random() * 80 + 50;
             shape.style.cssText = `
                 position: absolute;
                 width: ${size}px;
@@ -520,44 +702,51 @@ function createParallaxLayers() {
         
         container.appendChild(layerDiv);
         
-        // Parallax scroll effect
         let scrollY = 0;
-        const animate = () => {
-            scrollY += layer.speed * 0.5;
+        function animate() {
+            if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.PARALLAX_LAYERS) return;
+            scrollY += layer.speed * 0.3;
             layerDiv.style.transform = `translate3d(0, ${scrollY % 100}px, 0)`;
             requestAnimationFrame(animate);
-        };
+        }
         animate();
     });
 }
 
 // ============================================================================
-// ANIMATION MODE 8: COSMIC DUST (Space Theme)
+// ANIMATION MODE 8: COSMIC DUST
 // ============================================================================
 
 function createCosmicDust() {
     const canvas = animationInstances.canvas;
-    if (!canvas) return;
-    
     const ctx = animationInstances.ctx;
+    if (!canvas || !ctx) return;
+    
     const quality = ANIMATION_CONFIG.quality[ANIMATION_CONFIG.currentQuality];
     const stars = [];
+    const w = canvas.width / window.devicePixelRatio;
+    const h = canvas.height / window.devicePixelRatio;
     
-    for (let i = 0; i < quality.particles * 2; i++) {
+    for (let i = 0; i < quality.particles * 1.5; i++) {
         stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 1.5,
-            twinkleSpeed: Math.random() * 0.05,
+            x: Math.random() * w,
+            y: Math.random() * h,
+            size: Math.random() * 1.5 + 0.5,
+            twinkleSpeed: (Math.random() - 0.5) * 0.04,
             alpha: Math.random()
         });
     }
     
+    let animating = true;
+    
     function animateCosmic() {
-        if (ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.COSMIC_DUST) return;
+        if (!animating || ANIMATION_CONFIG.currentMode !== ANIMATION_CONFIG.modes.COSMIC_DUST) return;
         
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        const w = canvas.width / window.devicePixelRatio;
+        const h = canvas.height / window.devicePixelRatio;
+        
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+        ctx.fillRect(0, 0, w, h);
         
         stars.forEach(star => {
             ctx.beginPath();
@@ -566,7 +755,9 @@ function createCosmicDust() {
             ctx.fill();
             
             star.alpha += star.twinkleSpeed;
-            if (star.alpha > 1 || star.alpha < 0) {
+            if (star.alpha > 1) star.alpha = 1;
+            if (star.alpha < 0) star.alpha = 0;
+            if (star.alpha >= 1 || star.alpha <= 0) {
                 star.twinkleSpeed *= -1;
             }
         });
@@ -578,103 +769,41 @@ function createCosmicDust() {
 }
 
 // ============================================================================
-// ANIMATION MANAGER & TRANSITIONS
+// ANIMATION MANAGER
 // ============================================================================
 
-function initializeAnimationCanvas() {
-    let canvas = document.getElementById('animation-canvas');
-    
-    if (!canvas) {
-        canvas = document.createElement('canvas');
-        canvas.id = 'animation-canvas';
-        canvas.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        `;
-        document.body.insertBefore(canvas, document.body.firstChild);
-    }
-    
-    const ctx = canvas.getContext('2d', { alpha: true });
-    
-    function resizeCanvas() {
-        const dpr = Math.min(ANIMATION_CONFIG.pixelRatio, 2); // Cap at 2x for performance
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-        ctx.scale(dpr, dpr);
-    }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    animationInstances.canvas = canvas;
-    animationInstances.ctx = ctx;
-}
-
-function createAnimatedBackground() {
-    const existingBg = document.getElementById('animated-background');
-    if (existingBg) existingBg.remove();
-    
-    const bgContainer = document.createElement('div');
-    bgContainer.id = 'animated-background';
-    bgContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-        opacity: 1;
-        transition: opacity 0.8s ease-in-out;
-    `;
-    
-    document.body.insertBefore(bgContainer, document.body.firstChild);
-    
-    // Initialize canvas for canvas-based animations
-    initializeAnimationCanvas();
-}
-
-function switchAnimationMode(mode, options = {}) {
+function switchAnimationMode(mode) {
     if (ANIMATION_CONFIG.isTransitioning) return;
+    if (!ANIMATION_CONFIG.animationEnabled) return;
     
     ANIMATION_CONFIG.isTransitioning = true;
     ANIMATION_CONFIG.currentMode = mode;
     
     const container = document.getElementById('animated-background');
+    const modeSelect = document.getElementById('animation-mode-select');
     
-    // Fade out
+    if (modeSelect) {
+        modeSelect.value = mode;
+    }
+    
     if (container) {
         container.style.opacity = '0';
     }
     
-    // Clear previous animations
-    if (animationInstances.animationFrameId) {
-        cancelAnimationFrame(animationInstances.animationFrameId);
-    }
+    stopAllAnimations();
     
     setTimeout(() => {
-        // Clean up
         if (container) {
             container.innerHTML = '';
         }
-        if (animationInstances.ctx && animationInstances.canvas) {
-            animationInstances.ctx.clearRect(0, 0, animationInstances.canvas.width, animationInstances.canvas.height);
+        
+        const canvas = animationInstances.canvas;
+        if (canvas && animationInstances.ctx) {
+            const w = canvas.width / window.devicePixelRatio;
+            const h = canvas.height / window.devicePixelRatio;
+            animationInstances.ctx.clearRect(0, 0, w, h);
         }
         
-        animationInstances.shapes = [];
-        animationInstances.blobs = [];
-        animationInstances.particles = [];
-        animationInstances.waves = [];
-        
-        // Start new animation
         switch(mode) {
             case ANIMATION_CONFIG.modes.FLOATING_SHAPES:
                 createFloatingShapes();
@@ -702,22 +831,157 @@ function switchAnimationMode(mode, options = {}) {
                 break;
         }
         
-        // Fade in
         if (container) {
             container.style.opacity = '1';
         }
         
         ANIMATION_CONFIG.isTransitioning = false;
-    }, 800);
+    }, 500);
 }
 
 // ============================================================================
-// ENHANCED STYLES & RESPONSIVE DESIGN
+// ENHANCED STYLES
 // ============================================================================
 
 function addEnhancedStyles() {
     const styles = document.createElement('style');
     styles.textContent = `
+        /* Control Panel Styles */
+        #animation-control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            min-width: 280px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 96, 160, 0.2);
+        }
+
+        .control-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #0060a0, #6f42c1);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .control-panel-content {
+            padding: 15px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .control-group select:hover {
+            border-color: #0060a0;
+        }
+
+        .control-group select:focus {
+            outline: none;
+            border-color: #6f42c1;
+            box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+        }
+
+        .control-group input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #0060a0, #6f42c1);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Control Panel */
+        @media screen and (max-width: 768px) {
+            #animation-control-panel {
+                top: 10px;
+                right: 10px;
+                min-width: 240px;
+                font-size: 12px;
+            }
+
+            .control-panel-header {
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .control-panel-content {
+                padding: 12px;
+            }
+
+            .control-group {
+                margin-bottom: 12px;
+            }
+        }
+
         /* Base Animations */
         .reveal .slides section {
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -772,8 +1036,6 @@ function addEnhancedStyles() {
         .reveal li:nth-child(4) { animation-delay: 0.6s; }
         .reveal li:nth-child(5) { animation-delay: 0.7s; }
         .reveal li:nth-child(6) { animation-delay: 0.8s; }
-        .reveal li:nth-child(7) { animation-delay: 0.9s; }
-        .reveal li:nth-child(8) { animation-delay: 1s; }
 
         @keyframes fadeInLeft {
             0% { transform: translateX(-20px); opacity: 0; }
@@ -790,7 +1052,7 @@ function addEnhancedStyles() {
             50% { transform: scale(1.2); }
         }
 
-        /* Comparison Slide Styles */
+        /* Comparison Slides */
         .comparison-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -800,7 +1062,7 @@ function addEnhancedStyles() {
 
         .comparison-column {
             background: linear-gradient(135deg, rgba(0, 96, 160, 0.08) 0%, rgba(111, 66, 193, 0.05) 100%);
-            border-left: 4px solid var(--bude-primary);
+            border-left: 4px solid #0060a0;
             padding: 1.5rem;
             border-radius: 8px;
             animation: slideInColumn 0.6s ease-out both;
@@ -931,7 +1193,7 @@ function addEnhancedStyles() {
             color: #333;
         }
 
-        /* Mobile Responsive - Portrait */
+        /* Mobile Portrait */
         @media screen and (max-width: 768px) and (orientation: portrait) {
             .comparison-container,
             .image-text-container {
@@ -952,32 +1214,74 @@ function addEnhancedStyles() {
                 height: 300px !important;
             }
 
-            .reveal .slides {
-                width: 100vw !important;
-                height: 100vh !important;
-            }
-
             .reveal h1 { font-size: 2em !important; }
             .reveal h2 { font-size: 1.5em !important; }
             .reveal h3 { font-size: 1.2em !important; }
         }
 
-        /* Mobile Responsive - Landscape */
-        @media screen and (max-width: 896px) and (orientation: landscape) {
+        /* Mobile Landscape - FIXED */
+        @media screen and (max-width: 896px) and (orientation: landscape),
+               screen and (max-height: 500px) and (orientation: landscape) {
+            
+            .reveal .slides {
+                width: 100vw !important;
+                height: 100vh !important;
+            }
+
             .reveal .slides section {
-                padding: 1rem !important;
+                padding: 0.5rem 1rem !important;
+                height: 100vh !important;
+                overflow-y: auto;
             }
 
             .comparison-container {
                 gap: 1rem;
+                margin: 1rem 0;
+            }
+
+            .comparison-column {
+                padding: 0.75rem;
             }
 
             .chart-canvas {
                 height: 250px !important;
             }
+
+            .box {
+                padding: 1rem !important;
+                margin: 0.5rem 0 !important;
+            }
+
+            .reveal h1 { 
+                font-size: 1.8em !important; 
+                margin: 0.3em 0 !important;
+            }
+            .reveal h2 { 
+                font-size: 1.4em !important;
+                margin: 0.3em 0 !important;
+            }
+            .reveal h3 { 
+                font-size: 1.1em !important;
+                margin: 0.3em 0 !important;
+            }
+
+            .reveal ul, .reveal ol {
+                margin: 0.5rem 0 !important;
+            }
+
+            .reveal li {
+                margin: 0.3rem 0 !important;
+                font-size: 0.9em !important;
+            }
+
+            #animation-control-panel {
+                top: 5px;
+                right: 5px;
+                min-width: 200px;
+            }
         }
 
-        /* Tablet Responsive */
+        /* Tablet */
         @media screen and (min-width: 769px) and (max-width: 1024px) {
             .comparison-container,
             .image-text-container {
@@ -989,7 +1293,7 @@ function addEnhancedStyles() {
             }
         }
 
-        /* High DPI Displays (Retina, 2K, 4K) */
+        /* High DPI */
         @media screen and (min-resolution: 2dppx) {
             .reveal .slides section {
                 image-rendering: -webkit-optimize-contrast;
@@ -1002,7 +1306,7 @@ function addEnhancedStyles() {
             }
         }
 
-        /* Performance optimizations */
+        /* Performance */
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -1051,12 +1355,12 @@ function createRipple(x, y) {
 function createParticleEffect(x, y) {
     const colors = ANIMATION_CONFIG.colors.primary;
     
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 12; i++) {
         const particle = document.createElement('div');
         const color = colors[Math.floor(Math.random() * colors.length)];
         const size = Math.random() * 6 + 3;
-        const angle = (Math.PI * 2 * i) / 15;
-        const velocity = Math.random() * 80 + 40;
+        const angle = (Math.PI * 2 * i) / 12;
+        const velocity = Math.random() * 70 + 40;
         
         particle.style.cssText = `
             position: fixed;
@@ -1088,7 +1392,7 @@ function createParticleEffect(x, y) {
 }
 
 // ============================================================================
-// SLIDE RENDERING ENGINE
+// SLIDE RENDERING
 // ============================================================================
 
 async function renderSlides(data) {
@@ -1098,13 +1402,12 @@ async function renderSlides(data) {
     detectDeviceCapabilities();
     createAnimatedBackground();
     addEnhancedStyles();
+    createControlPanel();
 
-    // Start with default animation
     switchAnimationMode(ANIMATION_CONFIG.modes.FLOATING_SHAPES);
 
     data.presentation.topics.forEach(topic => {
         topic.slides.forEach(slide => {
-            // Check for per-slide animation override
             if (slide.animation) {
                 slide._animationMode = slide.animation;
             }
@@ -1118,8 +1421,8 @@ async function renderSlides(data) {
         });
     });
 
-    // Initialize Reveal.js
-    Reveal.initialize({
+    // Reveal.js Configuration
+    const revealConfig = {
         hash: true,
         slideNumber: true,
         transition: 'slide',
@@ -1127,19 +1430,16 @@ async function renderSlides(data) {
         controls: true,
         progress: true,
         center: true,
-        width: ANIMATION_CONFIG.isMobile ? window.innerWidth : 1920,
-        height: ANIMATION_CONFIG.isMobile ? window.innerHeight : 1080,
-        margin: ANIMATION_CONFIG.isMobile ? 0.05 : 0.08,
-        minScale: 0.3,
-        maxScale: 3.0,
-        overflow: 'scroll',
+        margin: ANIMATION_CONFIG.isMobile ? 0.02 : 0.08,
+        minScale: 0.2,
+        maxScale: 2.0,
+        overflow: 'visible',
         pdfSeparateFragments: false,
         pdfMaxPagesPerSlide: 1,
         keyboard: {
             40: () => { Reveal.down(); },
             38: () => { Reveal.up(); },
             72: () => { if (confirm('Return to homepage?')) location.reload(); },
-            // Animation mode shortcuts
             49: () => switchAnimationMode(ANIMATION_CONFIG.modes.FLOATING_SHAPES),
             50: () => switchAnimationMode(ANIMATION_CONFIG.modes.GRADIENT_BLOBS),
             51: () => switchAnimationMode(ANIMATION_CONFIG.modes.NEON_WAVES),
@@ -1149,7 +1449,19 @@ async function renderSlides(data) {
             55: () => switchAnimationMode(ANIMATION_CONFIG.modes.PARALLAX_LAYERS),
             56: () => switchAnimationMode(ANIMATION_CONFIG.modes.COSMIC_DUST)
         }
-    });
+    };
+
+    // Adjust for mobile landscape
+    if (ANIMATION_CONFIG.isMobile && window.innerWidth > window.innerHeight) {
+        revealConfig.width = window.innerWidth;
+        revealConfig.height = window.innerHeight;
+        revealConfig.margin = 0.02;
+    } else {
+        revealConfig.width = 1920;
+        revealConfig.height = 1080;
+    }
+
+    Reveal.initialize(revealConfig);
 
     Reveal.on('slidechanged', event => {
         if (event.currentSlide.classList.contains('center')) {
@@ -1158,7 +1470,6 @@ async function renderSlides(data) {
             document.body.classList.remove('hide-watermark');
         }
 
-        // Check for per-slide animation mode
         const slideData = event.currentSlide._slideData;
         if (slideData && slideData._animationMode) {
             switchAnimationMode(slideData._animationMode);
@@ -1556,16 +1867,30 @@ window.BUDEPresenter = {
     switchAnimation: switchAnimationMode,
     setQuality: (quality) => {
         ANIMATION_CONFIG.currentQuality = quality;
+        const qualitySelect = document.getElementById('quality-select');
+        if (qualitySelect) qualitySelect.value = quality;
         switchAnimationMode(ANIMATION_CONFIG.currentMode);
     },
     getConfig: () => ANIMATION_CONFIG,
-    modes: ANIMATION_CONFIG.modes
+    modes: ANIMATION_CONFIG.modes,
+    stopAnimations: stopAllAnimations,
+    enableAnimations: () => {
+        ANIMATION_CONFIG.animationEnabled = true;
+        const toggle = document.getElementById('animation-toggle');
+        if (toggle) toggle.checked = true;
+        switchAnimationMode(ANIMATION_CONFIG.currentMode);
+    }
 };
 
-// Initialize on load
-console.log('🚀 BUDE Presentation Engine v3.0 Loaded');
-console.log('📊 Press 1-8 to switch animation modes');
-console.log('🎨 Available modes:', Object.keys(ANIMATION_CONFIG.modes).join(', '));
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
+
+console.log('%c🚀 BUDE Presentation Engine v3.5 Loaded', 'color: #6f42c1; font-size: 16px; font-weight: bold;');
+console.log('%c📊 Animation Controls Available', 'color: #0060a0; font-size: 12px;');
+console.log('%c🎨 8 Animation Modes | 3 Quality Levels | Full Responsive Support', 'color: #23a6d5; font-size: 11px;');
+console.log('%c💡 Use the control panel (top-right) or keyboard shortcuts (1-8)', 'color: #cb6ce6; font-size: 11px;');
+console.log('%cAPI: window.BUDEPresenter.switchAnimation("mode-name")', 'color: #666; font-size: 10px; font-style: italic;');
 // ============================================================================
 // DOCUMENTATION & USAGE GUIDE
 // ============================================================================
