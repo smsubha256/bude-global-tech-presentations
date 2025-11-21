@@ -574,7 +574,7 @@ html[data-theme="light"] footer p {
     z-index: 1;
     color: var(--text-primary);
     font-size: 28px;
-    background: var(--bg-primary);
+    background: transparent;
 }
 
 .reveal.active {
@@ -622,7 +622,7 @@ html[data-theme="light"] footer p {
 .reveal .slides section {
     text-align: left;
     padding: 60px 60px 100px 60px !important;
-    background-color: var(--bg-primary);
+    background-color: transparent;
     line-height: 1.6;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
