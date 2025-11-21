@@ -59,63 +59,97 @@ let animationInstances = {
 // ============================================================================
 
 function createControlPanel() {
-    const panel = document.createElement('div');
-    panel.id = 'animation-control-panel';
-    panel.innerHTML = `
-        <div class="control-panel-header">
-            <span>🎨 Animation Controls</span>
-            <button id="toggle-panel" class="toggle-btn">−</button>
-        </div>
-        <div class="control-panel-content">
-            <div class="control-group">
-                <label>Animation Mode:</label>
-                <select id="animation-mode-select">
-                    <option value="floating-shapes">Floating Shapes</option>
-                    <option value="gradient-blobs">Gradient Blobs</option>
-                    <option value="neon-waves">Neon Waves</option>
-                    <option value="animated-grid">Animated Grid</option>
-                    <option value="particle-field">Particle Field</option>
-                    <option value="pulse-rings">Pulse Rings</option>
-                    <option value="parallax-layers">Parallax Layers</option>
-                    <option value="cosmic-dust">Cosmic Dust</option>
-                </select>
-            </div>
-            
-            <div class="control-group">
-                <label>Quality:</label>
-                <select id="quality-select">
-                    <option value="HIGH">High</option>
-                    <option value="MEDIUM">Medium</option>
-                    <option value="LOW">Low</option>
-                </select>
-            </div>
-            
-            <div class="control-group">
-                <label>
-                    <input type="checkbox" id="animation-toggle" checked>
-                    Enable Animations
-                </label>
-            </div>
-            
-            <div class="control-group">
-                <button id="refresh-animation" class="action-btn">🔄 Refresh</button>
+    const headerCenter = document.querySelector('.gh-center');
+    if (!headerCenter) {
+        // Don't create the panel if the header isn't there, e.g. in presentation mode.
+        return;
+    }
+
+    const panelContainer = document.createElement('div');
+    panelContainer.className = 'gh-dropdown';
+
+    panelContainer.innerHTML = `
+        <button class="gh-dropbtn" aria-haspopup="true" aria-expanded="false">🎨 Animations ▾</button>
+        <div class="gh-dropdown-content" id="animation-control-panel" role="menu" aria-hidden="true" style="display: none;">
+             <div class="control-panel-content">
+                <div class="control-group">
+                    <label>Animation Mode:</label>
+                    <select id="animation-mode-select">
+                        <option value="floating-shapes">Floating Shapes</option>
+                        <option value="gradient-blobs">Gradient Blobs</option>
+                        <option value="neon-waves">Neon Waves</option>
+                        <option value="animated-grid">Animated Grid</option>
+                        <option value="particle-field">Particle Field</option>
+                        <option value="pulse-rings">Pulse Rings</option>
+                        <option value="parallax-layers">Parallax Layers</option>
+                        <option value="cosmic-dust">Cosmic Dust</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Quality:</label>
+                    <select id="quality-select">
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="animation-toggle" checked>
+                        Enable Animations
+                    </label>
+                </div>
+                
+                <div class="control-group">
+                    <button id="refresh-animation" class="action-btn">🔄 Refresh</button>
+                </div>
             </div>
         </div>
     `;
     
-    document.body.appendChild(panel);
+    headerCenter.appendChild(panelContainer);
     
-    // Event listeners
-    document.getElementById('animation-mode-select').addEventListener('change', (e) => {
+    // Dropdown toggle logic
+    const button = panelContainer.querySelector('.gh-dropbtn');
+    const dropdownContent = panelContainer.querySelector('.gh-dropdown-content');
+
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isHidden = dropdownContent.style.display === 'none';
+        
+        // Hide other dropdowns
+        document.querySelectorAll('.gh-dropdown-content').forEach(d => {
+            if (d !== dropdownContent) {
+                d.style.display = 'none';
+                // Also update ARIA attributes for other dropdowns if they have a button
+                const otherButton = d.previousElementSibling;
+                if (otherButton && otherButton.classList.contains('gh-dropbtn')) {
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    d.setAttribute('aria-hidden', 'true');
+                }
+            }
+        });
+
+        dropdownContent.style.display = isHidden ? 'block' : 'none';
+        button.setAttribute('aria-expanded', isHidden);
+        dropdownContent.setAttribute('aria-hidden', !isHidden);
+    });
+
+    // Event listeners for controls are now attached to the dropdown content
+    const controlContent = dropdownContent.querySelector('.control-panel-content');
+    
+    controlContent.querySelector('#animation-mode-select').addEventListener('change', (e) => {
         switchAnimationMode(e.target.value);
     });
     
-    document.getElementById('quality-select').addEventListener('change', (e) => {
+    controlContent.querySelector('#quality-select').addEventListener('change', (e) => {
         ANIMATION_CONFIG.currentQuality = e.target.value;
         switchAnimationMode(ANIMATION_CONFIG.currentMode);
     });
     
-    document.getElementById('animation-toggle').addEventListener('change', (e) => {
+    controlContent.querySelector('#animation-toggle').addEventListener('change', (e) => {
         ANIMATION_CONFIG.animationEnabled = e.target.checked;
         if (!e.target.checked) {
             stopAllAnimations();
@@ -124,20 +158,24 @@ function createControlPanel() {
         }
     });
     
-    document.getElementById('refresh-animation').addEventListener('click', () => {
+    controlContent.querySelector('#refresh-animation').addEventListener('click', () => {
         switchAnimationMode(ANIMATION_CONFIG.currentMode);
     });
-    
-    document.getElementById('toggle-panel').addEventListener('click', () => {
-        const content = document.querySelector('.control-panel-content');
-        const btn = document.getElementById('toggle-panel');
-        if (content.style.display === 'none') {
-            content.style.display = 'block';
-            btn.textContent = '−';
-        } else {
-            content.style.display = 'none';
-            btn.textContent = '+';
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (event) => {
+        if (!panelContainer.contains(event.target)) {
+            if (dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+                button.setAttribute('aria-expanded', 'false');
+                dropdownContent.setAttribute('aria-hidden', 'true');
+            }
         }
+    });
+
+    dropdownContent.addEventListener('click', (event) => {
+        // Stop propagation to prevent window click from closing the dropdown
+        event.stopPropagation();
     });
 }
 
@@ -847,49 +885,9 @@ function addEnhancedStyles() {
     const styles = document.createElement('style');
     styles.textContent = `
         /* Control Panel Styles */
-        #animation-control-panel {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            z-index: 10000;
+        #animation-control-panel.gh-dropdown-content {
             min-width: 280px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 96, 160, 0.2);
-        }
-
-        .control-panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: linear-gradient(135deg, #0060a0, #6f42c1);
-            color: white;
-            border-radius: 12px 12px 0 0;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .toggle-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
+            padding: 0; /* Reset padding, as the inner container has its own. */
         }
 
         .control-panel-content {
