@@ -1565,8 +1565,7 @@ window.BUDEPresenter = {
 // Initialize on load
 console.log('🚀 BUDE Presentation Engine v3.0 Loaded');
 console.log('📊 Press 1-8 to switch animation modes');
-console.log('🎨 Available modes:', Object.keys(ANIMATION_CONFIG.modes));
-
+console.log('🎨 Available modes:', Object.keys(ANIMATION_CONFIG.modes).join(', '));
 // ============================================================================
 // DOCUMENTATION & USAGE GUIDE
 // ============================================================================
