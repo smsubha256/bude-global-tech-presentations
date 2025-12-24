@@ -911,9 +911,21 @@ body.presentation-mode #animation-canvas,
 body.presentation-mode #animated-background,
 body.presentation-mode .floating-shape,
 body.presentation-mode #futuristic-bg,
-body.presentation-mode .glow-gradient {
+body.presentation-mode .glow-gradient,
+body.presentation-mode canvas {
   display: none !important;
   opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Ensure clean background in presentation mode */
+body.presentation-mode {
+  background: #191919 !important;
+}
+
+body.presentation-mode .reveal {
+  background: transparent !important;
 }
 
 /* Responsive */
