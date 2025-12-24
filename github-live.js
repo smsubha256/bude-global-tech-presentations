@@ -165,13 +165,17 @@
     });
   }
 
-  // init
+  // init - Delayed for better performance
   (function init() {
-    updateRepoStats();
-    renderContributors();
+    // Delay GitHub API calls to speed up initial page load
+    setTimeout(() => {
+      updateRepoStats();
+      renderContributors();
+    }, 1000); // Load after 1 second
+    
     wireDropdown();
 
-    // refresh every 5 minutes to keep counts reasonably fresh (adjust as needed)
+    // Refresh every 5 minutes to keep counts reasonably fresh
     setInterval(updateRepoStats, 5 * 60 * 1000);
   })();
 })();

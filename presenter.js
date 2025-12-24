@@ -41,7 +41,7 @@ const ANIMATION_CONFIG = {
     currentMode: 'floating-shapes',
     currentQuality: 'HIGH',
     isTransitioning: false,
-    animationEnabled: true
+    animationEnabled: false // Start disabled for faster load
 };
 
 const quizState = {};
