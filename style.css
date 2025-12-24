@@ -906,26 +906,22 @@ body.presentation-mode .reveal .slides > section {
   }
 }
 
-/* Disable animations during presentations for cleaner look */
-body.presentation-mode #animation-canvas,
-body.presentation-mode #animated-background,
-body.presentation-mode .floating-shape,
-body.presentation-mode #futuristic-bg,
-body.presentation-mode .glow-gradient,
-body.presentation-mode canvas {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+/* Disable Reveal.js slide transition sparkle/circle effect */
+.reveal .slides section .fragment {
+  transition: none !important;
 }
 
-/* Ensure clean background in presentation mode */
-body.presentation-mode {
-  background: #191919 !important;
+.reveal .backgrounds {
+  filter: none !important;
 }
 
-body.presentation-mode .reveal {
-  background: transparent !important;
+/* Hide the round sparkle transition effect */
+.reveal .slide-background {
+  transition: none !important;
+}
+
+.reveal .slides > section {
+  transition: transform 0.3s ease !important;
 }
 
 /* Responsive */

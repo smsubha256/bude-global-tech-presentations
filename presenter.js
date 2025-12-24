@@ -1434,19 +1434,14 @@ async function renderSlides(data) {
 
     // Reveal.js Configuration
     const revealConfig = {
-        hash: true,
-        slideNumber: true,
-        transition: 'slide',
-        backgroundTransition: 'fade',
         controls: true,
         progress: true,
         center: true,
-        margin: ANIMATION_CONFIG.isMobile ? 0.02 : 0.08,
-        minScale: 0.2,
-        maxScale: 2.0,
-        overflow: 'visible',
-        pdfSeparateFragments: false,
-        pdfMaxPagesPerSlide: 1,
+        hash: true,
+        transition: 'none', // Disable transition effects (removes sparkle/circle)
+        transitionSpeed: 'fast',
+        backgroundTransition: 'none', // Disable background transitions
+        slideNumber: true,
         keyboard: {
             40: () => { Reveal.down(); },
             38: () => { Reveal.up(); },

@@ -421,18 +421,6 @@ async function loadPresentation(file) {
         // Switch to presentation mode
         document.body.classList.add('presentation-mode');
         document.querySelector('.reveal').classList.add('active');
-        
-        // Stop all background animations for cleaner presentation
-        if (window.BUDEPresenter && window.BUDEPresenter.stopAllAnimations) {
-            window.BUDEPresenter.stopAllAnimations();
-        }
-        // Also hide animation canvas
-        const animCanvas = document.getElementById('animation-canvas');
-        const animBg = document.getElementById('animated-background');
-        const futuristicBg = document.getElementById('futuristic-bg');
-        if (animCanvas) animCanvas.style.display = 'none';
-        if (animBg) animBg.style.display = 'none';
-        if (futuristicBg) futuristicBg.style.display = 'none';
 
         // Render slides
         await renderSlides(data);
