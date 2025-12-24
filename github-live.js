@@ -7,6 +7,14 @@
   // e.g. '/.netlify/functions/github-proxy?path=/repos/...'
   const proxyBase = null; // or '/api/github' if you set up a proxy
 
+  // Cache configuration
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+  const cache = {
+    repoData: null,
+    contributors: null,
+    timestamp: 0
+  };
+
   // Helper: build fetch URL (optionally via proxy)
   function buildUrl(path) {
     const url = `${apiBase}${path}`;
@@ -22,26 +30,54 @@
   if (GITHUB_TOKEN) headers.Authorization = 'Bearer ' + GITHUB_TOKEN;
 
   async function fetchRepoInfo() {
+    const now = Date.now();
+    
+    // Return cached data if still valid
+    if (cache.repoData && (now - cache.timestamp) < CACHE_DURATION) {
+      return cache.repoData;
+    }
+    
     const url = buildUrl(`/repos/${OWNER}/${REPO}`);
     try {
       const res = await fetch(url, { headers });
       if (!res.ok) throw res;
-      return await res.json();
+      const data = await res.json();
+      
+      // Update cache
+      cache.repoData = data;
+      cache.timestamp = now;
+      
+      return data;
     } catch (err) {
       console.error('Repo info fetch failed', err);
-      return null;
+      // Return cached data if available, even if expired
+      return cache.repoData || { stargazers_count: 0, forks_count: 0 };
     }
   }
 
   async function fetchContributors(perPage = 30) {
+    const now = Date.now();
+    
+    // Return cached contributors if still valid
+    if (cache.contributors && (now - cache.timestamp) < CACHE_DURATION) {
+      return cache.contributors;
+    }
+    
     const url = buildUrl(`/repos/${OWNER}/${REPO}/contributors?per_page=${perPage}`);
     try {
       const res = await fetch(url, { headers });
       if (!res.ok) throw res;
-      return await res.json();
+      const data = await res.json();
+      
+      // Update cache
+      cache.contributors = data;
+      if (!cache.repoData) cache.timestamp = now; // Only update if not already set by repo fetch
+      
+      return data;
     } catch (err) {
       console.error('Contributors fetch failed', err);
-      return [];
+      // Return cached data if available, even if expired
+      return cache.contributors || [];
     }
   }
 

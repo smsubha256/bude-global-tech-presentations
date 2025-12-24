@@ -1,156 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Bude Global Tech Presentations | Dynamic, Open-Source Knowledge Platform
+    </title>
 
-    <title>Bude Global Tech Presentations | Dynamic, Open-Source Knowledge Platform</title>
+    <meta
+      name="description"
+      content="Explore Bude Global's open-source platform for technical presentations. Dynamically loads content from JSON, features intelligent search, and uses Reveal.js for knowledge sharing."
+    />
+    <meta
+      name="keywords"
+      content="Bude Global, technical presentations, open source, reveal.js, vanilla javascript, knowledge sharing, json data, dynamic content, aravind govindhasamy"
+    />
 
-    <meta name="description"
-        content="Explore Bude Global's open-source platform for technical presentations. Dynamically loads content from JSON, features intelligent search, and uses Reveal.js for knowledge sharing.">
-    <meta name="keywords"
-        content="Bude Global, technical presentations, open source, reveal.js, vanilla javascript, knowledge sharing, json data, dynamic content, aravind govindhasamy">
+    <link
+      rel="canonical"
+      href="https://budeglobalenterprise.github.io/bude-global-tech-presentations/"
+    />
 
-    <link rel="canonical" href="https://budeglobalenterprise.github.io/bude-global-tech-presentations/">
+    <meta
+      property="og:title"
+      content="Bude Global Tech Presentations | Dynamic Platform"
+    />
+    <meta
+      property="og:description"
+      content="We built an open-source, dynamic presentation platform with pure JS for effortless knowledge sharing."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://budeglobalenterprise.github.io/bude-global-tech-presentations/"
+    />
+    <meta property="og:image" content="assets/images/budeglobal_logo.png" />
 
-    <meta property="og:title" content="Bude Global Tech Presentations | Dynamic Platform">
-    <meta property="og:description"
-        content="We built an open-source, dynamic presentation platform with pure JS for effortless knowledge sharing.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://budeglobalenterprise.github.io/bude-global-tech-presentations/">
-    <meta property="og:image" content="assets/images/budeglobal_logo.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@budeglobalerp" />
+    <meta name="twitter:creator" content="@budeglobalerp" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@budeglobalerp">
-    <meta name="twitter:creator" content="@budeglobalerp">
+    <link
+      rel="icon"
+      href="assets/images/budeglobal_logo.png"
+      type="image/x-icon"
+    />
 
-    <link rel="icon" href="assets/images/budeglobal_logo.png" type="image/x-icon">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
+                   img-src 'self' https: data:; 
+                   font-src 'self' https://cdn.jsdelivr.net data:; 
+                   connect-src 'self' https://api.github.com;" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/black.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css"
+      integrity="sha512-YGHqDqIp7Uw5+L9VcPqPMKqFPPLqJqCJdqJqQZJCqmPLqYqBqJqRZqPqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/black.min.css"
+      integrity="sha512-+Z9qlqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+      integrity="sha512-MqUJ6TF5l0FpqP4Qj5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5Q=="
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-selector-ui" class="skip-link">Skip to main content</a>
+    
     <header class="global-header enhanced">
-        <div class="gh-left">
-            <a href="/bude-global-tech-presentations" class="gh-brand">
-                <img src="assets/images/budeglobal_logo.png" class="gh-logo" alt="Bude Global">
-                <span class="gh-title">Bude Global Open Tech Docs</span>
-            </a>
+      <div class="gh-left">
+        <a href="./" class="gh-brand">
+          <img
+            src="assets/images/budeglobal_logo.png"
+            class="gh-logo"
+            alt="Bude Global"
+          />
+          <span class="gh-title">Bude Global Open Tech Docs</span>
+        </a>
+      </div>
+
+      <nav class="gh-center">
+        <div class="gh-dropdown">
+          <button class="gh-dropbtn" aria-haspopup="true" aria-expanded="false">
+            Explore ▾
+          </button>
+          <div class="gh-dropdown-content" role="menu" aria-hidden="true">
+            <a href="/README.md" role="menuitem">Docs</a>
+            <a
+              href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues"
+              target="_blank"
+              role="menuitem"
+              >Issues</a
+            >
+            <a href="/PRESENTATIONS_TODO.md" role="menuitem">Roadmap</a>
+            <a
+              href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/discussions"
+              target="_blank"
+              role="menuitem"
+              >Discussions</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <div class="gh-right">
+        <div class="gh-stats" aria-live="polite">
+          <a
+            id="gh-star"
+            class="gh-btn stat-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations"
+          >
+            <i class="ri-github-fill"></i
+            ><span class="stat-value" id="star-count">—</span>
+          </a>
+
+          <a
+            id="gh-forks"
+            class="gh-btn stat-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/network/members"
+          >
+            <i class="ri-restart-line"></i
+            ><span class="stat-value" id="fork-count">—</span>
+          </a>
         </div>
 
-        <nav class="gh-center">
-            <div class="gh-dropdown">
-                <button class="gh-dropbtn" aria-haspopup="true" aria-expanded="false">Explore ▾</button>
-                <div class="gh-dropdown-content" role="menu" aria-hidden="true">
-                    <a href="/README.md" role="menuitem">Docs</a>
-                    <a href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues" target="_blank"
-                        role="menuitem">Issues</a>
-                    <a href="/PRESENTATIONS_TODO.md" role="menuitem">Roadmap</a>
-                    <a href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/discussions" target="_blank"
-                        role="menuitem">Discussions</a>
-                </div>
-            </div>
-        </nav>
+        <button
+          id="theme-toggle"
+          class="gh-btn stat-btn"
+          title="Toggle dark/light theme"
+          aria-label="Toggle theme"
+        >
+          <i class="ri-moon-line"></i>
+        </button>
 
-        <div class="gh-right">
-            <div class="gh-stats" aria-live="polite">
-                <a id="gh-star" class="gh-btn stat-btn" target="_blank" rel="noopener noreferrer"
-                    href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations">
-                    <i class="ri-github-fill"></i><span class="stat-value" id="star-count">—</span>
-                </a>
-
-                <a id="gh-forks" class="gh-btn stat-btn" target="_blank" rel="noopener noreferrer"
-                    href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/network/members">
-                    <i class="ri-restart-line"></i><span class="stat-value" id="fork-count">—</span>
-                </a>
-            </div>
-
-            <button id="theme-toggle" class="gh-btn stat-btn" title="Toggle dark/light theme" aria-label="Toggle theme">
-                <i class="ri-moon-line"></i>
-            </button>
-
-            <a id="fork-btn" class="gh-btn gh-fork" target="_blank" rel="noopener noreferrer"
-                href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/fork">
-                <i class="ri-git-branch-fill"></i> Fork This Repo
-            </a>
-        </div>
+        <a
+          id="fork-btn"
+          class="gh-btn gh-fork"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/fork"
+        >
+          <i class="ri-git-branch-fill"></i> Fork This Repo
+        </a>
+      </div>
     </header>
 
     <section class="contrib-carousel" aria-label="Contributors">
-        <div class="contrib-track" id="contrib-track" role="list"></div>
+      <div class="contrib-track" id="contrib-track" role="list"></div>
     </section>
 
     <div id="main-selector-ui">
-        <div class="header">
-            <img src="assets/images/budeglobal_logo.png" alt="Bude Global Logo" class="logo">
-            <h1>Tech Presentations</h1>
-            <p>Explore our open-source knowledge library</p>
-        </div>
+      <div class="header">
+        <img
+          src="assets/images/budeglobal_logo.png"
+          alt="Bude Global Logo"
+          class="logo"
+        />
+        <h1>Tech Presentations</h1>
+        <p>Explore our open-source knowledge library</p>
+      </div>
 
-        <div class="search-container">
-            <div class="search-box">
-                <i class="ri-search-line search-icon"></i>
-                <input type="text" id="topic-search" placeholder="Search presentations, topics, or technologies..."
-                    autocomplete="off">
-            </div>
+      <div class="search-container">
+        <div class="search-box">
+          <i class="ri-search-line search-icon"></i>
+          <input
+            type="text"
+            id="topic-search"
+            placeholder="Search presentations, topics, or technologies..."
+            autocomplete="off"
+          />
         </div>
+      </div>
 
-        <div class="stats-bar" id="stats-bar">
-            <div class="stat-card">
-                <div class="stat-number" id="total-presentations">0</div>
-                <div class="stat-label">Total Presentations</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="total-categories">0</div>
-                <div class="stat-label">Categories</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="active-categories">0</div>
-                <div class="stat-label">Active Categories</div>
-            </div>
+      <div class="stats-bar" id="stats-bar">
+        <div class="stat-card">
+          <div class="stat-number" id="total-presentations">0</div>
+          <div class="stat-label">Total Presentations</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-number" id="total-categories">0</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="active-categories">0</div>
+          <div class="stat-label">Active Categories</div>
+        </div>
+      </div>
 
-        <div class="categories-container" id="categories-container">
-            <div class="loading">🔍 Loading presentations...</div>
-        </div>
+      <div class="categories-container" id="categories-container">
+        <div class="loading">🔍 Loading presentations...</div>
+      </div>
     </div>
     <div class="reveal">
-        <div class="slides"></div>
-        <canvas id="futuristic-bg"></canvas>
-        <div class="glow-gradient"></div>
+      <div class="slides"></div>
+      <canvas id="futuristic-bg"></canvas>
+      <div class="glow-gradient"></div>
     </div>
 
     <footer role="contentinfo">
-        <div class="social-links">
-            <a href="https://budeglobal.in" target="_blank" class="brand-link" aria-label="Bude Global Website">
-                <img src="https://github.com/BUDEGlobalEnterprise.png" alt="Bude Global" class="brand-avatar">
-            </a> |
-            <a href="https://blog.budeglobal.in" title="Blog" aria-label="Blog"><i class="ri-earth-line"></i></a>
-            <a href="https://github.com/budeglobalenterprise" title="GitHub" aria-label="GitHub"><i
-                    class="ri-github-fill"></i></a>
-            <a href="https://linkedin.com/company/budeglobal" title="LinkedIn" aria-label="LinkedIn"><i
-                    class="ri-linkedin-box-fill"></i></a>
-            <a href="https://www.youtube.com/@BudeGlobalEnterprise" title="YouTube" aria-label="YouTube"><i
-                    class="ri-youtube-fill"></i></a>
-            <a href="https://x.com/budeglobalerp" title="Twitter/X" aria-label="Twitter/X"><i
-                    class="ri-twitter-x-line"></i></a>
-            <a href="https://www.instagram.com/budeglobal" title="Instagram" aria-label="Instagram"><i
-                    class="ri-instagram-line"></i></a>
-        </div>
-        <p>© 2025 Bude Global Enterprise — Built with ❤️ for Open Collaboration</p>
+      <div class="social-links">
+        <a
+          href="https://budeglobal.in"
+          target="_blank"
+          class="brand-link"
+          aria-label="Bude Global Website"
+        >
+          <img
+            src="https://github.com/BUDEGlobalEnterprise.png"
+            alt="Bude Global"
+            class="brand-avatar"
+          />
+        </a>
+        |
+        <a href="https://blog.budeglobal.in" title="Blog" aria-label="Blog"
+          ><i class="ri-earth-line"></i
+        ></a>
+        <a
+          href="https://github.com/budeglobalenterprise"
+          title="GitHub"
+          aria-label="GitHub"
+          ><i class="ri-github-fill"></i
+        ></a>
+        <a
+          href="https://linkedin.com/company/budeglobal"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@BudeGlobalEnterprise"
+          title="YouTube"
+          aria-label="YouTube"
+          ><i class="ri-youtube-fill"></i
+        ></a>
+        <a
+          href="https://x.com/budeglobalerp"
+          title="Twitter/X"
+          aria-label="Twitter/X"
+          ><i class="ri-twitter-x-line"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/budeglobal"
+          title="Instagram"
+          aria-label="Instagram"
+          ><i class="ri-instagram-line"></i
+        ></a>
+      </div>
+      <p>
+        © 2025 Bude Global Enterprise — Built with ❤️ for Open Collaboration
+      </p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"
+            integrity="sha512-YGHqDqIp7Uw5+L9VcPqPMKqFPPLqJqCJdqJqQZJCqmPLqYqBqJqRZqPqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ=="
+            crossorigin="anonymous"></script>
     <script src="theme-switcher.js"></script>
     <script src="presentations.js"></script>
     <script src="github-live.js"></script>
     <script src="presenter.js"></script>
     <script src="loader.js"></script>
-</body>
-
+    <script src="orientation-handler.js"></script>
+  </body>
 </html>

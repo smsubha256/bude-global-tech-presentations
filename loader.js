@@ -430,8 +430,26 @@ async function loadPresentation(file) {
 
     } catch (error) {
         console.error("Error loading presentation:", error);
-        alert("Failed to load presentation. Please try again.");
-        returnToHomepage();
+        
+        // Show user-friendly error message
+        const slidesContainer = document.querySelector('.slides');
+        if (slidesContainer) {
+            slidesContainer.innerHTML = `
+                <section class="center" style="text-align: center; padding: 2rem;">
+                    <h2 style="color: #e94560; margin-bottom: 1rem;">⚠️ Error Loading Presentation</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                        We couldn't load this presentation. Please try again later.
+                    </p>
+                    <button onclick="returnToHomepage()" 
+                            style="margin-top: 2rem; padding: 1rem 2rem; font-size: 1.1rem; cursor: pointer; 
+                                   border-radius: 8px; background: linear-gradient(135deg, #6f42c1, #cb6ce6); 
+                                   color: white; border: none; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+                                   transition: transform 0.2s;">
+                        ← Back to Home
+                    </button>
+                </section>
+            `;
+        }
     }
 }
 

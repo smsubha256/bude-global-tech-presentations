@@ -3,6 +3,9 @@
  * With UI Control Panel & Fixed Mobile Support
  */
 
+// Debug mode - set to false for production
+const DEBUG_MODE = false;
+
 // ============================================================================
 // GLOBAL STATE
 // ============================================================================
@@ -192,9 +195,13 @@ function detectDeviceCapabilities() {
         ANIMATION_CONFIG.isMobile || 
         navigator.hardwareConcurrency <= 2;
     
-    if (ANIMATION_CONFIG.isLowPower) {
+    // Auto-set quality based on device
+    if (ANIMATION_CONFIG.isMobile) {
+        // Force LOW quality on mobile for better performance
         ANIMATION_CONFIG.currentQuality = 'LOW';
-    } else if (ANIMATION_CONFIG.isMobile) {
+    } else if (ANIMATION_CONFIG.isLowPower) {
+        ANIMATION_CONFIG.currentQuality = 'LOW';
+    } else if (window.innerWidth < 1024) {
         ANIMATION_CONFIG.currentQuality = 'MEDIUM';
     } else {
         ANIMATION_CONFIG.currentQuality = 'HIGH';
@@ -2284,6 +2291,25 @@ console.log('%cAPI: window.BUDEPresenter.switchAnimation("mode-name")', 'color: 
  * 7. Disable animations for PDF export/printing
  * 8. Use darker animations for light-colored slides
  */
+
+// ============================================================================
+// PERFORMANCE OPTIMIZATION: PAUSE ANIMATIONS WHEN TAB HIDDEN
+// ============================================================================
+
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        // Tab is hidden - pause animations to save battery/CPU
+        if (animationInstances.animationFrameId) {
+            cancelAnimationFrame(animationInstances.animationFrameId);
+            animationInstances.animationFrameId = null;
+        }
+    } else {
+        // Tab is visible again - resume animations if enabled
+        if (ANIMATION_CONFIG.animationEnabled && ANIMATION_CONFIG.currentMode) {
+            switchAnimationMode(ANIMATION_CONFIG.currentMode);
+        }
+    }
+});
 
 // ============================================================================
 // END OF BUDE PRESENTATION ENGINE v3.0
