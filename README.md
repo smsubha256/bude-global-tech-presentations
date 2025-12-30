@@ -481,6 +481,19 @@ You can use HTML tags in content:
 | `↓` | Scroll down (if slide has overflow) |
 | `↑` | Scroll up (if slide has overflow) |
 
+### Animation Controls
+
+| Key | Animation Mode |
+|-----|----------------|
+| `1` | Floating Shapes |
+| `2` | Gradient Blobs |
+| `3` | Neon Waves |
+| `4` | Animated Grid |
+| `5` | Particle Field |
+| `6` | Pulse Rings |
+| `7` | Parallax Layers |
+| `8` | Cosmic Dust |
+
 ---
 
 ## 🤝 Contributing

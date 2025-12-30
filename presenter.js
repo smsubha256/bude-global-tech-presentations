@@ -1330,9 +1330,13 @@ function addEnhancedStyles() {
 }
 
 // ============================================================================
-// INTERACTION EFFECTS
+// INTERACTION EFFECTS (Disabled - kept for reference)
 // ============================================================================
 
+// These functions are no longer called on slide change.
+// Keeping them commented for potential future use.
+
+/*
 function createRipple(x, y) {
     const ripple = document.createElement('div');
     ripple.style.cssText = `
@@ -1395,6 +1399,7 @@ function createParticleEffect(x, y) {
         setTimeout(() => particle.remove(), 700);
     }
 }
+*/
 
 // ============================================================================
 // SLIDE RENDERING
