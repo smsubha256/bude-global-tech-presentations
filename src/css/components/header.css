@@ -1,0 +1,44 @@
+/**
+ * BUDE CSS - Header Component
+ */
+
+.header {
+  text-align: center;
+  padding: 1rem 0.5rem 1rem;
+  position: relative;
+  z-index: 1;
+  color: var(--text-primary);
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: clamp(60px, 8vw, 120px);
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.header h1 {
+  font-family: "Molot", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

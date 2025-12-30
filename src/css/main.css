@@ -1,0 +1,28 @@
+/**
+ * BUDE CSS - Main Entry Point
+ * Imports all CSS modules in correct order
+ * 
+ * Note: This file is for documentation/reference.
+ * In production, all CSS is in style.css
+ * To use modular CSS, replace style.css import with:
+ * <link rel="stylesheet" href="src/css/main.css">
+ */
+
+/* Base */
+@import 'base/variables.css';
+@import 'base/reset.css';
+
+/* Components */
+@import 'components/header.css';
+@import 'components/search.css';
+@import 'components/stats.css';
+@import 'components/cards.css';
+@import 'components/categories.css';
+@import 'components/footer.css';
+
+/* Slides */
+@import 'slides/reveal-overrides.css';
+
+/* Utilities */
+@import 'utilities/animations.css';
+@import 'utilities/responsive.css';

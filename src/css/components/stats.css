@@ -1,0 +1,54 @@
+/**
+ * BUDE CSS - Stats Bar Component
+ */
+
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  flex-wrap: wrap;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  min-width: 120px;
+  transition: transform 0.3s;
+}
+
+html[data-theme="light"] .stat-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 96, 160, 0.15);
+}
+
+html[data-theme="dark"] .stat-card {
+  background: rgba(26, 31, 53, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--bude-primary), var(--bude-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: "Molot", sans-serif;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.3rem;
+}

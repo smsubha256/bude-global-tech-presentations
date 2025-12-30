@@ -1,0 +1,79 @@
+/**
+ * BUDE CSS - Variables
+ * Brand colors, theme variables, and CSS custom properties
+ */
+
+@font-face {
+  font-family: "Molot";
+  src: url("../../assets/fonts/Molot.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Brand Colors */
+  --bude-primary: #0060a0;
+  --bude-purple: #6f42c1;
+  --bude-pink: #cb6ce6;
+  --bude-dark: #2c3e50;
+  --bude-light: #ffffff;
+
+  /* Light Theme */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-tertiary: #e9ecef;
+  --light-text-primary: #1a1a1a;
+  --light-text-secondary: #666666;
+  --light-border: rgba(0, 0, 0, 0.1);
+  --light-card-bg: rgba(255, 255, 255, 0.8);
+  --light-card-border: rgba(0, 0, 0, 0.08);
+  --light-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Dark Theme */
+  --dark-bg-primary: #0a0f1f;
+  --dark-bg-secondary: #1a1f35;
+  --dark-bg-tertiary: #242d45;
+  --dark-text-primary: #e8eef7;
+  --dark-text-secondary: #a0afc0;
+  --dark-border: rgba(255, 255, 255, 0.1);
+  --dark-card-bg: rgba(26, 31, 53, 0.6);
+  --dark-card-border: rgba(255, 255, 255, 0.08);
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Reveal.js Default */
+  --r-background-color: #ffffff;
+  --r-main-color: #2c3e50;
+  --r-heading-color: #0060a0;
+  --r-link-color: #0060a0;
+  --r-selection-background-color: #0060a0;
+  --r-heading-font: "Molot", sans-serif;
+}
+
+/* Light Theme (Default) */
+html[data-theme="light"],
+html {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-tertiary: var(--light-bg-tertiary);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --border-color: var(--light-border);
+  --card-bg: var(--light-card-bg);
+  --card-border: var(--light-card-border);
+  --shadow: var(--light-shadow);
+  color-scheme: light;
+}
+
+/* Dark Theme */
+html[data-theme="dark"] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-tertiary: var(--dark-bg-tertiary);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border);
+  --card-bg: var(--dark-card-bg);
+  --card-border: var(--dark-card-border);
+  --shadow: var(--dark-shadow);
+  color-scheme: dark;
+}

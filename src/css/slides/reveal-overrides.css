@@ -1,0 +1,232 @@
+/**
+ * BUDE CSS - Reveal.js Overrides
+ * Custom styles for presentation slides
+ */
+
+.reveal {
+  display: none;
+  position: relative;
+  z-index: 1;
+  color: var(--text-primary);
+  font-size: 28px;
+  background: transparent;
+}
+
+.reveal.active {
+  display: block;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-transform: none;
+  font-weight: 700;
+  font-family: "Molot", sans-serif;
+  color: var(--text-primary);
+}
+
+.reveal h1 {
+  background: linear-gradient(
+    135deg,
+    var(--bude-primary) 0%,
+    var(--bude-purple) 50%,
+    var(--bude-pink) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.reveal h2 {
+  color: var(--bude-primary);
+  font-size: 2.4em;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.reveal h3 {
+  color: var(--bude-purple);
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.reveal p {
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+.reveal .slides section {
+  text-align: left;
+  padding: 60px 60px 100px 60px !important;
+  background-color: transparent;
+  line-height: 1.6;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  max-width: 95%;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html[data-theme="light"] .reveal .slides section {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.reveal .slides section.center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body.hide-watermark::before {
+  display: none;
+}
+
+.reveal .slides section.past {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.reveal .slides section.present {
+  overflow-y: auto !important;
+  max-height: 720px !important;
+  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal .slides section.future {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.reveal .slides {
+  overflow: visible !important;
+}
+
+.reveal ul {
+  margin-left: 0;
+  color: var(--text-primary);
+  list-style-position: outside;
+  list-style-type: disc;
+  padding-left: 2em;
+}
+
+.reveal li {
+  margin-bottom: 0.8em;
+  font-size: 1.1em;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.highlight {
+  color: var(--bude-primary);
+  font-weight: bold;
+}
+
+.emoji {
+  font-style: normal;
+}
+
+.box {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 96, 160, 0.08) 0%,
+    rgba(111, 66, 193, 0.05) 100%
+  );
+  border-left: 4px solid var(--bude-primary);
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.small-text {
+  font-size: 0.7em;
+}
+
+code {
+  background: rgba(0, 96, 160, 0.1);
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  color: var(--bude-purple);
+  font-size: 0.9em;
+  font-family: "Courier New", monospace;
+}
+
+html[data-theme="dark"] code {
+  background: rgba(111, 66, 193, 0.2);
+}
+
+html[data-theme="light"] code {
+  background: rgba(0, 96, 160, 0.12);
+}
+
+.reveal a {
+  color: var(--bude-primary);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.reveal a:hover {
+  color: var(--bude-purple);
+  text-decoration-thickness: 2px;
+}
+
+.reveal .controls {
+  color: var(--bude-primary);
+}
+
+html[data-theme="light"] .reveal .controls {
+  color: var(--bude-primary);
+}
+
+html[data-theme="dark"] .reveal .controls {
+  color: #90caf9;
+}
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--bude-primary), var(--bude-purple));
+  transition: width 0.3s ease;
+}
+
+html[data-theme="light"] .reveal .progress {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.bude-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto 1.5em auto;
+  display: block;
+}
+
+/* Disable Reveal.js transition effects */
+.reveal .slides section .fragment {
+  transition: none !important;
+}
+
+.reveal .backgrounds {
+  filter: none !important;
+}
+
+.reveal .slide-background {
+  transition: none !important;
+}
+
+.reveal .slides > section {
+  transition: transform 0.3s ease !important;
+}

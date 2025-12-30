@@ -1,0 +1,93 @@
+/**
+ * BUDE CSS - Responsive Utilities
+ * Media queries for mobile and tablet
+ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .presentations-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .stats-bar {
+    gap: 1rem;
+  }
+
+  .stat-card {
+    min-width: 120px;
+    padding: 1rem 1.5rem;
+  }
+
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .category-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .presentations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mobile presentation */
+  body.presentation-mode .reveal .slides > section {
+    padding: 1rem !important;
+  }
+}
+
+/* Small Mobile (max 480px) */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    max-width: 70px;
+  }
+
+  #topic-search {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.9rem 0.7rem 2.5rem;
+  }
+  
+  .search-icon {
+    left: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .stat-card {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .category-info h2 {
+    font-size: 1.2rem;
+  }
+  
+  .presentation-card .icon {
+    font-size: 1.5rem;
+  }
+  
+  .presentation-card .title {
+    font-size: 1rem;
+  }
+}

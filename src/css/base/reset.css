@@ -1,0 +1,45 @@
+/**
+ * BUDE CSS - Reset & Base
+ * CSS reset and base body styles
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-bottom: 65px;
+}
+
+/* Light Theme Background */
+html[data-theme="light"] body {
+  background: radial-gradient(at 40% 20%, #e0e7ff 0px, transparent 50%),
+    radial-gradient(at 80% 0%, #fbcfe8 0px, transparent 50%),
+    radial-gradient(at 0% 50%, #a7f3d0 0px, transparent 50%),
+    radial-gradient(at 80% 50%, #fde68a 0px, transparent 50%),
+    radial-gradient(at 0% 100%, #f9a8d4 0px, transparent 50%),
+    var(--light-bg-primary);
+}
+
+/* Dark Theme Background */
+html[data-theme="dark"] body {
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(111, 66, 193, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 96, 160, 0.08),
+      transparent 40%
+    ),
+    var(--dark-bg-primary);
+}
