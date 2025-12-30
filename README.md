@@ -127,6 +127,37 @@ This project leverages modern web technologies for optimal performance and devel
 - ✅ **Easy deployment**: Static files — host anywhere
 - ✅ **Cross-browser**: Compatible with all modern browsers
 
+### ⚡ Performance Optimizations
+
+This project includes several performance optimizations:
+
+| Optimization | Benefit |
+|-------------|---------|
+| **Preconnect hints** | Faster CDN resource loading |
+| **DNS prefetch** | Early DNS resolution |
+| **Deferred scripts** | Non-blocking page render |
+| **SRI hashes** | Secure CDN resources |
+| **Lazy animations** | Animations start after page load |
+| **Adaptive quality** | Auto-adjusts for mobile devices |
+
+### 🧩 Modular Architecture
+
+The codebase is organized into modular files in `src/` for easier maintenance:
+
+```
+src/
+├── js/
+│   ├── config.js           # Global configuration
+│   ├── main.js             # Entry point
+│   ├── animations/         # 8 animation modes
+│   ├── ui/                 # UI components
+│   └── utils/              # Utility functions
+└── css/
+    ├── base/               # Variables, reset
+    ├── components/         # Header, cards, footer, etc.
+    └── utilities/          # Responsive styles
+```
+
 ---
 
 ## 🏗️ Project Structure
@@ -149,27 +180,31 @@ bude-global-tech-presentations/
 │   ├── intro-oss.json                  # Open Source Software
 │   ├── intro-python.json               # Python Programming
 │   ├── intro-csharp.json               # C# Programming
-│   ├── intro-maui.json                 # .NET MAUI
-│   ├── intro-keycloak.json             # Keycloak Identity
-│   ├── intro-metabase.json             # Metabase Analytics
-│   ├── erpnext-presentation.json       # ERPNext
-│   ├── frappe-presentation.json        # Frappe Framework
-│   ├── intro-git-github.json           # Git & GitHub
-│   ├── intro-gitea.json                # Gitea
-│   ├── intro-linux.json                # Linux Fundamentals
-│   ├── intro-docker.json               # Docker & Containers
-│   ├── tailwind-css-presentation.json  # Tailwind CSS
-│   ├── bootstrap-presentation.json     # Bootstrap Framework
-│   └── react-presentation.json         # React.js
+│   └── ... (40+ presentations)
+│
+├── 📁 src/                             # Modular source code (for bundlers)
+│   ├── 📁 js/                          # JavaScript modules
+│   │   ├── config.js                   # Animation configuration
+│   │   ├── main.js                     # Entry point
+│   │   ├── 📁 animations/              # 8 animation modes
+│   │   ├── 📁 ui/                      # UI components
+│   │   └── 📁 utils/                   # Utility functions
+│   └── 📁 css/                         # CSS modules
+│       ├── 📁 base/                    # Variables, reset
+│       ├── 📁 components/              # Header, cards, footer
+│       └── 📁 utilities/               # Responsive styles
 │
 ├── 📁 templates/                       # Template files
 │   └── sample-presentation.json        # Template for new presentations
 │
 ├── 📄 index.html                       # Main entry point
 ├── 📄 presentations.js                 # Presentation configuration
-├── 📄 loader.js                        # Dynamic loading logic (optional)
-├── 📄 presenter.js                     # Presenter mode utilities (optional)
-├── 📄 style.css                        # Custom styles (optional)
+├── 📄 presenter.js                     # Animation & slide rendering
+├── 📄 loader.js                        # Dynamic loading logic
+├── 📄 style.css                        # Custom styles
+├── 📄 github-live.js                   # GitHub API integration
+├── 📄 theme-switcher.js                # Dark/Light theme toggle
+├── 📄 orientation-handler.js           # Mobile orientation handler
 ├── 📄 README.md                        # This file
 ├── 📄 CONTRIBUTING.md                  # Contribution guidelines
 └── 📄 LICENSE                          # GNU GENERAL PUBLIC LICENSE
