@@ -187,8 +187,7 @@ html[data-theme="dark"] body {
   border: 2px solid rgba(120, 120, 120, 0.25);
   border-radius: 50px;
   outline: none;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--text-primary);
   transition: all 0.3s ease;
 }
@@ -249,8 +248,7 @@ html[data-theme="dark"] .search-icon {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem 1.5rem;
   border-radius: 15px;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -289,12 +287,11 @@ html[data-theme="dark"] .stat-card {
 .categories-container {
   max-width: 1400px;
   margin: 1.5rem auto;
-  padding: 0 0.5rem 3rem;
+  padding: 80px 0.5rem 100px; /* Space for fixed header and footer */
 }
 
 .category-section {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -384,8 +381,7 @@ html[data-theme="dark"] .category-section {
 }
 
 .presentation-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -509,8 +505,7 @@ html[data-theme="dark"] .difficulty-badge.advanced {
    ============================================ */
 
 .skeleton-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.2);

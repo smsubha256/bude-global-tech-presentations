@@ -397,10 +397,7 @@ async function loadMorePresentations() {
     const scrollLoader = document.getElementById('scroll-loader');
     scrollLoader.classList.remove('hidden');
     
-    // Simulate slight delay for smooth UX (optional, can be removed)
-    await new Promise(resolve => setTimeout(resolve, 300));
-    
-    // Render next batch
+    // Render next batch immediately for instant response
     renderCategories(currentPage, itemsPerPage, true);
     
     isLoading = false;
