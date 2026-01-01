@@ -191,6 +191,22 @@ const PRESENTATIONS_CONFIG = [
     difficulty: "intermediate"
   },
   {
+    file: "presentations/intro-vue.json",
+    title: "Introduction to Vue.js",
+    description: "Progressive JavaScript framework - building user interfaces with ease",
+    keywords: ["vue", "vuejs", "javascript", "frontend", "reactive", "components", "spa", "vite"],
+    category: ["frontend"],
+    difficulty: "beginner"
+  },
+  {
+    file: "presentations/intro-svelte.json",
+    title: "Introduction to Svelte",
+    description: "Compile-time framework for cybernetically enhanced web apps",
+    keywords: ["svelte", "sveltekit", "javascript", "frontend", "compiler", "reactive", "performance"],
+    category: ["frontend"],
+    difficulty: "beginner"
+  },
+  {
     file: 'presentations/nextjs-presentation.json',
     title: 'Introduction to Next.js',
     description: 'Complete full-stack React framework guide from basics to advanced App Router and deployment',
@@ -306,6 +322,22 @@ const PRESENTATIONS_CONFIG = [
     category: ["devops"],
     difficulty: "advanced"
   },
+  {
+    file: "presentations/intro-aws.json",
+    title: "Introduction to AWS Cloud",
+    description: "Amazon Web Services fundamentals - cloud computing from basics to deployment",
+    keywords: ["aws", "cloud", "ec2", "s3", "lambda", "rds", "devops", "infrastructure", "serverless"],
+    category: ["devops"],
+    difficulty: "beginner"
+  },
+  {
+    file: "presentations/intro-system-design.json",
+    title: "System Design Fundamentals",
+    description: "Designing scalable systems - from basics to production architecture",
+    keywords: ["system-design", "architecture", "scalability", "databases", "caching", "load-balancing", "microservices"],
+    category: ["devops"],
+    difficulty: "intermediate"
+  },
 
   // ============= BUSINESS & ENTERPRISE SOLUTIONS (INTERMEDIATE TO ADVANCED) =============
   {
@@ -339,6 +371,22 @@ const PRESENTATIONS_CONFIG = [
     keywords: ["grocy", "erp", "inventory-management", "pantry-tracking", "self-hosted", "home-automation", "stock-management", "barcode-scanning", "meal-planning", "shopping-list", "chores", "maintenance-tracking", "docker", "raspberry-pi", "home-assistant", "rest-api", "automation", "open-source", "household-management", "small-business", "barcode-buddy", "recipe-management", "expiry-tracking", "batch-management"],
     category: ["business", "tools"],
     difficulty: "intermediate"
+  },
+  {
+    file: "presentations/intro-retool.json",
+    title: "Introduction to Retool",
+    description: "Low-code platform to build internal tools fast with pre-built components",
+    keywords: ["retool", "low-code", "internal-tools", "admin-panel", "dashboard", "business", "rapid-development"],
+    category: ["business"],
+    difficulty: "intermediate"
+  },
+  {
+    file: "presentations/intro-appsmith-tooljet.json",
+    title: "Introduction to Appsmith & ToolJet",
+    description: "Open-source low-code platforms for building internal tools and admin panels",
+    keywords: ["appsmith", "tooljet", "low-code", "open-source", "internal-tools", "self-hosted", "business"],
+    category: ["business"],
+    difficulty: "beginner"
   },
 
   // ============= TOOLS & PRODUCTIVITY (BEGINNER TO ADVANCED) =============

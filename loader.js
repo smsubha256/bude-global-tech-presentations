@@ -1,5 +1,5 @@
 /**
- * Dynamic Presentation Loader - Pure Category-Based System
+ * Dynamic Presentation Loader - Pure Category-Based System with Infinite Scroll
  * No keyword detection, purely driven by presentation metadata
  */
 
@@ -7,10 +7,19 @@ let allPresentations = [];
 let categorizedPresentations = {};
 let categoryMetadata = {};
 
+// Pagination state
+let currentPage = 0;
+let itemsPerPage = 12; // Load 12 presentations at a time
+let isLoading = false;
+let hasMoreContent = true;
+let scrollObserver = null;
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
+    showSkeletonLoaders(); // Show skeletons immediately
     await loadPresentations();
     setupEventListeners();
+    setupInfiniteScroll();
 });
 
 /**
@@ -162,6 +171,37 @@ function createCategoryMetadata(categoryId) {
 }
 
 /**
+ * Show skeleton loaders while presentations are loading
+ */
+function showSkeletonLoaders() {
+    const container = document.getElementById('categories-container');
+    let html = '<div class="presentations-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; padding: 1rem;">';
+    
+    // Show 12 skeleton cards
+    for (let i = 0; i < 12; i++) {
+        html += `
+            <div class="skeleton-card">
+                <div class="skeleton-header">
+                    <div class="skeleton-icon"></div>
+                    <div class="skeleton-badge"></div>
+                </div>
+                <div class="skeleton-title"></div>
+                <div class="skeleton-description"></div>
+                <div class="skeleton-description"></div>
+                <div class="skeleton-tags">
+                    <div class="skeleton-tag"></div>
+                    <div class="skeleton-tag"></div>
+                    <div class="skeleton-tag"></div>
+                </div>
+            </div>
+        `;
+    }
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+/**
  * Update statistics display
  */
 function updateStats() {
@@ -176,31 +216,75 @@ function updateStats() {
 }
 
 /**
- * Render all categories and presentations
+ * Render categories and presentations with pagination support
+ * @param {number} page - Current page number (0-indexed)
+ * @param {number} limit - Number of presentations to show
+ * @param {boolean} append - Whether to append to existing content or replace
  */
-function renderCategories() {
+function renderCategories(page = 0, limit = itemsPerPage, append = false) {
     const container = document.getElementById('categories-container');
-    let html = '';
-
-    // Sort categories by presentation count (descending)
-    const sortedCategories = Object.entries(categorizedPresentations);
-       // .sort((a, b) => b[1].length - a[1].length);
-
-    sortedCategories.forEach(([categoryId, presentations]) => {
-        const category = categoryMetadata[categoryId];
-        
-        // Sort presentations by difficulty: beginner → intermediate → advanced
-        const difficultyOrder = { 'beginner': 0, 'intermediate': 1, 'advanced': 2 };
-        const sortedPresentations = presentations.sort((a, b) => {
-            const aDiff = difficultyOrder[a.difficulty] ?? 999;
-            const bDiff = difficultyOrder[b.difficulty] ?? 999;
-            return aDiff - bDiff;
+    
+    // Flatten all presentations across categories
+    let flatPresentations = [];
+    Object.entries(categorizedPresentations).forEach(([categoryId, presentations]) => {
+        presentations.forEach(pres => {
+            if (!flatPresentations.find(p => p.file === pres.file)) {
+                flatPresentations.push({ ...pres, categoryId });
+            }
         });
+    });
+    
+    // Sort by difficulty
+    const difficultyOrder = { 'beginner': 0, 'intermediate': 1, 'advanced': 2 };
+    flatPresentations.sort((a, b) => {
+        const aDiff = difficultyOrder[a.difficulty] ?? 999;
+        const bDiff = difficultyOrder[b.difficulty] ?? 999;
+        return aDiff - bDiff;
+    });
+    
+    // Calculate pagination
+    const startIndex = page * limit;
+    const endIndex = startIndex + limit;
+    const paginatedPresentations = flatPresentations.slice(startIndex, endIndex);
+    
+    // Check if there's more content
+    hasMoreContent = endIndex < flatPresentations.length;
+    
+    // Update UI indicators
+    const scrollLoader = document.getElementById('scroll-loader');
+    const endMessage = document.getElementById('end-message');
+    
+    if (hasMoreContent) {
+        scrollLoader.classList.remove('hidden');
+        endMessage.classList.add('hidden');
+    } else {
+        scrollLoader.classList.add('hidden');
+        endMessage.classList.remove('hidden');
+    }
+    
+    if (paginatedPresentations.length === 0) {
+        if (!append) {
+            container.innerHTML = '<div class="no-results">No presentations available</div>';
+        }
+        return;
+    }
+    
+    // Group presentations by category for display
+    const categorizedBatch = {};
+    paginatedPresentations.forEach(pres => {
+        const catId = pres.categoryId;
+        if (!categorizedBatch[catId]) {
+            categorizedBatch[catId] = [];
+        }
+        categorizedBatch[catId].push(pres);
+    });
+    
+    let html = '';
+    
+    Object.entries(categorizedBatch).forEach(([categoryId, presentations]) => {
+        const category = categoryMetadata[categoryId];
+        const count = presentations.length;
         
-        const count = sortedPresentations.length;
-
-        if (count === 0) return;
-
         html += `
             <div class="category-section" data-category="${categoryId}">
                 <div class="category-header" onclick="toggleCategory('${categoryId}')">
@@ -217,13 +301,17 @@ function renderCategories() {
                     </div>
                 </div>
                 <div class="presentations-grid">
-                    ${sortedPresentations.map(pres => createPresentationCard(pres)).join('')}
+                    ${presentations.map(pres => createPresentationCard(pres)).join('')}
                 </div>
             </div>
         `;
     });
-
-    container.innerHTML = html || '<div class="no-results">No presentations available</div>';
+    
+    if (append) {
+        container.insertAdjacentHTML('beforeend', html);
+    } else {
+        container.innerHTML = html;
+    }
 }
 
 /**
@@ -271,6 +359,54 @@ function toggleCategory(categoryId) {
 }
 
 /**
+ * Setup infinite scroll using Intersection Observer
+ */
+function setupInfiniteScroll() {
+    const scrollLoader = document.getElementById('scroll-loader');
+    
+    if (!scrollLoader) return;
+    
+    // Create intersection observer
+    scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // When scroll loader becomes visible and we're not already loading
+            if (entry.isIntersecting && !isLoading && hasMoreContent) {
+                loadMorePresentations();
+            }
+        });
+    }, {
+        root: null, // viewport
+        rootMargin: '100px', // Trigger 100px before reaching the loader
+        threshold: 0.1
+    });
+    
+    // Start observing the scroll loader
+    scrollObserver.observe(scrollLoader);
+}
+
+/**
+ * Load more presentations (next page)
+ */
+async function loadMorePresentations() {
+    if (isLoading || !hasMoreContent) return;
+    
+    isLoading = true;
+    currentPage++;
+    
+    // Show loading indicator
+    const scrollLoader = document.getElementById('scroll-loader');
+    scrollLoader.classList.remove('hidden');
+    
+    // Simulate slight delay for smooth UX (optional, can be removed)
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    // Render next batch
+    renderCategories(currentPage, itemsPerPage, true);
+    
+    isLoading = false;
+}
+
+/**
  * Setup event listeners
  */
 function setupEventListeners() {
@@ -299,12 +435,30 @@ function setupEventListeners() {
  */
 function filterPresentations(query) {
     const lowerQuery = query.toLowerCase().trim();
+    const scrollLoader = document.getElementById('scroll-loader');
+    const endMessage = document.getElementById('end-message');
 
     if (!lowerQuery) {
-        // Restore original categorization
-        renderCategories();
+        // Restore original categorization with pagination
+        currentPage = 0;
+        hasMoreContent = true;
+        renderCategories(0, itemsPerPage, false);
+        
+        // Re-enable infinite scroll
+        if (scrollObserver && scrollLoader) {
+            scrollObserver.observe(scrollLoader);
+        }
         return;
     }
+
+    // Disable infinite scroll during search
+    if (scrollObserver && scrollLoader) {
+        scrollObserver.unobserve(scrollLoader);
+    }
+    
+    // Hide scroll indicators during search
+    scrollLoader.classList.add('hidden');
+    endMessage.classList.add('hidden');
 
     // Filter presentations
     const filtered = allPresentations.filter(pres => {
@@ -338,7 +492,7 @@ function filterPresentations(query) {
         });
     });
 
-    // Render filtered categories
+    // Render filtered categories (show all results, no pagination during search)
     const container = document.getElementById('categories-container');
     let html = '';
 

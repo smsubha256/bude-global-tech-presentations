@@ -504,6 +504,323 @@ html[data-theme="dark"] .difficulty-badge.advanced {
   opacity: 0.8;
 }
 
+/* ============================================
+   SKELETON LOADERS - Modern Loading States
+   ============================================ */
+
+.skeleton-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+html[data-theme="light"] .skeleton-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 96, 160, 0.08);
+}
+
+html[data-theme="dark"] .skeleton-card {
+  background: rgba(26, 31, 53, 0.4);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Shimmer animation overlay */
+.skeleton-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+html[data-theme="light"] .skeleton-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Skeleton card elements */
+.skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.skeleton-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html[data-theme="light"] .skeleton-icon {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] .skeleton-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-badge {
+  width: 80px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html[data-theme="light"] .skeleton-badge {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] .skeleton-badge {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 24px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.8rem;
+}
+
+html[data-theme="light"] .skeleton-title {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] .skeleton-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skeleton-description {
+  width: 100%;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+html[data-theme="light"] .skeleton-description {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="dark"] .skeleton-description {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skeleton-description:last-child {
+  width: 80%;
+}
+
+.skeleton-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skeleton-tag {
+  width: 60px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html[data-theme="light"] .skeleton-tag {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="dark"] .skeleton-tag {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================
+   FADE-IN ANIMATIONS - Smooth Entry
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.presentation-card {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Staggered animation delays for cards */
+.presentation-card:nth-child(1) { animation-delay: 0.05s; }
+.presentation-card:nth-child(2) { animation-delay: 0.1s; }
+.presentation-card:nth-child(3) { animation-delay: 0.15s; }
+.presentation-card:nth-child(4) { animation-delay: 0.2s; }
+.presentation-card:nth-child(5) { animation-delay: 0.25s; }
+.presentation-card:nth-child(6) { animation-delay: 0.3s; }
+.presentation-card:nth-child(7) { animation-delay: 0.35s; }
+.presentation-card:nth-child(8) { animation-delay: 0.4s; }
+.presentation-card:nth-child(9) { animation-delay: 0.45s; }
+.presentation-card:nth-child(10) { animation-delay: 0.5s; }
+.presentation-card:nth-child(11) { animation-delay: 0.55s; }
+.presentation-card:nth-child(12) { animation-delay: 0.6s; }
+
+/* Enhanced hover effects */
+.presentation-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.presentation-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  box-shadow: 0 10px 40px rgba(111, 66, 193, 0.3);
+}
+
+html[data-theme="light"] .presentation-card::after {
+  box-shadow: 0 10px 40px rgba(0, 96, 160, 0.2);
+}
+
+.presentation-card:hover::after {
+  opacity: 1;
+}
+
+.presentation-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* ============================================
+   SCROLL LOADER - Infinite Scroll Indicator
+   ============================================ */
+
+.scroll-loader {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin: 2rem auto;
+  max-width: 400px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-loader p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Modern spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--bude-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+html[data-theme="light"] .spinner {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: var(--bude-primary);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* End of content message */
+.end-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin: 2rem auto;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.end-message.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.end-message p {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--bude-primary), var(--bude-purple), var(--bude-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeIn 0.6s ease;
+}
+
 /* Footer */
 footer {
   position: fixed;
