@@ -1039,6 +1039,7 @@ html[data-theme="light"] footer p {
   margin: 0 auto;
   width: 90% !important;
   max-width: 90% !important;
+  min-width: 90% !important;
   overflow-x: hidden !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1114,16 +1115,49 @@ body.hide-watermark::before {
 .reveal ul {
   margin-left: 0;
   color: var(--text-primary);
-  list-style-position: outside;
-  list-style-type: disc;
-  padding-left: 2em;
+  list-style: none;
+  padding-left: 0;
 }
 
 .reveal li {
-  margin-bottom: 0.8em;
+  margin-bottom: 1em;
   font-size: 1.1em;
   color: var(--text-primary);
   line-height: 1.6;
+  padding: 0.8em 1.2em;
+  background: linear-gradient(135deg, rgba(0, 96, 160, 0.06) 0%, rgba(111, 66, 193, 0.04) 100%);
+  border-left: 4px solid var(--bude-purple);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.reveal li:hover {
+  background: linear-gradient(135deg, rgba(0, 96, 160, 0.1) 0%, rgba(111, 66, 193, 0.08) 100%);
+  transform: translateX(5px);
+  border-left-color: var(--bude-pink);
+}
+
+html[data-theme="dark"] .reveal li {
+  background: linear-gradient(135deg, rgba(111, 66, 193, 0.1) 0%, rgba(203, 108, 230, 0.06) 100%);
+}
+
+html[data-theme="dark"] .reveal li:hover {
+  background: linear-gradient(135deg, rgba(111, 66, 193, 0.15) 0%, rgba(203, 108, 230, 0.1) 100%);
+}
+
+.reveal li .emoji {
+  font-size: 1.3em;
+  margin-right: 0.5em;
+}
+
+.reveal li strong {
+  color: var(--bude-primary);
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .reveal li strong {
+  color: #90caf9;
 }
 
 .highlight {
@@ -1136,20 +1170,138 @@ body.hide-watermark::before {
 }
 
 .box {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 96, 160, 0.08) 0%,
-    rgba(111, 66, 193, 0.05) 100%
-  );
-  border-left: 4px solid var(--bude-primary);
-  padding: 1em;
+  background: transparent;
+  border-left: none;
+  padding: 0;
   margin: 1em 0;
-  border-radius: 4px;
-  font-size: 0.9em;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 100%;
+}
+
+/* Box with text content (not code blocks) */
+.box:not(:has(.code-block)) {
+  background: linear-gradient(135deg, rgba(0, 96, 160, 0.08) 0%, rgba(111, 66, 193, 0.05) 100%);
+  border-left: 4px solid var(--bude-primary);
+  padding: 1em 1.5em;
+}
+
+/* Ensure code blocks inside box are full width */
+.box .code-block {
+  width: 100%;
+  margin: 0;
+}
+
+.box .code-block pre {
+  margin: 0;
 }
 
 .small-text {
   font-size: 0.7em;
+}
+
+/* ============================================
+   TWO-COLUMN LAYOUT - Split Content 50/50
+   ============================================ */
+
+/* Container for two-column layout */
+.two-column {
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  align-items: stretch;
+}
+
+.two-column .col-left,
+.two-column .col-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.two-column .col-left {
+  padding-right: 1em;
+  border-right: 2px solid rgba(111, 66, 193, 0.2);
+}
+
+.two-column .col-right {
+  padding-left: 1em;
+}
+
+/* Code blocks in two columns */
+.two-column .code-block {
+  height: 100%;
+}
+
+.two-column .code-block pre {
+  height: 100%;
+  max-height: none;
+  min-height: 300px;
+}
+
+/* Auto columns - splits content into columns automatically */
+.auto-columns {
+  column-count: 2;
+  column-gap: 2em;
+  column-rule: 2px solid rgba(111, 66, 193, 0.2);
+}
+
+.auto-columns > * {
+  break-inside: avoid;
+}
+
+/* Three column layout option */
+.three-column {
+  display: flex;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.three-column > * {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Grid layout for equal items */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+  width: 100%;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+  width: 100%;
+}
+
+/* Responsive - stack on mobile */
+@media (max-width: 900px) {
+  .two-column,
+  .three-column {
+    flex-direction: column;
+  }
+  
+  .two-column .col-left {
+    border-right: none;
+    border-bottom: 2px solid rgba(111, 66, 193, 0.2);
+    padding-right: 0;
+    padding-bottom: 1em;
+  }
+  
+  .two-column .col-right {
+    padding-left: 0;
+    padding-top: 1em;
+  }
+  
+  .auto-columns {
+    column-count: 1;
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
 }
 
 code {
@@ -1253,8 +1405,8 @@ html[data-theme="dark"] .gradient-bg {
   padding: 1.5rem 2rem;
   border-radius: 12px;
   overflow-x: hidden;
-  overflow-y: auto;
-  max-height: 55vh;
+  overflow-y: hidden;
+  max-height: none;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 18px;
   line-height: 1.7;
@@ -1266,6 +1418,11 @@ html[data-theme="dark"] .gradient-bg {
   word-break: break-word;
   border: 1px solid rgba(111, 66, 193, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  /* Auto two-column layout */
+  column-count: 2;
+  column-gap: 3em;
+  column-rule: 2px solid rgba(111, 66, 193, 0.3);
+}
   /* Hide scrollbar but keep functionality */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -1317,18 +1474,16 @@ html[data-theme="dark"] .code-block pre {
   width: 100% !important;
   box-sizing: border-box !important;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   white-space: pre-wrap;
   word-wrap: break-word;
   color: #e0e0e0;
   border: 1px solid rgba(111, 66, 193, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.reveal pre::-webkit-scrollbar {
-  display: none;
+  /* Auto two-column layout */
+  column-count: 2;
+  column-gap: 3em;
+  column-rule: 2px solid rgba(111, 66, 193, 0.3);
 }
 
 html[data-theme="light"] .reveal pre {
