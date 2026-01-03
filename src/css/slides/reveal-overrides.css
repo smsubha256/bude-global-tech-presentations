@@ -23,6 +23,7 @@
   font-weight: 700;
   font-family: "Molot", sans-serif;
   color: var(--text-primary);
+  text-align: center;
 }
 
 .reveal h1 {
@@ -35,49 +36,49 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 3em;
+  font-size: 3.5em;
   font-weight: 800;
   line-height: 1.2;
 }
 
 .reveal h2 {
   color: var(--bude-primary);
-  font-size: 2.4em;
+  font-size: 2.8em;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .reveal h3 {
   color: var(--bude-purple);
-  font-size: 1.8em;
+  font-size: 2.2em;
   font-weight: 600;
   line-height: 1.4;
 }
 
 .reveal p {
-  font-size: 0.9em;
+  font-size: 1.2em;
   color: var(--text-primary);
+  text-align: center;
 }
 
 .reveal .slides section {
-  text-align: left;
-  padding: 60px 60px 100px 60px !important;
+  text-align: center;
+  padding: 40px 80px !important;
   background-color: transparent;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   margin: 0 auto;
-  max-width: 95%;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-html[data-theme="light"] .reveal .slides section {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.06);
 }
 
 .reveal .slides section.center {
@@ -115,14 +116,15 @@ body.hide-watermark::before {
 .reveal ul {
   margin-left: 0;
   color: var(--text-primary);
-  list-style-position: outside;
+  list-style-position: inside;
   list-style-type: disc;
-  padding-left: 2em;
+  padding-left: 0;
+  text-align: center;
 }
 
 .reveal li {
   margin-bottom: 0.8em;
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: var(--text-primary);
   line-height: 1.6;
 }
@@ -142,7 +144,6 @@ body.hide-watermark::before {
     rgba(0, 96, 160, 0.08) 0%,
     rgba(111, 66, 193, 0.05) 100%
   );
-  border-left: 4px solid var(--bude-primary);
   padding: 1em;
   margin: 1em 0;
   border-radius: 4px;
@@ -155,18 +156,19 @@ body.hide-watermark::before {
 
 code {
   background: rgba(0, 96, 160, 0.1);
-  padding: 0.4em 0.8em;
-  border-radius: 4px;
+  padding: 0.5em 0.9em;
+  border-radius: 6px;
   color: var(--bude-purple);
-  font-size: 0.9em;
-  font-family: "Courier New", monospace;
+  font-size: 1.6em;
+  font-family: \"Courier New\", monospace;
+  font-weight: 600;
 }
 
-html[data-theme="dark"] code {
+html[data-theme=\"dark\"] code {
   background: rgba(111, 66, 193, 0.2);
 }
 
-html[data-theme="light"] code {
+html[data-theme=\"light\"] code {
   background: rgba(0, 96, 160, 0.12);
 }
 

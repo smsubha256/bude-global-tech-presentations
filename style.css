@@ -1135,8 +1135,9 @@ code {
   padding: 0.4em 0.8em;
   border-radius: 4px;
   color: var(--bude-purple);
-  font-size: 0.9em;
+  font-size: 50px !important;
   font-family: "Courier New", monospace;
+  font-weight: 600;
 }
 
 html[data-theme="dark"] code {
@@ -1213,18 +1214,21 @@ html[data-theme="dark"] .gradient-bg {
 /* Code block improvements for slides */
 .code-block {
   margin-top: 1em;
+  width: 100%;
 }
 
 .code-block pre {
   background: rgba(0, 0, 0, 0.06);
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
   overflow: auto;
-  max-height: 60vh;
+  max-height: 65vh;
   font-family: "Courier New", monospace;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: 60px !important;
+  line-height: 1.6;
   color: var(--text-primary);
+  width: 100%;
+  min-height: 200px;
 }
 
 html[data-theme="dark"] .code-block pre {
@@ -1236,6 +1240,21 @@ html[data-theme="dark"] .code-block pre {
 .code-block pre code {
   white-space: pre;
   tab-size: 4;
+  font-size: 60px !important;
+  line-height: 1.6 !important;
+}
+
+/* Additional overrides for all code elements in presentations */
+.reveal pre code,
+.reveal code {
+  font-size: 55px !important;
+  line-height: 1.5 !important;
+}
+
+.reveal pre {
+  font-size: 60px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .gradient-accent {
@@ -1793,5 +1812,254 @@ body.presentation-mode #main-selector-ui {
    Reveal.js centers slides in full viewport, creating excessive gap with sticky header */
 body.presentation-mode .reveal .slides {
   margin-top: -80px !important;
+}
+
+/* ============================================
+   REVEAL.JS PRESENTATION OVERRIDES
+   ============================================ */
+
+.reveal {
+  display: none;
+  position: relative;
+  z-index: 1;
+  color: var(--text-primary);
+  font-size: 28px;
+  background: transparent;
+}
+
+.reveal.active {
+  display: block;
+}
+
+/* Headings - Centered with proper contrast */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-transform: none;
+  font-weight: 700;
+  font-family: "Molot", sans-serif;
+  color: var(--text-primary) !important;
+  text-align: center !important;
+}
+
+.reveal h1 {
+  background: linear-gradient(
+    135deg,
+    var(--bude-primary) 0%,
+    var(--bude-purple) 50%,
+    var(--bude-pink) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5em !important;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.reveal h2 {
+  color: var(--bude-primary) !important;
+  font-size: 2.8em !important;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+.reveal h3 {
+  color: var(--bude-purple) !important;
+  font-size: 2.2em !important;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraphs - Centered with proper size and contrast */
+.reveal p {
+  font-size: 1.2em !important;
+  color: var(--text-primary) !important;
+  text-align: center !important;
+  margin-bottom: 0.8em;
+}
+
+/* Slides - Full screen, centered content */
+.reveal .slides section {
+  text-align: center !important;
+  padding: 40px 80px !important;
+  background-color: transparent;
+  line-height: 1.6;
+  font-size: 20px !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 16px;
+  margin: 0 auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal .slides section.center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body.hide-watermark::before {
+  display: none;
+}
+
+.reveal .slides section.past {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.reveal .slides section.present {
+  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal .slides section.future {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.reveal .slides {
+  overflow: visible !important;
+}
+
+/* Lists - Centered with proper contrast */
+.reveal ul {
+  margin-left: 0;
+  color: var(--text-primary) !important;
+  list-style-position: inside;
+  list-style-type: disc;
+  padding-left: 0;
+  text-align: center !important;
+}
+
+.reveal li {
+  margin-bottom: 0.8em;
+  font-size: 1.3em !important;
+  color: var(--text-primary) !important;
+  line-height: 1.6;
+}
+
+/* Highlight and special elements */
+.highlight {
+  color: var(--bude-primary) !important;
+  font-weight: bold;
+}
+
+.emoji {
+  font-style: normal;
+}
+
+.box {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 96, 160, 0.08) 0%,
+    rgba(111, 66, 193, 0.05) 100%
+  );
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.small-text {
+  font-size: 0.7em;
+}
+
+/* Code blocks - Better contrast */
+code {
+  background: rgba(0, 96, 160, 0.15) !important;
+  padding: 0.5em 0.9em;
+  border-radius: 6px;
+  color: var(--bude-primary) !important;
+  font-size: 1.2em;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] code {
+  background: rgba(111, 66, 193, 0.25) !important;
+  color: var(--bude-pink) !important;
+}
+
+html[data-theme="light"] code {
+  background: rgba(0, 96, 160, 0.15) !important;
+  color: var(--bude-primary) !important;
+}
+
+/* Links */
+.reveal a {
+  color: var(--bude-primary) !important;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.reveal a:hover {
+  color: var(--bude-purple) !important;
+  text-decoration-thickness: 2px;
+}
+
+/* Controls */
+.reveal .controls {
+  color: var(--bude-primary);
+}
+
+html[data-theme="light"] .reveal .controls {
+  color: var(--bude-primary);
+}
+
+html[data-theme="dark"] .reveal .controls {
+  color: #90caf9;
+}
+
+/* Progress bar */
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--bude-primary), var(--bude-purple));
+  transition: width 0.3s ease;
+}
+
+html[data-theme="light"] .reveal .progress {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.bude-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto 1.5em auto;
+  display: block;
+}
+
+/* Disable Reveal.js transition effects */
+.reveal .slides section .fragment {
+  transition: none !important;
+}
+
+.reveal .backgrounds {
+  filter: none !important;
+}
+
+.reveal .slide-background {
+  transition: none !important;
+}
+
+.reveal .slides > section {
+  transition: transform 0.3s ease !important;
 }
 
