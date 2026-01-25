@@ -3,5 +3,20 @@
   "name": "techpresentations",
   "account_id": "eef0077bcc0fc0def48e1e2b37f997f9",
   "pages_build_output_dir": ".",
-  "compatibility_date": "2026-01-25"
+  "compatibility_date": "2026-01-25",
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
 }
