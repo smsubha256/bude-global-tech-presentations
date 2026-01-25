@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "techpresentations",
+  "account_id": "eef0077bcc0fc0def48e1e2b37f997f9",
   "pages_build_output_dir": ".",
   "compatibility_date": "2026-01-25"
 }
