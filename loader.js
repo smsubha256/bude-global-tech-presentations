@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadPresentations();
     setupEventListeners();
     setupInfiniteScroll();
+
+    // Support for direct loading from SEO-optimized pages
+    if (window.INITIAL_PRESENTATION) {
+        loadPresentation(window.INITIAL_PRESENTATION);
+    }
 });
 
 /**

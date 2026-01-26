@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Introduction to ERPNext | Bude Global Tech Presentations</title>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3CFPLC20M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W3CFPLC20M', {
+        'send_page_view': true
+      });
+    </script>
+
+    <meta
+      name="description" content="World best open source ERP - complete business management solution"
+    />
+    <meta
+      name="keywords" content="erpnext, erp, business, management, accounting, inventory, manufacturing, open source"
+    />
+
+    <link
+      rel="canonical"
+      href="https://budeglobalenterprise.github.io/bude-global-tech-presentations/"
+    />
+
+    <meta
+      property="og:title" content="Introduction to ERPNext | Bude Global Tech Presentations"
+    />
+    <meta
+      property="og:description" content="World best open source ERP - complete business management solution"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url" content="https://budeglobalenterprise.github.io/bude-global-tech-presentations/p/erpnext-presentation.html"
+    />
+    <meta property="og:image" content="assets/images/budeglobal_logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@budeglobalerp" />
+    <meta name="twitter:creator" content="@budeglobalerp" />
+
+    <link
+      rel="icon"
+      href="assets/images/budeglobal_logo.png"
+      type="image/x-icon"
+    />
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; 
+                   img-src 'self' https: data:; 
+                   font-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; 
+                   connect-src 'self' https://api.github.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;" />
+
+    <!-- Performance: Preconnect to CDNs for faster resource loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    
+    <!-- Performance: DNS prefetch for faster resolution -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Critical CSS first -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- External stylesheets with media hints -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css"
+      integrity="sha512-jBlI30ZsTMvDdBeNd0brvsFyq7tZBLxdHk6B0uAw9KIGlnKU5gCod8hY7epbzjhE6gg2rjZjbp2msxbtjvDbzw=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/white.min.css"
+      integrity="sha512-RoEy1xOWgzryoplQ1g0eNHizP2BRqEq8eLGpRyI6OvM2FvmxpUyiPotvW4rp/I67VN6eFq4DDXQNcFKbNZ5Rrg=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+      integrity="sha512-ZK6JVOPdGECeUl7+NYmV1h9eqtJUtjGZFeXftvOPZ/EZ2u/txNd9V+Ei8mLMWib217ybbpDcWpq3lvuFU2opEQ=="
+      crossorigin="anonymous"
+    />
+  
+    <script>
+      window.INITIAL_PRESENTATION = "presentations/erpnext-presentation.json";
+      // Adjust relative paths for scripts and links since we are in /p/
+      document.addEventListener('DOMContentLoaded', () => {
+          const updatePaths = (selector, attr) => {
+              document.querySelectorAll(selector).forEach(el => {
+                  const val = el.getAttribute(attr);
+                  if (val && !val.startsWith('http') && !val.startsWith('/') && !val.startsWith('.')) {
+                      el.setAttribute(attr, '../' + val);
+                  }
+              });
+          };
+          updatePaths('link[rel="stylesheet"]', 'href');
+          updatePaths('script[src]', 'src');
+          updatePaths('img[src]', 'src');
+          updatePaths('a[href]', 'href');
+      });
+    </script>
+    
+</head>
+
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-selector-ui" class="skip-link">Skip to main content</a>
+    
+    <header class="global-header enhanced">
+      <div class="gh-left">
+        <a href="./" class="gh-brand">
+          <img
+            src="assets/images/budeglobal_logo.png"
+            class="gh-logo"
+            alt="Bude Global"
+          />
+          <span class="gh-title">Bude Global Open Tech Docs</span>
+        </a>
+      </div>
+
+      <nav class="gh-center">
+        <div class="gh-dropdown">
+          <button class="gh-dropbtn" aria-haspopup="true" aria-expanded="false">
+            Explore ▾
+          </button>
+          <div class="gh-dropdown-content" role="menu" aria-hidden="true">
+            <a href="/README.md" role="menuitem">Docs</a>
+            <a
+              href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/issues"
+              target="_blank"
+              role="menuitem"
+              >Issues</a
+            >
+            <a href="/PRESENTATIONS_TODO.md" role="menuitem">Roadmap</a>
+            <a
+              href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/discussions"
+              target="_blank"
+              role="menuitem"
+              >Discussions</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <div class="gh-right">
+        <div class="gh-stats" aria-live="polite">
+          <a
+            id="gh-star"
+            class="gh-btn stat-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations"
+          >
+            <i class="ri-github-fill"></i
+            ><span class="stat-value" id="star-count">—</span>
+          </a>
+
+          <a
+            id="gh-forks"
+            class="gh-btn stat-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/network/members"
+          >
+            <i class="ri-restart-line"></i
+            ><span class="stat-value" id="fork-count">—</span>
+          </a>
+
+          <!-- Analytics Stats (inline) -->
+          <div class="header-analytics" aria-live="polite">
+            <span class="analytics-stat" title="Today's Visitors">
+              <i class="ri-user-line"></i>
+              <span id="today-visitors">0</span>
+            </span>
+            <span class="analytics-stat" title="Total Visits">
+              <i class="ri-eye-line"></i>
+              <span id="total-visits">0</span>
+            </span>
+            <span class="analytics-stat pulse-stat" title="Active Now">
+              <i class="ri-user-follow-line"></i>
+              <span id="active-users">0</span>
+            </span>
+          </div>
+        </div>
+
+        <button
+          id="theme-toggle"
+          class="gh-btn stat-btn"
+          title="Toggle dark/light theme"
+          aria-label="Toggle theme"
+        >
+          <i class="ri-moon-line"></i>
+        </button>
+
+        <a
+          id="fork-btn"
+          class="gh-btn gh-fork"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/BUDEGlobalEnterprise/bude-global-tech-presentations/fork"
+        >
+          <i class="ri-git-branch-fill"></i> Fork This Repo
+        </a>
+      </div>
+    </header>
+
+    <section class="contrib-carousel" aria-label="Contributors">
+      <div class="contrib-track" id="contrib-track" role="list"></div>
+    </section>
+
+    <div id="main-selector-ui">
+      <div class="header">
+        <img
+            src="assets/images/budeglobal_logo.png"
+            alt="Bude Global Logo"
+            class="logo"
+            loading="lazy"
+          />
+        <h1>Tech Presentations</h1>
+        <p>Explore our open-source knowledge library</p>
+      </div>
+
+      <div class="search-container">
+        <div class="search-box">
+          <i class="ri-search-line search-icon"></i>
+          <input
+            type="text"
+            id="topic-search"
+            placeholder="Search presentations, topics, or technologies..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="stats-bar" id="stats-bar">
+        <div class="stat-card">
+          <div class="stat-number" id="total-presentations">0</div>
+          <div class="stat-label">Total Presentations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="total-categories">0</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="active-categories">0</div>
+          <div class="stat-label">Active Categories</div>
+        </div>
+      </div>
+
+
+      <div class="categories-container" id="categories-container">
+        <div class="loading">🔍 Loading presentations...</div>
+      </div>
+
+      <!-- Infinite Scroll Loader -->
+      <div id="scroll-loader" class="scroll-loader hidden">
+        <div class="spinner"></div>
+        <p>Loading more presentations...</p>
+      </div>
+
+      <!-- End of Content Message -->
+      <div id="end-message" class="end-message hidden">
+        <p>🎉 You've seen all presentations!</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="slides"></div>
+      <canvas id="futuristic-bg"></canvas>
+      <div class="glow-gradient"></div>
+    </div>
+
+    <footer role="contentinfo">
+      <div class="social-links">
+        <a
+          href="https://budeglobal.in"
+          target="_blank"
+          class="brand-link"
+          aria-label="Bude Global Website"
+        >
+          <img
+            src="https://github.com/BUDEGlobalEnterprise.png"
+            alt="Bude Global"
+            class="brand-avatar"
+          />
+        </a>
+        |
+        <a href="https://blog.budeglobal.in" title="Blog" aria-label="Blog"
+          ><i class="ri-earth-line"></i
+        ></a>
+        <a
+          href="https://github.com/budeglobalenterprise"
+          title="GitHub"
+          aria-label="GitHub"
+          ><i class="ri-github-fill"></i
+        ></a>
+        <a
+          href="https://linkedin.com/company/budeglobal"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@BudeGlobalEnterprise"
+          title="YouTube"
+          aria-label="YouTube"
+          ><i class="ri-youtube-fill"></i
+        ></a>
+        <a
+          href="https://x.com/budeglobalerp"
+          title="Twitter/X"
+          aria-label="Twitter/X"
+          ><i class="ri-twitter-x-line"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/budeglobal"
+          title="Instagram"
+          aria-label="Instagram"
+          ><i class="ri-instagram-line"></i
+        ></a>
+      </div>
+      <p>
+        © 2025 Bude Global Enterprise — Built with ❤️ for Open Collaboration
+      </p>
+    </footer>
+
+    <!-- Reveal.js must load before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"
+            integrity="sha512-TC5IA+BA/5YPBb/MJyk97ypzvXYUIlAksfuxlUXlhD7cM7y/stM4JuytDeYJlsiKxmRDV5krDyuugOoMOHwyJg=="
+            crossorigin="anonymous"></script>
+    
+    <!-- Defer non-critical scripts for faster initial paint -->
+    <script src="theme-switcher.js" defer></script>
+    <script src="analytics.js" defer></script>
+    <script src="presentations.js" defer></script>
+    <script src="github-live.js" defer></script>
+    <script src="presenter.js" defer></script>
+    <script src="loader.js" defer></script>
+    <script src="orientation-handler.js" defer></script>
+    
+    <!-- 
+    MODULAR FILES (for future use with build tools like Vite/Webpack):
+    The following modular scripts are extracted from presenter.js
+    and can be used when a bundler is set up:
+    
+    <script src="src/js/config.js"></script>
+    <script src="src/js/utils/device.js"></script>
+    <script src="src/js/utils/canvas.js"></script>
+    <script src="src/js/animations/floating-shapes.js"></script>
+    <script src="src/js/animations/gradient-blobs.js"></script>
+    <script src="src/js/animations/neon-waves.js"></script>
+    <script src="src/js/animations/animated-grid.js"></script>
+    <script src="src/js/animations/particle-field.js"></script>
+    <script src="src/js/animations/pulse-rings.js"></script>
+    <script src="src/js/animations/parallax-layers.js"></script>
+    <script src="src/js/animations/cosmic-dust.js"></script>
+    <script src="src/js/animations/animation-manager.js"></script>
+    <script src="src/js/ui/control-panel.js"></script>
+    <script src="src/js/main.js"></script>
+    -->
+  </body>
+</html>
