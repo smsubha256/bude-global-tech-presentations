@@ -37,7 +37,7 @@ console.log(`Generating pages for ${PRESENTATIONS_CONFIG.length} presentations..
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://budeglobalenterprise.github.io/bude-global-tech-presentations/</loc>
+        <loc>https://ppt.budeglobal.in</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>`;
@@ -46,7 +46,7 @@ PRESENTATIONS_CONFIG.forEach(pres => {
     // Generate slug from file name or title
     const filename = path.basename(pres.file, '.json');
     const slug = filename;
-    const url = `https://budeglobalenterprise.github.io/bude-global-tech-presentations/p/${slug}.html`;
+    const url = `https://ppt.budeglobal.inp/${slug}.html`;
 
     // Modern SEO tags
     let pageContent = template;

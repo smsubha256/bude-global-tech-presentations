@@ -1532,6 +1532,7 @@ function createSlide(slideData) {
             break;
 
         case 'content':
+            section.classList.add('center');
             const emoji = slideData.emoji ? `<span class="emoji">${slideData.emoji}</span> ` : '';
             section.innerHTML = `
                 <h3>${emoji}${slideData.title}</h3>
@@ -1542,28 +1543,34 @@ function createSlide(slideData) {
             break;
 
         case 'comparison':
+            section.classList.add('center');
             section.innerHTML = createComparisonSlide(slideData);
             break;
 
         case 'imageText':
+            section.classList.add('center');
             section.innerHTML = createImageTextSlide(slideData);
             break;
 
         case 'quiz':
+            section.classList.add('center');
             section.innerHTML = createQuizSlide(slideData);
             break;
 
         case 'video':
+            section.classList.add('center');
             section.innerHTML = createVideoSlide(slideData);
             break;
 
         case 'chart':
+            section.classList.add('center');
             section.innerHTML = createChartSlide(slideData);
             // Store chart data for later rendering
             section._chartData = slideData;
             break;
 
         case 'diagram':
+            section.classList.add('center');
             section.innerHTML = createDiagramSlide(slideData);
             break;
 
