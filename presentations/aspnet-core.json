@@ -1,0 +1,57 @@
+{
+  "id": "aspnet-core-beginner",
+  "title": "ASP.NET Core for Beginners",
+  "description": "An introduction to ASP.NET Core and building simple Web APIs",
+  "level": "Beginner",
+  "slides": [
+    {
+      "title": "What is ASP.NET Core?",
+      "content": [
+        "ASP.NET Core is a cross-platform web framework by Microsoft",
+        "Used to build Web APIs, MVC apps, and minimal APIs",
+        "Runs on Windows, Linux, and macOS"
+      ]
+    },
+    {
+      "title": "Why Use ASP.NET Core?",
+      "content": [
+        "High performance",
+        "Built-in dependency injection",
+        "Cross-platform support",
+        "Great for microservices"
+      ]
+    },
+    {
+      "title": "Project Structure",
+      "content": [
+        "Program.cs – application startup",
+        "Controllers – API endpoints",
+        "appsettings.json – configuration"
+      ]
+    },
+    {
+      "title": "Minimal API Example",
+      "content": [
+        "var app = WebApplication.CreateBuilder(args).Build();",
+        "app.MapGet(\"/hello\", () => \"Hello World\");",
+        "app.Run();"
+      ]
+    },
+    {
+      "title": "What is a Controller?",
+      "content": [
+        "Controllers handle HTTP requests",
+        "Use attributes like [HttpGet], [HttpPost]",
+        "Return data as JSON"
+      ]
+    },
+    {
+      "title": "Next Steps",
+      "content": [
+        "Learn routing",
+        "Add Entity Framework Core",
+        "Explore authentication and authorization"
+      ]
+    }
+  ]
+}
